@@ -1,4 +1,4 @@
-# Webapp_Ganadera
+# WebappGanadera
 Proyecto Ciclo 3 - MinTIC2022 - WebApp con .NET, SQL, Razor
 
 Planteamiento del Proyecto
