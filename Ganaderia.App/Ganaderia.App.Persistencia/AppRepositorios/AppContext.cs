@@ -13,9 +13,13 @@ namespace Ganaderia.App.Persistencia
     {
         if(!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Data Source= 192.168.1.2; Initial Catalog =GanaderiaBD;User Id=sa; Password=Alesan.2021");
+            //Coneión a Base de Datos Local por defecto para Sistema Windows
+            optionsBuilder.UseSqlServer("Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog =GanaderiaBD");
 
-            //optionsBuilder.UseSqlServer("Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog =GanaderiaBD");
+            //Opcion de Conexión para Base de Datos Remota y Sistema Linux o MAC
+            //optionsBuilder.UseSqlServer("Data Source= 192.168.1.2; Initial Catalog =GanaderiaBD;User Id=sa; Password=Alesan.2021");
+
+            
         }
     }
 
