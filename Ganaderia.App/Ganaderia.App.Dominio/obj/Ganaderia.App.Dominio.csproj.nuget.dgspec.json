@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj": {}
+  },
+  "projects": {
+    "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj",
+        "projectName": "Ganaderia.App.Dominio",
+        "projectPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj",
+        "packagesPath": "/Users/alejos17/.nuget/packages/",
+        "outputPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/alejos17/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.413/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
