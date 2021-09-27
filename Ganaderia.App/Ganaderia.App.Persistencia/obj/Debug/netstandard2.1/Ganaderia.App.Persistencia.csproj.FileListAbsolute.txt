@@ -22,3 +22,15 @@
 /Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/obj/Debug/netstandard2.1/Ganaderia.App.Persistencia.csproj.CopyComplete
 /Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/obj/Debug/netstandard2.1/Ganaderia.App.Persistencia.dll
 /Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/obj/Debug/netstandard2.1/Ganaderia.App.Persistencia.pdb
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\obj\Debug\netstandard2.1\Ganaderia.App.Persistencia.csprojAssemblyReference.cache
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\obj\Debug\netstandard2.1\Ganaderia.App.Persistencia.AssemblyInfoInputs.cache
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\obj\Debug\netstandard2.1\Ganaderia.App.Persistencia.AssemblyInfo.cs
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\obj\Debug\netstandard2.1\Ganaderia.App.Persistencia.csproj.CoreCompileInputs.cache
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\obj\Debug\netstandard2.1\Ganaderia.App.Persistencia.dll
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\obj\Debug\netstandard2.1\Ganaderia.App.Persistencia.pdb
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\bin\Debug\netstandard2.1\Ganaderia.App.Persistencia.deps.json
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\bin\Debug\netstandard2.1\Ganaderia.App.Persistencia.dll
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\bin\Debug\netstandard2.1\Ganaderia.App.Persistencia.pdb
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\bin\Debug\netstandard2.1\Ganaderia.App.Dominio.dll
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\bin\Debug\netstandard2.1\Ganaderia.App.Dominio.pdb
+D:\MISIONTIC\Ciclo3\ProyectoColaborativo\WebappGanadera\Ganaderia.App\Ganaderia.App.Persistencia\obj\Debug\netstandard2.1\Ganaderia.App.Persistencia.csproj.CopyComplete

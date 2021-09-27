@@ -38,7 +38,7 @@ namespace Ganaderia.App.Persistencia
         {
             return _appContext.Ganaderos.FirstOrDefault(g => g.Id==idGanadero);
         }
-
+        
         Ganadero IRepositorioGanadero.UpdateGanadero(Ganadero ganadero)
         {
             var ganaderoEncontrado= _appContext.Ganaderos.FirstOrDefault(g => g.Id==ganadero.Id);

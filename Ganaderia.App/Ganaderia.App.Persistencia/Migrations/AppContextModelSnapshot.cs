@@ -18,6 +18,30 @@ namespace Ganaderia.App.Persistencia.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("Ganaderia.App.Dominio.AplicacionVacuna", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Fecha")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("idEjemplar")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idGanadero")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idVacuna")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AplicacionVacunas");
+                });
+
             modelBuilder.Entity("Ganaderia.App.Dominio.Persona", b =>
                 {
                     b.Property<int>("Id")
@@ -52,6 +76,33 @@ namespace Ganaderia.App.Persistencia.Migrations
                     b.ToTable("Personas");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Persona");
+                });
+
+            modelBuilder.Entity("Ganaderia.App.Dominio.Vacuna", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("Existencia")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FechaCompra")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FechaVencimiento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Vacunas");
                 });
 
             modelBuilder.Entity("Ganaderia.App.Dominio.Ganadero", b =>

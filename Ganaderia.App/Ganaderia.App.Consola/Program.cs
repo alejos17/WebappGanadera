@@ -12,6 +12,10 @@ namespace Ganaderia.App.Consola
         private static IRepositorioGanadero _repoGanadero= new RepositorioGanadero(new Persistencia.AppContext());
         //Veterinario
         private static IRepositorioVeterinario _repoVeterinario= new RepositorioVeterinario(new Persistencia.AppContext());
+        //Vacunas
+        private static IRepositorioVacuna _repoVacuna = new RepositorioVacuna(new Persistencia.AppContext());
+        //AplicacionVacunas
+        private static IRepositorioAplicacionVacuna _repoAplicacionVacuna = new RepositorioAplicacionVacuna(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {
@@ -32,7 +36,14 @@ namespace Ganaderia.App.Consola
             //Console.WriteLine("Ganadero Encontrado");
 
             //Tercera Prueba, Lista de TODO
+            //Añadir Vacuna
+            //AddVacuna();
+            //Eliminar Vacuna
+            //DeleteVacuna(3);
+            AddAplicacionVacuna();
+
             GetAll();
+
         }
 
         //Metodo PRUEBA para crear un ganadero en la Base de Datos
@@ -42,7 +53,7 @@ namespace Ganaderia.App.Consola
             {
                 //Id = 34235897,  //Crear atributo para documento de ID
                 Nombre = "Carlos",
-                Apellido = "Gonzalez",
+                Apellido = "Slim",
                 NumeroTelefono = "3145634567",
                 Direccion = "Calle 24 No 78-23",
                 correo = "cgonzalez@gmail.com",
@@ -53,6 +64,7 @@ namespace Ganaderia.App.Consola
             _repoGanadero.AddGanadero(ganadero);
         }
 
+        
         //Metodo PRUEBA para crear un veterinario en la Base de Datos
         private static void AddVeterinario()
         {
@@ -69,6 +81,36 @@ namespace Ganaderia.App.Consola
                 Registro = "ABCD1234"
             };
             _repoVeterinario.AddVeterinario(veterinario);
+        }
+
+        private static void AddVacuna()
+        {
+            var vacuna = new Vacuna
+            {
+            Nombre = "Otra HA",
+            Lote = "012",
+            FechaCompra = "26/09/2021",
+            FechaVencimiento = "26/09/2023",
+            Existencia = 200
+            };
+            _repoVacuna.AddVacuna(vacuna);
+        }
+
+        private static void DeleteVacuna(int idVacuna)
+        {
+            _repoVacuna.DeleteVacuna(idVacuna);
+        }
+
+        private static void AddAplicacionVacuna()
+        {
+            var aplicacionVacuna = new AplicacionVacuna{
+                idGanadero = _repoGanadero.GetGanadero(1).Id,
+                idVacuna = _repoVacuna.GetVacuna(1).Id,
+                idEjemplar = 1,
+                Fecha = "27/09/2021"
+            };
+            _repoAplicacionVacuna.AddAplicacionVacuna(aplicacionVacuna);
+            
         }
 
         //Crear PRUEBA Metodo para busqueda de ganadero
@@ -93,6 +135,20 @@ namespace Ganaderia.App.Consola
             foreach(Veterinario item in veterinarios)
             {
                 Console.WriteLine(item.Nombre+" "+item.Apellido);
+            }
+            Console.WriteLine("****************************************");
+            Console.WriteLine("Lista de Vacunas");
+            var vacunas = _repoVacuna.GetAllVacunas();
+            foreach(Vacuna item in vacunas)
+            {
+                Console.WriteLine(item.Nombre+" "+item.Lote);
+            }
+            Console.WriteLine("****************************************");
+            Console.WriteLine("Lista de Aplicacion de Vacunas");
+            var aplicacionVacunas = _repoAplicacionVacuna.GetAllAplicacionVacunas();
+            foreach(AplicacionVacuna item in aplicacionVacunas)
+            {
+                Console.WriteLine(_repoVacuna.GetVacuna(item.idVacuna).Nombre+" La aplico: "+_repoGanadero.GetGanadero(item.idGanadero).Nombre+"");
             }
         }
     }

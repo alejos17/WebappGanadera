@@ -1,38 +1,42 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Consola/Ganaderia.App.Consola.csproj": {}
+    "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Consola\\Ganaderia.App.Consola.csproj": {}
   },
   "projects": {
-    "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Consola/Ganaderia.App.Consola.csproj": {
+    "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Consola\\Ganaderia.App.Consola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Consola/Ganaderia.App.Consola.csproj",
+        "projectUniqueName": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Consola\\Ganaderia.App.Consola.csproj",
         "projectName": "Ganaderia.App.Consola",
-        "projectPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Consola/Ganaderia.App.Consola.csproj",
-        "packagesPath": "/Users/alejos17/.nuget/packages/",
-        "outputPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Consola/obj/",
+        "projectPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Consola\\Ganaderia.App.Consola.csproj",
+        "packagesPath": "C:\\Users\\mayko\\.nuget\\packages\\",
+        "outputPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Consola\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "/Users/alejos17/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mayko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj": {
-                "projectPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj"
+              "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\Ganaderia.App.Dominio.csproj": {
+                "projectPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\Ganaderia.App.Dominio.csproj"
               },
-              "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/Ganaderia.App.Persistencia.csproj": {
-                "projectPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/Ganaderia.App.Persistencia.csproj"
+              "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Persistencia\\Ganaderia.App.Persistencia.csproj": {
+                "projectPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Persistencia\\Ganaderia.App.Persistencia.csproj"
               }
             }
           }
@@ -45,6 +49,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -68,33 +73,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.413/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj": {
+    "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\Ganaderia.App.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj",
+        "projectUniqueName": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\Ganaderia.App.Dominio.csproj",
         "projectName": "Ganaderia.App.Dominio",
-        "projectPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj",
-        "packagesPath": "/Users/alejos17/.nuget/packages/",
-        "outputPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/obj/",
+        "projectPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\Ganaderia.App.Dominio.csproj",
+        "packagesPath": "C:\\Users\\mayko\\.nuget\\packages\\",
+        "outputPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "/Users/alejos17/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mayko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -106,6 +115,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "imports": [
             "net461",
             "net462",
@@ -121,36 +131,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.413/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/Ganaderia.App.Persistencia.csproj": {
+    "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Persistencia\\Ganaderia.App.Persistencia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/Ganaderia.App.Persistencia.csproj",
+        "projectUniqueName": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Persistencia\\Ganaderia.App.Persistencia.csproj",
         "projectName": "Ganaderia.App.Persistencia",
-        "projectPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/Ganaderia.App.Persistencia.csproj",
-        "packagesPath": "/Users/alejos17/.nuget/packages/",
-        "outputPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Persistencia/obj/",
+        "projectPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Persistencia\\Ganaderia.App.Persistencia.csproj",
+        "packagesPath": "C:\\Users\\mayko\\.nuget\\packages\\",
+        "outputPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Persistencia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "/Users/alejos17/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mayko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj": {
-                "projectPath": "/Users/alejos17/Documents/code_alejos17/WebAppGanadera/Ganaderia.App/Ganaderia.App.Dominio/Ganaderia.App.Dominio.csproj"
+              "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\Ganaderia.App.Dominio.csproj": {
+                "projectPath": "D:\\MISIONTIC\\Ciclo3\\ProyectoColaborativo\\WebappGanadera\\Ganaderia.App\\Ganaderia.App.Dominio\\Ganaderia.App.Dominio.csproj"
               }
             }
           }
@@ -163,6 +177,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -200,7 +215,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.413/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
