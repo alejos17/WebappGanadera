@@ -2,3 +2,159 @@
 @model Ganaderia.App.Presentacion.Pages.EjemplarModel
 @{
 }
+<h2>Ejemplares</h2>
+<p>En este espacio puedes administrar cada uno de tus ejemplares, añade, modifica, borra y verifica el estado de salud de cada una de tus vacas.</p>
+
+
+<div class="container"> 
+    <div class=" text-center mt-5 ">
+        <h3>Verificar Individuo</h3>
+    </div>
+    <div class=" text-center mt-5 ">
+        <h4>Información General</h4>
+    </div>
+    
+    <div class="row ">
+        <div class="col-lg-7 mx-auto">
+            <div class="card mt-2 mx-auto p-4 bg-light">
+                <div class="card-body bg-light">
+                    <div class="container">
+                        <form id="contact-form" role="form">
+                            <div class="controls">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_idEjemplar">Código del Ejemplar *</label> <input id="form_idEjemplar" type="text" name="idEjemplar" class="form-control" placeholder="ID del Ejemplar *" required="required" data-error="El Código del Ejemplar es requerido."> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-12"><input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Buscar"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_idGanado">Lote al que pertenece *</label> <input id="form_idGanado" type="text" name="idGanado" class="form-control" placeholder="Código del Lote de Ganado *" required="required" data-error="El Código del Lote de Ganado es requerido."> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_estadoSalud">Estado de Salud *</label> <select id="form_estadoSalud" name="estadoSalud" class="form-control" required="required" data-error="Por favor seleccione un estado de Salud.">
+                                                <option value="" selected disabled>-- Seleccionar --</option>
+                                                <option>Saludable</option>
+                                                <option>Enfermo</option>
+                                                <option>Muerto</option>
+                                                <option>Otro</option>
+                                            </select> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_fechaCompra">Fecha de Compra *</label> <input id="form_fechaCompra" type="date" name="fechaCompra" class="form-control" placeholder="" required="required" data-error="Indique una fecha válida."> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_fechaVacuna">Fecha de Vacunación *</label> <input id="form_fechaVacuna" type="date" name="fechaVacuna" class="form-control" placeholder="" required="required" data-error="Indique una fecha válida."> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> <label for="form_observaciones">Observaciones Generales *</label> <textarea id="form_observaciones" name="observaciones" class="form-control" placeholder="Escriba una descripción corta." rows="4" required="required" data-error="Por favor, deje un mensaje de observacion sobre el animal."></textarea> </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Guardar">
+                                        <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Borrar">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- /.8 -->
+        </div> <!-- /.row-->
+    </div>
+</div>
+
+<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h3 class="heading-section">Listado de Ejemplares</h3>
+                    <h5 class="heading-section">Lote de Ganado y Estado de Salud</h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-responsive-xl">
+						  <thead>
+						    <tr>
+						    	<th>Código Ejemplar</th>
+						      <th>Lote Ganado</th>
+						      <th>Estado Salud</th>
+						      <th>Vacunado &nbsp;</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>1</span>
+						      	</div>
+						      </td>
+						      <td>G001</td>
+						      <td class="status"><span class="active">Enfermo</span></td>
+						      <td>
+						    		<label class="checkbox-wrap checkbox-primary">
+										  <input type="checkbox" checked>
+										  <span class="checkmark"></span>
+										</label>
+						        </td>
+						    </tr>
+                            <tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>2</span>
+						      	</div>
+						      </td>
+						      <td>G001</td>
+						      <td class="status"><span class="active">Enfermo</span></td>
+						      <td>
+						    		<label class="checkbox-wrap checkbox-primary">
+										  <input type="checkbox" checked>
+										  <span class="checkmark"></span>
+										</label>
+						        </td>
+						    </tr>
+                            <tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>3</span>
+						      	</div>
+						      </td>
+						      <td>G001</td>
+						      <td class="status"><span class="active">Enfermo</span></td>
+						      <td>
+						    		<label class="checkbox-wrap checkbox-primary">
+										  <input type="checkbox" >
+										  <span class="checkmark"></span>
+										</label>
+						        </td>
+						    </tr>
+                            <tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>4</span>
+						      	</div>
+						      </td>
+						      <td>G001</td>
+						      <td class="status"><span class="active">Saludable</span></td>
+						      <td>
+						    		<label class="checkbox-wrap checkbox-primary">
+										  <input type="checkbox" >
+										  <span class="checkmark"></span>
+										</label>
+						        </td>
+						    </tr>
+						    
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
