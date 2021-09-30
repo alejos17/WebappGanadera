@@ -12,6 +12,7 @@ namespace Ganaderia.App.Persistencia
         public DbSet<AplicacionVacuna> AplicacionVacunas { get; set;}
         public DbSet<Ganado> Ganado { get; set;}
         public DbSet<Ejemplar> Ejemplares { get; set;}
+        public DbSet<AtencionEjemplar> Atenciones { get; set;}
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
