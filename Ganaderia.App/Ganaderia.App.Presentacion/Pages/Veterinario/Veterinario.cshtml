@@ -1,4 +1,64 @@
 ﻿@page
 @model Ganaderia.App.Presentacion.Pages.VeterinarioModel
 @{
+    
 }
+<body style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
+
+<style>
+        .contain {
+            width: 70%;
+            margin-top:5%;
+            margin-left:15%;
+            border-radius:5%;
+            background-color:yellow;
+            color:azure;
+        }
+        .itemlog{
+            width:90%;
+            margin-left:10%;
+        }
+        label{color:darkgray;
+
+        }
+        h2 {color:darkgray;
+        }
+    </style>
+
+
+<div class="contain">
+    <div class="itemlog">
+        <form id="Veterinario" action="POST">
+        <br>
+        <h2 style="margin-left: 22%; color:azure">Mi perfil Veterinario: </h2>
+        <br>
+        <br>
+        <label style="margin-left: 10%">Id Tarjeta profesional </label>
+        <input id="tarjeta" type="text" placeholder="tarjeta profesional" style="margin-left: 13%">
+        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
+        <br>
+        <label style="margin-left: 10%">Telefono secundario: </label>
+        <input id="tel2" type="text" placeholder="teléfono veterinario" style="margin-left: 13%">
+        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
+        <br>
+        <label style="margin-left: 10%">Dirección (veterinaria): </label>
+        <input id="DirVet" type="text" placeholder="Lugar de la Veterinaria*" style="margin-left: 11%">
+        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
+        <br>
+        <br><br>
+        <input id="RegisVet" type="button" value="Registrar" style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+        
+        
+        <input id="RegisVet" type="button" value="Consultar" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+        
+        <input id="RegisVet" type="button" value="Borrar" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+        <br>
+
+        <br>
+        <br>
+        <br>
+        <br><br>
+        </form>
+    </div>
+</body>
