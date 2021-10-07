@@ -2,3 +2,116 @@
 @model Ganaderia.App.Presentacion.Pages.VacunaModel
 @{
 }
+
+
+<body
+    style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
+
+    <style>
+        .contain {
+            width: 70%;
+            margin-top: 5%;
+            margin-left: 15%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
+        }
+
+        .itemlog {
+            width: 90%;
+            margin-left: 10%;
+        }
+
+        label {
+            color: darkgray;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        hr {
+            background-color: black;
+            width: 80%;
+            margin-left: 5%;
+            height: 4px;
+        }
+    </style>
+
+
+    <div class="contain">
+        <div class="itemlog">
+            <form id="Vacuna" action="POST">
+                <br>
+                <h2 style="margin-left: 22%; color:azure">Vacunas: </h2>
+                <p>En este espacio puedes administrar cada una de las vacunas, añade, modifica, actualiza y verifica el
+                    estado de cada una de las vacunas.</p>
+                <br>
+                <hr>
+                <br>
+                <label style="margin-left: 10%; color:azure">Nombre Vacuna </label>
+                <label style="margin-left: 28%; color:azure">Lote al que pertenece: </label>
+                <br>
+                <input id="NombreVac" type="text" placeholder="Ingrese el nombre" style="margin-left: 10%">
+                <input id="LoteVac" type="text" placeholder="Ingrese el lote" style="margin-left: 17%">
+
+                <br>
+                <label style="margin-top: 1%; margin-left: 10%; color:azure">Fecha de compra: </label>
+                <label style="margin-top: 1%; margin-left: 26%; color:azure">Fecha de vencimiento: </label>
+                <br>
+                <input id="FCVac" type="text" placeholder="Ingrese la FC" style="margin-left: 10%">
+                <input id="FVVac" type="text" placeholder="Ingrese la FV" style="margin-left: 17%">
+                <br>
+                <label style="margin-top: 2%; margin-left: 10%; color:azure">Existencia: </label>
+                <br>
+                <input id="ExistenciaVac" type="text" placeholder="Cantidad" style="margin-left: 10%; width:15%;">
+                <br><br>
+                <input id="RegisVet" type="button" value="Buscar"
+                    style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+
+
+                <input id="RegisVet" type="button" value="Guardar"
+                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+
+                <input id="RegisVet" type="button" value="Borrar"
+                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                <br>
+
+                <br>
+                <br>
+                <hr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+            </form>
+        </div>
+</body>

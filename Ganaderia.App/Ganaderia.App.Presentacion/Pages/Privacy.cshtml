@@ -5,7 +5,48 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<section class="term_condition_area">
+<body
+    style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
+
+    <style>
+        .contain {
+            width: 80%;
+            margin-top: 5%;
+            margin-left: 10%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
+        }
+
+        .itemlog {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        label {
+            color: darkgray;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
+        }
+    </style>
+
+
+    <div class="contain">
+        <div class="itemlog">
+            <form id="Ejemplares" action="POST">
+                <br>
+                <section class="term_condition_area">
 <div class="container">
 <div class="row">
 <div class="col-md-12">
@@ -137,3 +178,8 @@
 </div>
 </div>
 </section>
+                
+                <br>
+            </form>
+        </div>
+</body>

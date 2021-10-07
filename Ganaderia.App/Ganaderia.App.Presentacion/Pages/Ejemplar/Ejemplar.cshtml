@@ -2,95 +2,108 @@
 @model Ganaderia.App.Presentacion.Pages.EjemplarModel
 @{
 }
-<h2>Ejemplares</h2>
-<p>En este espacio puedes administrar cada uno de tus ejemplares, añade, modifica, borra y verifica el estado de salud de cada una de tus vacas.</p>
+<body
+    style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
 
 
-<div class="container"> 
-    <div class=" text-center mt-5 ">
-        <h3>Verificar Individuo</h3>
-    </div>
-    <div class=" text-center mt-5 ">
-        <h4>Información General</h4>
-    </div>
-    
-    <div class="row ">
-        <div class="col-lg-7 mx-auto">
-            <div class="card mt-2 mx-auto p-4 bg-light">
-                <div class="card-body bg-light">
-                    <div class="container">
-                        <form id="contact-form" role="form">
-                            <div class="controls">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_idEjemplar">Código del Ejemplar *</label> <input id="form_idEjemplar" type="text" name="idEjemplar" class="form-control" placeholder="ID del Ejemplar *" required="required" data-error="El Código del Ejemplar es requerido."> </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="col-md-12"><input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Buscar"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_idGanado">Lote al que pertenece *</label> <input id="form_idGanado" type="text" name="idGanado" class="form-control" placeholder="Código del Lote de Ganado *" required="required" data-error="El Código del Lote de Ganado es requerido."> </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_estadoSalud">Estado de Salud *</label> <select id="form_estadoSalud" name="estadoSalud" class="form-control" required="required" data-error="Por favor seleccione un estado de Salud.">
-                                                <option value="" selected disabled>-- Seleccionar --</option>
-                                                <option>Saludable</option>
-                                                <option>Enfermo</option>
-                                                <option>Muerto</option>
-                                                <option>Otro</option>
-                                            </select> </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_fechaCompra">Fecha de Compra *</label> <input id="form_fechaCompra" type="date" name="fechaCompra" class="form-control" placeholder="" required="required" data-error="Indique una fecha válida."> </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group"> <label for="form_fechaVacuna">Fecha de Vacunación *</label> <input id="form_fechaVacuna" type="date" name="fechaVacuna" class="form-control" placeholder="" required="required" data-error="Indique una fecha válida."> </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group"> <label for="form_observaciones">Observaciones Generales *</label> <textarea id="form_observaciones" name="observaciones" class="form-control" placeholder="Escriba una descripción corta." rows="4" required="required" data-error="Por favor, deje un mensaje de observacion sobre el animal."></textarea> </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Guardar">
-                                        <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Borrar">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> <!-- /.8 -->
-        </div> <!-- /.row-->
-    </div>
-</div>
+    <style>
+        .contain {
+            width: 80%;
+            margin-top: 5%;
+            margin-left: 10%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
+        }
 
-<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
+        .itemlog {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        label {
+            color: darkgray;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
+        }
+    </style>
+
+
+    <div class="contain">
+        <div class="itemlog">
+            <form id="Ejemplares" action="POST">
+                <br>
+				<div class="text-center">
+					<h2 style="color:azure">Ejemplares: </h2>
+				</div>
+                <br>
+                <p>En este espacio puedes administrar cada uno de tus ejemplares, añade, modifica, borra y verifica el estado de salud de cada una de tus vacas.</p>
+                <br>
+                <hr>
+                <br>
+				<div class="Campos de Texto">
+					<label style="margin-left: 10%; color:azure">Lote al que pertenece: </label>
+					<label style="margin-left: 28%; color:azure">Estado de Salud: </label>
+					<input id="idGanado" type="text" placeholder="Código del Lote" style="margin-left: 10%">
+					<select id="estadoSalud" style="margin-left: 19%">
+					<option value="" selected disabled>-- Seleccionar --</option>
+					<option>Saludable</option>
+					<option>Enfermo</option>
+					<option>Muerto</option>
+					<option>Otro</option>
+				</div>
+                <br>
+                <label>Hola Mundo</label>
+				<div class="Campos de Texto">
+					<label style="margin-left: 10%; color:azure">Fecha de compra: </label>
+					<label style="margin-left: 28%; color:azure">Fecha de vencimiento: </label>
+					<input id="fechaCompra" type="date" placeholder="" style="margin-left: 10%">
+					<input id="fechaVacuna" type="date" placeholder="" style="margin-left: 17%">
+				</div>
+                <label style="margin-top: 2%; margin-left: 10%; color:azure">Observaciones Generales: </label>
+                <br>
+                <textarea id="observaciones" placeholder="Escriba una descripción corta" style="margin-left: 10%; width:75%;"></textarea>
+                <br><br>
+                <input id="buscar" type="button" value="Buscar"
+                    style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+
+
+                <input id="guardar" type="button" value="Guardar"
+                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+
+                <input id="borrar" type="button" value="Borrar"
+                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                <br>
+
+                <br>
+                <br>
+                <hr>
+				<div class="text-center">
 					<h3 class="heading-section">Listado de Ejemplares</h3>
                     <h5 class="heading-section">Lote de Ganado y Estado de Salud</h5>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="table-wrap">
-						<table class="table table-responsive-xl">
-						  <thead>
-						    <tr>
-						    	<th>Código Ejemplar</th>
-						      <th>Lote Ganado</th>
-						      <th>Estado Salud</th>
-						      <th>Vacunado &nbsp;</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr class="alert" role="alert">
+				
+                <table class="table table-responsive-xl">
+                    <thead>
+                        <tr>
+                            <th>Código Ejemplar</th>
+                            <th>Lote Ganado</th>
+                            <th>Estado Salud</th>
+                            <th>Vacunado &nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="alert" role="alert">
 						      <td class="d-flex align-items-center">
 						      	<div class="pl-3 email">
 						      		<span>1</span>
@@ -105,7 +118,7 @@
 										</label>
 						        </td>
 						    </tr>
-                            <tr class="alert" role="alert">
+                        <tr class="alert" role="alert">
 						      <td class="d-flex align-items-center">
 						      	<div class="pl-3 email">
 						      		<span>2</span>
@@ -120,7 +133,7 @@
 										</label>
 						        </td>
 						    </tr>
-                            <tr class="alert" role="alert">
+                        <tr class="alert" role="alert">
 						      <td class="d-flex align-items-center">
 						      	<div class="pl-3 email">
 						      		<span>3</span>
@@ -135,6 +148,7 @@
 										</label>
 						        </td>
 						    </tr>
+						</tr>
                             <tr class="alert" role="alert">
 						      <td class="d-flex align-items-center">
 						      	<div class="pl-3 email">
@@ -150,11 +164,9 @@
 										</label>
 						        </td>
 						    </tr>
-						    
-						  </tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                    </tbody>
+                </table>
+                <br>
+            </form>
+        </div>
+</body>
