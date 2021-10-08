@@ -16,6 +16,9 @@ namespace Ganaderia.App.Servicios
 {
     public class Startup
     {
+        //Definir instancia de CORS para permitir la comunicación entre los puertos de Servicios y Persistencia hacia Presentación
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,7 +29,19 @@ namespace Ganaderia.App.Servicios
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Se llama el servicio para permitir el trafico de puertos.
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                builder =>
+                                {
+                                    builder.WithOrigins("https://localhost:5001")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                                });
+            });
 
+            //Se llama los Controllers
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,6 +62,8 @@ namespace Ganaderia.App.Servicios
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);  //Se hace uso del servicio CORS
 
             app.UseAuthorization();
 

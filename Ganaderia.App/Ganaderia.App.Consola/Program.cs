@@ -14,8 +14,14 @@ namespace Ganaderia.App.Consola
         private static IRepositorioVeterinario _repoVeterinario= new RepositorioVeterinario(new Persistencia.AppContext());
         //Vacunas
         private static IRepositorioVacuna _repoVacuna = new RepositorioVacuna(new Persistencia.AppContext());
+        //Ganado
+        private static IRepositorioGanado _repoGanado= new RepositorioGanado(new Persistencia.AppContext());
+        //ejemplares
+        private static IRepositorioEjemplar _repoEjemplar= new RepositorioEjemplar(new Persistencia.AppContext());
         //AplicacionVacunas
         private static IRepositorioAplicacionVacuna _repoAplicacionVacuna = new RepositorioAplicacionVacuna(new Persistencia.AppContext());
+        //AtencionEjemplar
+        private static IRepositorioAtencionEjemplar _repoAtencionEjemplar = new RepositorioAtencionEjemplar(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {
@@ -40,7 +46,10 @@ namespace Ganaderia.App.Consola
             //AddVacuna();
             //Eliminar Vacuna
             //DeleteVacuna(3);
-            AddAplicacionVacuna();
+            //AddAplicacionVacuna();
+            //AddGanado();
+            //AddEjemplar();
+            //AddAtencion();
 
             GetAll();
 
@@ -52,11 +61,11 @@ namespace Ganaderia.App.Consola
             var ganadero = new Ganadero
             {
                 //Id = 34235897,  //Crear atributo para documento de ID
-                Nombre = "Carlos",
-                Apellido = "Slim",
-                NumeroTelefono = "3145634567",
-                Direccion = "Calle 24 No 78-23",
-                correo = "cgonzalez@gmail.com",
+                Nombre = "Alberto",
+                Apellido = "Hernandez",
+                NumeroTelefono = "3217843627",
+                Direccion = "Carrera 58 No 12-34",
+                correo = "alberto.h@gmail.com",
                 contrasena = "123456",
                 Latitude = 5.02034F,   //Se agrega F al final para que pase de Double a Float
                 Longitude = -73.51640F
@@ -101,18 +110,6 @@ namespace Ganaderia.App.Consola
             _repoVacuna.DeleteVacuna(idVacuna);
         }
 
-        private static void AddAplicacionVacuna()
-        {
-            var aplicacionVacuna = new AplicacionVacuna{
-                idGanadero = _repoGanadero.GetGanadero(1).Id,
-                idVacuna = _repoVacuna.GetVacuna(1).Id,
-                idEjemplar = 1,
-                Fecha = "27/09/2021"
-            };
-            _repoAplicacionVacuna.AddAplicacionVacuna(aplicacionVacuna);
-            
-        }
-
         //Crear PRUEBA Metodo para busqueda de ganadero
         private static void BuscarGanadero(int idGanadero)
         {
@@ -144,12 +141,78 @@ namespace Ganaderia.App.Consola
                 Console.WriteLine(item.Nombre+" "+item.Lote);
             }
             Console.WriteLine("****************************************");
+            Console.WriteLine("Lista de Ejemplares");
+            var ejemplares = _repoEjemplar.GetAllEjemplar();
+            foreach(Ejemplar item in ejemplares)
+            {
+                Console.WriteLine("Vaca Id: "+item.Id+"  Pertenece al Lote de Ganado: "+item.idGanado+"  Raza: "+_repoGanado.GetGanado(item.idGanado).raza+"  Pertenece al Ganadero: "+_repoGanadero.GetGanadero(_repoGanado.GetGanado(item.idGanado).idGanadero).Nombre);
+            }
+            Console.WriteLine("****************************************");
             Console.WriteLine("Lista de Aplicacion de Vacunas");
             var aplicacionVacunas = _repoAplicacionVacuna.GetAllAplicacionVacunas();
             foreach(AplicacionVacuna item in aplicacionVacunas)
             {
                 Console.WriteLine(_repoVacuna.GetVacuna(item.idVacuna).Nombre+" La aplico: "+_repoGanadero.GetGanadero(item.idGanadero).Nombre+"");
             }
+
+            Console.WriteLine("****************************************");
+            Console.WriteLine("Lista de Atenciones por Ejemplar");
+            var atenciones = _repoAtencionEjemplar.GetAllAtenciones();
+            foreach(AtencionEjemplar item in atenciones)
+            {
+                Console.WriteLine("Atención: "+item.Id+"  Fecha: "+item.Fecha+"  Atendido por: "+_repoVeterinario.GetVeterinario(item.idVeterinario).Nombre+"  Estado Actual: "+item.Estado);
+            }
         }
+
+        private static void AddGanado()
+        {
+            var ganado = new Ganado
+            {
+                idGanadero = 1004,
+                raza = "Holstein",
+                fechaIngreso = "13/03/2021",
+                cantidad = 50,
+            };
+            _repoGanado.AddGanado(ganado);
+        }
+
+        private static void AddEjemplar()
+        {
+            var ejemplar = new Ejemplar
+            {
+                idGanado = 1,
+                fechaCompra = "24/03/2021",
+                fechaVacuna = null,
+                observaciones = "Vaca con sintomas de gripe, con secreciones",
+                estadoSalud = "Enfermo",
+            };
+            _repoEjemplar.AddEjemplar(ejemplar);
+        }
+
+        private static void AddAplicacionVacuna()
+        {
+            var aplicacion = new AplicacionVacuna
+            {
+                idGanadero = 1004,
+                idVacuna = 1,
+                idEjemplar = 1,
+                Fecha = "28/09/2021",
+            };
+            _repoAplicacionVacuna.AddAplicacionVacuna(aplicacion);
+        }
+
+        private static void AddAtencion()
+        {
+            var atencion = new AtencionEjemplar
+            {
+                idEjemplar = 2,
+                idVeterinario = 5,
+                Fecha = "29/09/2021",
+                Observaciones = "Animal con problemas respiratorios, se colocan medicamentos, no aplicar vacunación mientras periodo de recuperación.",
+                Estado = "En Tratamiento",
+            };
+            _repoAtencionEjemplar.AddAtencion(atencion);
+        } 
+
     }
 }

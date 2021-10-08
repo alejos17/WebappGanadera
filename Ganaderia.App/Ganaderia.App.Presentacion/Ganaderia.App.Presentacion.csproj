@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ganaderia.App.Dominio\Ganaderia.App.Dominio.csproj" />
+    <ProjectReference Include="..\Ganaderia.App.Persistencia\Ganaderia.App.Persistencia.csproj" />
+  </ItemGroup>
+
 </Project>

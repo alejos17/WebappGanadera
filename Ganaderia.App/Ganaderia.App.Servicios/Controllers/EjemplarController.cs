@@ -11,29 +11,16 @@ namespace Ganaderia.App.Servicios.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class EjemplarController : ControllerBase
     {
-        private static IRepositorioGanadero _repoGanadero= new RepositorioGanadero(new Persistencia.AppContext());
-        private static IRepositorioVeterinario _repoVeterinario= new RepositorioVeterinario(new Persistencia.AppContext());
-        
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
+        private static IRepositorioEjemplar _repoEjemplar= new RepositorioEjemplar(new Persistencia.AppContext());
 
         //Recepcion de informacion desde backend
         [HttpGet]
-        public IEnumerable<Ganadero> Get()
+        public IEnumerable<Ejemplar> Get()
         {
-            var ganaderos = _repoGanadero.GetAllGanaderos();
-            return ganaderos;
+            var ejemplares = _repoEjemplar.GetAllEjemplar();
+            return ejemplares;
 
         }
 
