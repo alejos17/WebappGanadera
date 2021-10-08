@@ -5,16 +5,16 @@
 <body style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
 <style>
         .contain {
-            width: 70%;
+            width: 80%;
             margin-top:5%;
-            margin-left:15%;
+            margin-left:10%;
             border-radius:5%;
             background-color:yellowgreen;
             color:azure;
         }
         .itemlog{
             width:90%;
-            margin-left:10%;
+            margin-left:5%;
         }
     </style>
 
@@ -38,7 +38,6 @@
         <input id="DirFinca" type="text" placeholder="Lugar de Gestión*" style="margin-left: 9%">
         <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
         <br>
-        <br><br>
         <input id="RegisVet" type="button" value="Registrar" style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                 
         <input id="RegisVet" type="button" value="Consultar" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
@@ -48,7 +47,48 @@
 
         <br>
         <br>
-        <br>
+        
+        <!-- Tabla con Lista de Ganaderos Registrados --> 
+        <div class="text-center">
+					<h3 class="heading-section">Ganaderos Registrados</h3>
+                    <h5 class="heading-section">Lista de Ganaderos</h5>
+				</div>
+				
+                <table class="table table-responsive-xl">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+							<th>Telefono</th>
+                            <th>Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+						@foreach (var ganaderos in Model.ganaderos)
+						{
+							<tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>@ganaderos.Id</span>
+						      	</div>
+						      </td>
+						      <td>@ganaderos.Nombre</td>
+                              <td>@ganaderos.Apellido</td>
+                              <td>@ganaderos.NumeroTelefono</td>
+                              <td>@ganaderos.correo</td>
+						    </tr>
+
+						}
+						
+						
+                        
+                    </tbody>
+                </table>
+
+
+
         <br><br>
     </div>
 
