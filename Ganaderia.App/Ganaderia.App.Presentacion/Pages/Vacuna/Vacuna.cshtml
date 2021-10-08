@@ -10,9 +10,9 @@
 
     <style>
         .contain {
-            width: 70%;
+            width: 80%;
             margin-top: 5%;
-            margin-left: 15%;
+            margin-left: 10%;
             border-radius: 5%;
             background-color: yellowgreen;
             color: azure;
@@ -20,16 +20,12 @@
 
         .itemlog {
             width: 90%;
-            margin-left: 10%;
+            margin-left: 5%;
         }
 
         label {
             color: darkgray;
 
-        }
-
-        h2 {
-            color: darkgray;
         }
 
         hr {
@@ -45,7 +41,10 @@
         <div class="itemlog">
             <form id="Vacuna" action="POST">
                 <br>
-                <h2 style="margin-left: 22%; color:azure">Vacunas: </h2>
+                <div class="text-center">
+                        <h2 class="heading-section">Vacunas</h2>
+                </div>
+                
                 <p>En este espacio puedes administrar cada una de las vacunas, añade, modifica, actualiza y verifica el
                     estado de cada una de las vacunas.</p>
                 <br>
@@ -82,35 +81,49 @@
                 <br>
                 <br>
                 <hr>
-                <table class="table">
+                
+                <!-- Tabla con la Lista de Vacunas --> 
+				<div class="text-center">
+					<h3 class="heading-section">Vacunas</h3>
+                    <h5 class="heading-section">Lista de Vacunas Adquiridas</h5>
+				</div>
+				
+                <table class="table table-responsive-xl">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Lote</th>
+							<th>Fecha Compra</th>
+                            <th>Fecha Vencimiento</th>
+                            <th>Existencia</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>twitter</td>
-                        </tr>
+                        
+						@foreach (var vacunas in Model.vacunas)
+						{
+							<tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>@vacunas.Id</span>
+						      	</div>
+						      </td>
+						      <td>@vacunas.Nombre</td>
+                              <td>@vacunas.Lote</td>
+                              <td>@vacunas.FechaCompra</td>
+                              <td>@vacunas.FechaVencimiento</td>
+                              <td>@vacunas.Existencia</td>
+						      
+						    </tr>
+
+						}
+						
+						
+                        
                     </tbody>
                 </table>
+
                 <br>
             </form>
         </div>
