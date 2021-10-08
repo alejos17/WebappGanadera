@@ -100,70 +100,42 @@
                             <th>Lote Ganado</th>
                             <th>Estado Salud</th>
                             <th>Vacunado &nbsp;</th>
+							<th>Fecha Vacuna</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="alert" role="alert">
+                        
+						@foreach (var ejemplares in Model.ejemplares)
+						{
+							<tr class="alert" role="alert">
 						      <td class="d-flex align-items-center">
 						      	<div class="pl-3 email">
-						      		<span>1</span>
+						      		<span>@ejemplares.Id</span>
 						      	</div>
 						      </td>
-						      <td>G001</td>
-						      <td class="status"><span class="active">Enfermo</span></td>
+						      <td>@ejemplares.idGanado</td>
+						      <td class="status"><span class="active">@ejemplares.estadoSalud</span></td>
 						      <td>
 						    		<label class="checkbox-wrap checkbox-primary">
-										  <input type="checkbox" checked>
+										  
+										  @if (ejemplares.fechaVacuna==null)
+										  {
+											  <input type="checkbox">
+										  }else
+										  {
+											  <input type="checkbox" checked>
+										  }
+										  
 										  <span class="checkmark"></span>
 										</label>
 						        </td>
+								<td>@ejemplares.fechaVacuna</td>
 						    </tr>
-                        <tr class="alert" role="alert">
-						      <td class="d-flex align-items-center">
-						      	<div class="pl-3 email">
-						      		<span>2</span>
-						      	</div>
-						      </td>
-						      <td>G001</td>
-						      <td class="status"><span class="active">Enfermo</span></td>
-						      <td>
-						    		<label class="checkbox-wrap checkbox-primary">
-										  <input type="checkbox" checked>
-										  <span class="checkmark"></span>
-										</label>
-						        </td>
-						    </tr>
-                        <tr class="alert" role="alert">
-						      <td class="d-flex align-items-center">
-						      	<div class="pl-3 email">
-						      		<span>3</span>
-						      	</div>
-						      </td>
-						      <td>G001</td>
-						      <td class="status"><span class="active">Enfermo</span></td>
-						      <td>
-						    		<label class="checkbox-wrap checkbox-primary">
-										  <input type="checkbox" >
-										  <span class="checkmark"></span>
-										</label>
-						        </td>
-						    </tr>
-						</tr>
-                            <tr class="alert" role="alert">
-						      <td class="d-flex align-items-center">
-						      	<div class="pl-3 email">
-						      		<span>4</span>
-						      	</div>
-						      </td>
-						      <td>G001</td>
-						      <td class="status"><span class="active">Saludable</span></td>
-						      <td>
-						    		<label class="checkbox-wrap checkbox-primary">
-										  <input type="checkbox" >
-										  <span class="checkmark"></span>
-										</label>
-						        </td>
-						    </tr>
+
+						}
+						
+						
+                        
                     </tbody>
                 </table>
                 <br>

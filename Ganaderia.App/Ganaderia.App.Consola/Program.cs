@@ -169,9 +169,9 @@ namespace Ganaderia.App.Consola
             var ganado = new Ganado
             {
                 idGanadero = 1004,
-                raza = "Holstein",
-                fechaIngreso = "13/03/2021",
-                cantidad = 50,
+                raza = "Angus",
+                fechaIngreso = "25/04/2021",
+                cantidad = 30,
             };
             _repoGanado.AddGanado(ganado);
         }
@@ -180,10 +180,10 @@ namespace Ganaderia.App.Consola
         {
             var ejemplar = new Ejemplar
             {
-                idGanado = 1,
-                fechaCompra = "24/03/2021",
+                idGanado = 2,
+                fechaCompra = "14/05/2021",
                 fechaVacuna = null,
-                observaciones = "Vaca con sintomas de gripe, con secreciones",
+                observaciones = "Problemas gatricos",
                 estadoSalud = "Enfermo",
             };
             _repoEjemplar.AddEjemplar(ejemplar);
