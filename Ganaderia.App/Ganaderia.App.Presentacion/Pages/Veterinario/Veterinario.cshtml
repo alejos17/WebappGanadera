@@ -8,21 +8,25 @@
 
 <style>
         .contain {
-            width: 70%;
+            width: 80%;
             margin-top:5%;
-            margin-left:15%;
+            margin-left:10%;
             border-radius:5%;
             background-color:yellow;
             color:azure;
         }
         .itemlog{
             width:90%;
-            margin-left:10%;
+            margin-left:5%;
         }
         label{color:darkgray;
 
         }
         h2 {color:darkgray;
+        }
+        h3 {color:darkgray;
+        }
+        h5 {color:darkgray;
         }
     </style>
 
@@ -31,7 +35,10 @@
     <div class="itemlog">
         <form id="Veterinario" action="POST">
         <br>
-        <h2 style="margin-left: 22%; color:azure">Mi perfil Veterinario: </h2>
+        <div class="text-center">
+                <h2 class="heading-section">Mi perfil Veterinario: </h2>
+        </div>
+        
         <br>
         <br>
         <label style="margin-left: 10%">Id Tarjeta profesional </label>
@@ -56,9 +63,49 @@
         <br>
 
         <br>
+        <!-- Tabla con la Lista de Ejemplares por Lote de Ganado --> 
+				<div class="text-center">
+					<h3 class="heading-section">Veterinarios Registrados</h3>
+                    <h5 class="heading-section">Lista de Veterinarios</h5>
+				</div>
+				
+                <table class="table table-responsive-xl">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+							<th>Telefono</th>
+                            <th>Correo</th>
+                            <th>R.P.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+						@foreach (var veterinarios in Model.veterinarios)
+						{
+							<tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>@veterinarios.Id</span>
+						      	</div>
+						      </td>
+						      <td>@veterinarios.Nombre</td>
+                              <td>@veterinarios.Apellido</td>
+                              <td>@veterinarios.NumeroTelefono</td>
+                              <td>@veterinarios.correo</td>
+                              <td>@veterinarios.Registro</td>
+						      
+						    </tr>
+
+						}
+						
+						
+                        
+                    </tbody>
+                </table>
+
         <br>
-        <br>
-        <br><br>
         </form>
     </div>
 </body>
