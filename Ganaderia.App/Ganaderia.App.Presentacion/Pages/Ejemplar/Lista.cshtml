@@ -1,0 +1,128 @@
+﻿@page
+@model Ganaderia.App.Presentacion.Pages.ListaModel
+@{
+}
+<body
+    style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
+
+    <style>
+        .contain {
+            width: 80%;
+            margin-top: 5%;
+            margin-left: 10%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
+        }
+
+        .itemlog {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        label {
+            color: azure;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
+        }
+    </style>
+
+
+    <div class="contain">
+        <div class="itemlog">
+            <form id="Ejemplares" action="POST">
+                <br>
+				<div class="text-center">
+					<h2 style="color:azure">Ganado: </h2>
+				</div>
+                <br>
+                <p>En este espacio puedes administrar cada uno de tus ejemplares, añade, modifica, borra y verifica el estado de salud de cada una de tus vacas.</p>
+                <br>
+                <div class="Campos de Texto">
+                    <label>Seleccione el ID del Lote de Ganado: </label>
+                    <select id="idGanado" type="text">
+                    <option value="" selected disabled>-- Seleccionar --</option>
+                    <option>1</option>
+                    <option>2</option>
+                    </select>
+                    <a class="btn btn-primary table-btn" asp-page="./Lista" asp-route-idGanado="1" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                    <i class="fas fa-info-circle"></i>
+                    Ver Lista
+                    </a>
+                </div>
+                <hr>
+                <br>
+
+				<!-- Tabla con la Lista de Ejemplares por Lote de Ganado --> 
+				<div class="text-center">
+					<h3 class="heading-section">Listado de Ejemplares</h3>
+                    <h5 class="heading-section">Lote de Ganado y Estado de Salud</h5>
+				</div>
+				
+                <table class="table table-responsive-xl">
+                    <thead>
+                        <tr>
+                            <th>Lote</th>
+                            <th>Código Ejemplar</th>
+                            <th>Estado Salud</th>
+                            <th>Vacunado &nbsp;</th>
+							<th>Fecha Vacuna</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+						@foreach (var ejemplares in Model.ejemplares)
+						{
+							<tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>@ejemplares.idGanado</span>
+						      	</div>
+						      </td>
+						      <td>@ejemplares.Id</td>
+						      <td class="status"><span class="active">@ejemplares.estadoSalud</span></td>
+						      <td>
+						    		<label class="checkbox-wrap checkbox-primary">
+										  
+										  @if (ejemplares.fechaVacuna==null)
+										  {
+											  <input type="checkbox">
+										  }else
+										  {
+											  <input type="checkbox" checked>
+										  }
+										  
+										  <span class="checkmark"></span>
+										</label>
+						        </td>
+								<td>@ejemplares.fechaVacuna</td>
+                                <td>
+                                  <a class="btn btn-primary table-btn" asp-page="./Ejemplar" asp-route-EjemplarId="@ejemplares.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                                  <i class="fas fa-info-circle"></i>
+                                  
+                                  </a>
+                              </td>
+						    </tr>
+
+						}
+						
+						
+                        
+                    </tbody>
+                </table>
+                <br>
+            </form>
+        </div>
+</body>

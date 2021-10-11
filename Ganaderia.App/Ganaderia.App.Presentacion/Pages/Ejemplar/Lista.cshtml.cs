@@ -9,24 +9,17 @@ using Ganaderia.App.Persistencia;
 
 namespace Ganaderia.App.Presentacion.Pages
 {
-    public class EjemplarModel : PageModel
+    public class ListaModel : PageModel
     {
         //Llamamos instancia del Repo Ejemplar para traer datos de la BD
         private static IRepositorioEjemplar _repoEjemplar= new RepositorioEjemplar(new Persistencia.AppContext());
+
+        //Lista de Ejemplares
+        public IEnumerable<Ejemplar> ejemplares { get; private set; }
         
-        public Ejemplar ejemplar { get; set; }
-        
-        
-        public IActionResult OnGet(int ejemplarId)
+        public void OnGet(int idGanado)
         {
-            ejemplar = _repoEjemplar.GetEjemplar(ejemplarId);
-            if(ejemplar==null)
-            {
-                return RedirectToPage("./Error");
-            }else
-            {
-                return Page();
-            }
+            ejemplares = _repoEjemplar.GetEjemplarxGanado(idGanado);
         }
     }
 }

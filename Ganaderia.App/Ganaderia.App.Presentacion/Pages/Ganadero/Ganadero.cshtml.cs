@@ -13,12 +13,20 @@ namespace Ganaderia.App.Presentacion.Pages
     {
         private static IRepositorioGanadero _repoGanadero= new RepositorioGanadero(new Persistencia.AppContext());
 
-        public IEnumerable<Ganadero> ganaderos { get; private set; }
+        public Ganadero ganadero { get; set; }
         
         
-        public void OnGet()
+        
+        public IActionResult OnGet(int ganaderoId)
         {
-            ganaderos = _repoGanadero.GetAllGanaderos();
+            ganadero = _repoGanadero.GetGanadero(ganaderoId);
+            if(ganadero==null)
+            {
+                return RedirectToPage("./Error");
+            }else
+            {
+                return Page();
+            }
         }
     }
 }

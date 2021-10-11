@@ -2,95 +2,104 @@
 @model Ganaderia.App.Presentacion.Pages.GanaderoModel
 @{
 }
-<body style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
-<style>
+<body
+    style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
+
+    <style>
         .contain {
             width: 80%;
-            margin-top:5%;
-            margin-left:10%;
-            border-radius:5%;
-            background-color:yellowgreen;
-            color:azure;
+            margin-top: 5%;
+            margin-left: 10%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
         }
-        .itemlog{
-            width:90%;
-            margin-left:5%;
+
+        .itemlog {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        label {
+            color: azure;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
         }
     </style>
 
 
-<div class="contain">
-    <div class="itemlog">
-        <form id="Ganadero" action="POST"></form>
-        <br>
-        <h2 style="margin-left: 22%; color:azure">Mi perfil Ganadero: </h2>
-        <br>
-        <br>
-        <label style="margin-left: 10%">Id Documento o NIT: </label>
-        <input id="CONIT" type="text" placeholder="Documento de Identidad o NIT" style="margin-left: 16.5%">
-        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <label style="margin-left: 10%">Telefono secundario: </label>
-        <input id="telFin" type="text" placeholder="teléfono secundario" style="margin-left: 16.5%">
-        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <label style="margin-left: 10%">Dirección (Finca o Hacienda): </label>
-        <input id="DirFinca" type="text" placeholder="Lugar de Gestión*" style="margin-left: 9%">
-        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <input id="RegisVet" type="button" value="Registrar" style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                
-        <input id="RegisVet" type="button" value="Consultar" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-        
-        <input id="RegisVet" type="button" value="Borrar" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-        <br>
-
-        <br>
-        <br>
-        
-        <!-- Tabla con Lista de Ganaderos Registrados --> 
-        <div class="text-center">
-					<h3 class="heading-section">Ganaderos Registrados</h3>
-                    <h5 class="heading-section">Lista de Ganaderos</h5>
+    <div class="contain">
+        <div class="itemlog">
+            <form id="Ganadero" action="POST">
+                <br>
+				<div class="text-center">
+					<h2 style="color:azure">Ganadero: </h2>
 				</div>
-				
-                <table class="table table-responsive-xl">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-							<th>Telefono</th>
-                            <th>Correo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-						@foreach (var ganaderos in Model.ganaderos)
-						{
-							<tr class="alert" role="alert">
-						      <td class="d-flex align-items-center">
-						      	<div class="pl-3 email">
-						      		<span>@ganaderos.Id</span>
-						      	</div>
-						      </td>
-						      <td>@ganaderos.Nombre</td>
-                              <td>@ganaderos.Apellido</td>
-                              <td>@ganaderos.NumeroTelefono</td>
-                              <td>@ganaderos.correo</td>
-						    </tr>
-
-						}
-						
-						
-                        
-                    </tbody>
-                </table>
-
-
-
-        <br><br>
-    </div>
-
+                <br>
+                <p>En este espacio puedes administrar tu perfil como Ganadero, cambiar o actualizar tu información y datos personales.</p>
+                <br>
+                <div class="Campos de Texto">
+                    <label>Id o Documento: </label>
+                    <input id="idGanadero" type="text" value="@Model.ganadero.Id">
+                </div>
+                <br>
+                <div class="Campos de Texto">
+                    <label>Nombres: </label>
+                    <input id="Nombre" type="text" value="@Model.ganadero.Nombre">
+                    <label>Apellidos: </label>
+                    <input id="Apellidos" type="text" value="@Model.ganadero.Apellido">
+                </div>
+                <div class="Campos de Texto">
+                    <label>Numero de Telefono: </label>
+                    <input id="NumeroTelefono" type="text" value="@Model.ganadero.NumeroTelefono">
+                    <label>Direccion: </label>
+                    <input id="Direccion" type="text" value="@Model.ganadero.Direccion">
+                </div>
+                <div class="Campos de Texto">
+                    <label>Correo: </label>
+                    <input id="correo" type="text" value="@Model.ganadero.correo">
+                    <label>Contraseña: </label>
+                    <input id="contrasena" type="text" value="@Model.ganadero.contrasena">
+                </div>
+                <br>
+                <h5>Campos de Localización</h5>
+                <br>
+                <div class="Campos de Texto">
+                    <label>Latitude: </label>
+                    <input id="Latitude" type="text" value="@Model.ganadero.Latitude">
+                    <label>Longitud: </label>
+                    <input id="Longitude" type="text" value="@Model.ganadero.Longitude">
+                </div>
+                <br>
+                <!-- Botones -->
+                <div class="Campos de Texto">
+                    <br>
+                    <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Guardar
+                    </a>
+                    <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Borrar
+                    </a>
+                    <a class="btn btn-primary table-btn" asp-page="./List" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Atrás
+                    </a>
+                </div>
+                <br>
+                <br>
+            </form>
+        </div>
 </body>
-

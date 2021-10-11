@@ -2,35 +2,70 @@
 @model Ganaderia.App.Presentacion.Pages.ListModel
 @{
 }
-<h1>Lista de Ganaderos</h1>
+<body style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+<style>
+        .contain {
+            width: 80%;
+            margin-top:5%;
+            margin-left:10%;
+            border-radius:5%;
+            background-color:yellowgreen;
+            color:azure;
+        }
+        .itemlog{
+            width:90%;
+            margin-left:5%;
+        }
+    </style>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<div class="contain">
+  <div class="itemlog">
+<!-- Tabla con Lista de Ganaderos Registrados --> 
+        <div class="text-center">
+                    <br>
+					<h3 class="heading-section">Ganaderos Registrados</h3>
+                    <h5 class="heading-section">Lista de Ganaderos</h5>
+				</div>
+				
+                <table class="table table-responsive-xl">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+							<th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+						@foreach (var ganaderos in Model.ganaderos)
+						{
+							<tr class="alert" role="alert">
+						      <td class="d-flex align-items-center">
+						      	<div class="pl-3 email">
+						      		<span>@ganaderos.Id</span>
+						      	</div>
+						      </td>
+						      <td>@ganaderos.Nombre</td>
+                              <td>@ganaderos.Apellido</td>
+                              <td>@ganaderos.NumeroTelefono</td>
+                              <td>@ganaderos.correo</td>
+                              <td>
+                                  <a class="btn btn-primary table-btn" asp-page="./Ganadero" asp-route-GanaderoId="@ganaderos.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                                  <i class="fas fa-info-circle"></i>
+                                  
+                                  </a>
+                              </td>
+						    </tr>
+
+						}
+						
+						
+                        
+                    </tbody>
+                </table>
+  </div>
+</div>              
+</body>

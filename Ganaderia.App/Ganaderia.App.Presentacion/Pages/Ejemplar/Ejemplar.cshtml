@@ -56,7 +56,7 @@
 					<label style="margin-left: 28%; color:azure">Estado de Salud: </label>
 					<input id="idGanado" type="text" placeholder="Código del Lote" style="margin-left: 10%">
 					<select id="estadoSalud" style="margin-left: 19%">
-					<option value="" selected disabled>-- Seleccionar --</option>
+					<option value="" selected enabled>-- @Model.ejemplar.estadoSalud --</option>
 					<option>Saludable</option>
 					<option>Enfermo</option>
 					<option>Muerto</option>
@@ -70,76 +70,34 @@
 					<input id="fechaCompra" type="date" placeholder="" style="margin-left: 10%">
 					<input id="fechaVacuna" type="date" placeholder="" style="margin-left: 17%">
 				</div>
-                <label style="margin-top: 2%; margin-left: 10%; color:azure">Observaciones Generales: </label>
+                <div class="Campos de Texto">
+                    <label style="margin-top: 2%; margin-left: 10%; color:azure">Observaciones Generales: </label>
+                    <textarea id="observaciones" placeholder="Escriba una descripción corta" style="margin-left: 10%; width:75%;"></textarea>
+
+                </div>
+                
                 <br>
-                <textarea id="observaciones" placeholder="Escriba una descripción corta" style="margin-left: 10%; width:75%;"></textarea>
-                <br><br>
-                <input id="buscar" type="button" value="Buscar"
-                    style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-
-
-                <input id="guardar" type="button" value="Guardar"
-                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-
-                <input id="borrar" type="button" value="Borrar"
-                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                
                 <br>
+                <div class="Campos de Texto">
+                    <br>
+                    <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Guardar
+                    </a>
+                    <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Borrar
+                    </a>
+                    <a class="btn btn-primary table-btn" asp-page="./Lista" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Atrás
+                    </a>
+                </div>
 
                 <br>
                 <br>
                 <hr>
-
-				<!-- Tabla con la Lista de Ejemplares por Lote de Ganado --> 
-				<div class="text-center">
-					<h3 class="heading-section">Listado de Ejemplares</h3>
-                    <h5 class="heading-section">Lote de Ganado y Estado de Salud</h5>
-				</div>
-				
-                <table class="table table-responsive-xl">
-                    <thead>
-                        <tr>
-                            <th>Código Ejemplar</th>
-                            <th>Lote Ganado</th>
-                            <th>Estado Salud</th>
-                            <th>Vacunado &nbsp;</th>
-							<th>Fecha Vacuna</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-						@foreach (var ejemplares in Model.ejemplares)
-						{
-							<tr class="alert" role="alert">
-						      <td class="d-flex align-items-center">
-						      	<div class="pl-3 email">
-						      		<span>@ejemplares.Id</span>
-						      	</div>
-						      </td>
-						      <td>@ejemplares.idGanado</td>
-						      <td class="status"><span class="active">@ejemplares.estadoSalud</span></td>
-						      <td>
-						    		<label class="checkbox-wrap checkbox-primary">
-										  
-										  @if (ejemplares.fechaVacuna==null)
-										  {
-											  <input type="checkbox">
-										  }else
-										  {
-											  <input type="checkbox" checked>
-										  }
-										  
-										  <span class="checkmark"></span>
-										</label>
-						        </td>
-								<td>@ejemplares.fechaVacuna</td>
-						    </tr>
-
-						}
-						
-						
-                        
-                    </tbody>
-                </table>
                 <br>
             </form>
         </div>

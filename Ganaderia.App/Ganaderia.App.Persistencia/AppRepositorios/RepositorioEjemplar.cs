@@ -56,5 +56,12 @@ namespace Ganaderia.App.Persistencia
 
             return ejemplarEncontrado;
         }
+
+        //Realiza consulta SQL donde indica la lista de ejemplares por ID de Ganado
+        IEnumerable<Ejemplar> IRepositorioEjemplar.GetEjemplarxGanado(int idGanado)
+        {
+            return _appContext.Ejemplares.Where(g => g.idGanado == idGanado);
+        }
+
     }
 }
