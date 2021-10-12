@@ -53,7 +53,7 @@
                 <br>
                 <div class="Campos de Texto">
                     <label asp-for="ganadero.Id"></label>
-                    <input asp-for="ganadero.Id" id="idGanadero" type="text">
+                    <input asp-for="ganadero.Id" id="idGanadero" type="text" readonly="readonly">
                 </div>
                 <br>
                 <div class="Campos de Texto">
@@ -61,18 +61,24 @@
                     <input asp-for="ganadero.Nombre" id="Nombre" type="text">
                     <label asp-for="ganadero.Apellido"></label>
                     <input asp-for="ganadero.Apellido" id="Apellidos" type="text">
+                    <span class="text-danger" asp-validation-for="ganadero.Nombre"></span>
+                    <span class="text-danger" asp-validation-for="ganadero.Apellido"></span>
                 </div>
                 <div class="Campos de Texto">
                     <label asp-for="ganadero.NumeroTelefono"></label>
                     <input asp-for="ganadero.NumeroTelefono" id="NumeroTelefono" type="text">
                     <label asp-for="ganadero.Direccion"></label>
                     <input asp-for="ganadero.Direccion" id="Direccion" type="text">
+                    <span class="text-danger" asp-validation-for="ganadero.NumeroTelefono"></span>
+                    <span class="text-danger" asp-validation-for="ganadero.Direccion"></span>
                 </div>
                 <div class="Campos de Texto">
                     <label asp-for="ganadero.correo"></label>
                     <input asp-for="ganadero.correo" id="correo" type="text">
                     <label asp-for="ganadero.contrasena"></label>
                     <input asp-for="ganadero.contrasena" id="contrasena" type="text">
+                    <span class="text-danger" asp-validation-for="ganadero.correo"></span>
+                    <span class="text-danger" asp-validation-for="ganadero.contrasena"></span>
                 </div>
                 <br>
                 <h5>Campos de Localización</h5>

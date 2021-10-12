@@ -18,30 +18,43 @@ namespace Ganaderia.App.Presentacion.Pages
         public int ganaderoId { get; set; }
         
         
-        
-        public IActionResult OnGet(int ganaderoId)
+        //Para Consultar  
+        public IActionResult OnGet(int? ganaderoId)
         {
-            if(ganaderoId==0987654321)
+            if(ganaderoId.HasValue)
             {
-                return Page();
+                ganadero = _repoGanadero.GetGanadero(ganaderoId.Value);
             }
-            else{
-                ganadero = _repoGanadero.GetGanadero(ganaderoId);
-                if(ganadero==null)
-                {
-                return RedirectToPage("./Error");
-                }else
-                {
-                return Page();
-                }
+            else
+            {    
+                ganadero = new Ganadero();
             }
             
+            if(ganadero==null)
+            {
+            return RedirectToPage("./Error");
+            }else
+            {
+            return Page();
+            }
         }
 
         //Para editar valores de Ganadero
         public IActionResult OnPost()
         {
-            ganadero = _repoGanadero.UpdateGanadero(ganadero);
+            if(!ModelState.IsValid) //Verifica que los campos de texto cumplan con Requerimientos de Entidad en Dominio
+            {
+                return Page();
+            }
+            if(ganadero.Id>0)  //Si el ID es mayor a 0 es porque ya existe y lo va a actualizar solamente....  si no es nuevo y lo agrega
+            {
+                ganadero = _repoGanadero.UpdateGanadero(ganadero);
+            }
+            else
+            {
+                _repoGanadero.AddGanadero(ganadero);
+            }
+            
             return Page();
         }
 
