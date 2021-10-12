@@ -41,7 +41,7 @@
 
     <div class="contain">
         <div class="itemlog">
-            <form id="Ejemplares" action="POST">
+            <form id="Ejemplares" method="POST">
                 <br>
 				<div class="text-center">
 					<h2 style="color:azure">Ganado: </h2>
@@ -51,12 +51,31 @@
                 <br>
                 <div class="Campos de Texto">
                     <label>Seleccione el ID del Lote de Ganado: </label>
-                    <select id="idGanado" type="text">
+                    <select id="idGanado" name="idGanado" type="text">
                     <option value="" selected disabled>-- Seleccionar --</option>
-                    <option>1</option>
-                    <option>2</option>
+                    @foreach (var item in Model.ganado)
+                    {
+                        <option>@item.Id</option>
+                    }
                     </select>
-                    <a class="btn btn-primary table-btn" asp-page="./Lista" asp-route-idGanado="1" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                    <!-- Capturando el valor del Select con JQuery --> 
+                    <script>
+                        $("#idGanado").change(function(){
+                            var idGanado = $(this).val();
+                            console.log(idGanado);
+                        });
+                        $.ajax({
+                            url:'https://localhost:5011/Ganado',
+                            type:'POST',
+                            data:{valor_selecet:idGanado},
+                            success:function(datos){
+                                //si la petición devuelve datos 
+                                //los capturas con la variable datos
+                                }
+                            })
+                    </script> 
+                    <!-- Envío de Datos por Razor --> 
+                    <a class="btn btn-primary table-btn" asp-route-idGanado="1" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                     <i class="fas fa-info-circle"></i>
                     Ver Lista
                     </a>
