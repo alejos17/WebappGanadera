@@ -1,6 +1,7 @@
 ﻿@page
 @model Ganaderia.App.Presentacion.Pages.ListModel
 @{
+    ViewData["Title"] = "Ganaderos";
 }
 <body style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
 <style>
@@ -19,54 +20,51 @@
     </style>
 
 <div class="contain">
-  <div class="itemlog">
-<!-- Tabla con Lista de Ganaderos Registrados --> 
+    <div class="itemlog">
+    <!-- Tabla con Lista de Ganaderos Registrados --> 
         <div class="text-center">
-                    <br>
-					<h3 class="heading-section">Ganaderos Registrados</h3>
-                    <h5 class="heading-section">Lista de Ganaderos</h5>
-                    <br>
-                    <a class="btn btn-primary table-btn" asp-page="./Ganadero" asp-route-GanaderoId="0987654321" style="padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                    <i class="fas fa-info-circle"></i>
-                    Nuevo Ganadero
-                    </a>
-				</div>
-				<br>
-                <table class="table table-responsive-xl">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-							<th>Telefono</th>
-                            <th>Correo</th>
-                            <th>Detalles</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-						@foreach (var ganaderos in Model.ganaderos)
-						{
-							<tr class="alert" role="alert">
-						      <td>@ganaderos.Id</td>
-						      <td>@ganaderos.Nombre</td>
-                              <td>@ganaderos.Apellido</td>
-                              <td>@ganaderos.NumeroTelefono</td>
-                              <td>@ganaderos.correo</td>
-                              <td>
-                                  <a class="btn btn-primary table-btn" asp-page="./Ganadero" asp-route-GanaderoId="@ganaderos.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                                  <i class="fas fa-info-circle"></i>
-                                  Editar
-                                  </a>
-                              </td>
-						    </tr>
-
-						}
-						
-						
-                        
-                    </tbody>
-                </table>
-  </div>
+            <br>
+            <h3 class="heading-section">Ganaderos Registrados</h3>
+            <h5 class="heading-section">Lista de Ganaderos</h5>
+            <br>
+            <a class="btn btn-primary table-btn" asp-page="./Ganadero" asp-route-GanaderoId="0987654321" style="padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+            <i class="fas fa-info-circle"></i>
+            Nuevo Ganadero
+            </a>
+        </div>
+    <br>
+    <!-- Tabla con Datos --> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Detalles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ganaderos)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Apellido</td>
+                    <td>@item.NumeroTelefono</td>
+                    <td>@item.correo</td>
+                    <td>
+                        <a class="btn btn-primary table-btn" asp-page="./Ganadero" asp-route-GanaderoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Editar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br>
+    </div>
 </div>              
 </body>

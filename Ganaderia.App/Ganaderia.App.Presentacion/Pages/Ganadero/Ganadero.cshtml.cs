@@ -29,10 +29,10 @@ namespace Ganaderia.App.Presentacion.Pages
                 ganadero = _repoGanadero.GetGanadero(ganaderoId);
                 if(ganadero==null)
                 {
-                   return RedirectToPage("./Error");
+                return RedirectToPage("./Error");
                 }else
                 {
-                   return Page();
+                return Page();
                 }
             }
             
