@@ -41,7 +41,8 @@
 
     <div class="contain">
         <div class="itemlog">
-            <form id="Ganadero" action="POST">
+            <form id="Ganadero" method="post">
+                <input type="hidden" asp-for="ganadero.Id"/>
                 <br>
 				<div class="text-center">
 					<h2 style="color:azure">Ganadero: </h2>
@@ -50,45 +51,42 @@
                 <p>En este espacio puedes administrar tu perfil como Ganadero, cambiar o actualizar tu información y datos personales.</p>
                 <br>
                 <div class="Campos de Texto">
-                    <label>Id o Documento: </label>
-                    <input id="idGanadero" type="text" value="@Model.ganadero.Id">
+                    <label asp-for="ganadero.Id"></label>
+                    <input asp-for="ganadero.Id" id="idGanadero" type="text">
                 </div>
                 <br>
                 <div class="Campos de Texto">
-                    <label>Nombres: </label>
-                    <input id="Nombre" type="text" value="@Model.ganadero.Nombre">
-                    <label>Apellidos: </label>
-                    <input id="Apellidos" type="text" value="@Model.ganadero.Apellido">
+                    <label asp-for="ganadero.Nombre"></label>
+                    <input asp-for="ganadero.Nombre" id="Nombre" type="text">
+                    <label asp-for="ganadero.Apellido"></label>
+                    <input asp-for="ganadero.Apellido" id="Apellidos" type="text">
                 </div>
                 <div class="Campos de Texto">
-                    <label>Numero de Telefono: </label>
-                    <input id="NumeroTelefono" type="text" value="@Model.ganadero.NumeroTelefono">
-                    <label>Direccion: </label>
-                    <input id="Direccion" type="text" value="@Model.ganadero.Direccion">
+                    <label asp-for="ganadero.NumeroTelefono"></label>
+                    <input asp-for="ganadero.NumeroTelefono" id="NumeroTelefono" type="text">
+                    <label asp-for="ganadero.Direccion"></label>
+                    <input asp-for="ganadero.Direccion" id="Direccion" type="text">
                 </div>
                 <div class="Campos de Texto">
-                    <label>Correo: </label>
-                    <input id="correo" type="text" value="@Model.ganadero.correo">
-                    <label>Contraseña: </label>
-                    <input id="contrasena" type="text" value="@Model.ganadero.contrasena">
+                    <label asp-for="ganadero.correo"></label>
+                    <input asp-for="ganadero.correo" id="correo" type="text">
+                    <label asp-for="ganadero.contrasena"></label>
+                    <input asp-for="ganadero.contrasena" id="contrasena" type="text">
                 </div>
                 <br>
                 <h5>Campos de Localización</h5>
                 <br>
                 <div class="Campos de Texto">
-                    <label>Latitude: </label>
-                    <input id="Latitude" type="text" value="@Model.ganadero.Latitude">
-                    <label>Longitud: </label>
-                    <input id="Longitude" type="text" value="@Model.ganadero.Longitude">
+                    <label asp-for="ganadero.Latitude"></label>
+                    <input asp-for="ganadero.Latitude" id="Latitude" type="text">
+                    <label asp-for="ganadero.Longitude"></label>
+                    <input asp-for="ganadero.Longitude" id="Longitude" type="text">
                 </div>
                 <br>
                 <!-- Botones -->
                 <div class="Campos de Texto">
                     <br>
-                    <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                        <i class="fas fa-info-circle"></i>
-                        Guardar
-                    </a>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                     <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Borrar
