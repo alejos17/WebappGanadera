@@ -39,10 +39,11 @@
         }
     </style>
 
-
+    <!-- Formulario Ganadero -->
     <div class="contain">
         <div class="itemlog">
             <form id="Ganadero" method="post">
+                <!-- Input oculto para enlazar con Model Ganadero.cshtml.cs con el ID -->
                 <input type="hidden" asp-for="ganadero.Id"/>
                 <br>
 				<div class="text-center">
@@ -50,48 +51,66 @@
 				</div>
                 <br>
                 <p>En este espacio puedes administrar tu perfil como Ganadero, cambiar o actualizar tu información y datos personales.</p>
-                <br>
-                <div class="Campos de Texto">
-                    <label asp-for="ganadero.Id"></label>
-                    <input asp-for="ganadero.Id" id="idGanadero" type="text" readonly="readonly">
+                <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
+                <div class="text-center">
+                    <div class="form-group col-md-2">
+                        <label asp-for="ganadero.Id"></label>
+                        <input asp-for="ganadero.Id" type="text" class="form-control" id="idGanadero" readonly="readonly">
+                    </div>
                 </div>
-                <br>
-                <div class="Campos de Texto">
-                    <label asp-for="ganadero.Nombre"></label>
-                    <input asp-for="ganadero.Nombre" id="Nombre" type="text">
-                    <label asp-for="ganadero.Apellido"></label>
-                    <input asp-for="ganadero.Apellido" id="Apellidos" type="text">
+                <!-- Espacio Nombres y apellidos -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.Nombre"></label>
+                        <input asp-for="ganadero.Nombre" type="text" class="form-control" id="Nombre">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.Apellido"></label>
+                        <input asp-for="ganadero.Apellido" type="text" class="form-control" id="Apellido">
+                    </div>
                     <span class="text-danger" asp-validation-for="ganadero.Nombre"></span>
                     <span class="text-danger" asp-validation-for="ganadero.Apellido"></span>
                 </div>
-                <div class="Campos de Texto">
-                    <label asp-for="ganadero.NumeroTelefono"></label>
-                    <input asp-for="ganadero.NumeroTelefono" id="NumeroTelefono" type="text">
-                    <label asp-for="ganadero.Direccion"></label>
-                    <input asp-for="ganadero.Direccion" id="Direccion" type="text">
+                <!-- Informacion de Localizacion -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.NumeroTelefono"></label>
+                        <input asp-for="ganadero.NumeroTelefono" type="text" class="form-control" id="NumeroTelefono">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.Direccion"></label>
+                        <input asp-for="ganadero.Direccion" type="text" class="form-control" id="Direccion">
+                    </div>
                     <span class="text-danger" asp-validation-for="ganadero.NumeroTelefono"></span>
                     <span class="text-danger" asp-validation-for="ganadero.Direccion"></span>
                 </div>
-                <div class="Campos de Texto">
-                    <label asp-for="ganadero.correo"></label>
-                    <input asp-for="ganadero.correo" id="correo" type="text">
-                    <label asp-for="ganadero.contrasena"></label>
-                    <input asp-for="ganadero.contrasena" id="contrasena" type="text">
+                <!-- Campos de Correo y Claves -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.correo"></label>
+                        <input asp-for="ganadero.correo" type="email" class="form-control" id="correo">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.contrasena"></label>
+                        <input asp-for="ganadero.contrasena" type="text" class="form-control" id="contrasena">
+                    </div>
                     <span class="text-danger" asp-validation-for="ganadero.correo"></span>
                     <span class="text-danger" asp-validation-for="ganadero.contrasena"></span>
                 </div>
                 <br>
                 <h5>Campos de Localización</h5>
-                <br>
-                <div class="Campos de Texto">
-                    <label asp-for="ganadero.Latitude"></label>
-                    <input asp-for="ganadero.Latitude" id="Latitude" type="text">
-                    <label asp-for="ganadero.Longitude"></label>
-                    <input asp-for="ganadero.Longitude" id="Longitude" type="text">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.Latitude"></label>
+                        <input asp-for="ganadero.Latitude" type="text" class="form-control" id="Latitude">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganadero.Longitude"></label>
+                        <input asp-for="ganadero.Longitude" type="text" class="form-control" id="Longitude">
+                    </div>
                 </div>
-                <br>
                 <!-- Botones -->
-                <div class="Campos de Texto">
+                <div class="text-center">
                     <br>
                     <button type="submit" class="btn btn-primary" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Guardar</button>
                     <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
