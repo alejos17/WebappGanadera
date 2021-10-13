@@ -2,12 +2,25 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+
+const open = document.getElementById('open');
+const modul = document.getElementById('modul');
+const close = document.getElementById('close');
+
+open.addEventListener('click', () => {
+  modul.classList.add('show');
+});
+
+close.addEventListener('click', () => {
+  modul.classList.remove('show');
+      });
+      
 const formulario = document.getElementById("formulario");
 
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-  usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
+  //usuario: /^[a-zA-Z0-9\_\-]{4,16}$/,
   nombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/,
   apellidos: /^[a-zA-ZÀ-ÿ\s]{1,50}$/,
   password: /^.{4,12}$/,
@@ -16,7 +29,7 @@ const expresiones = {
 }
 
 const campos = {
-  usuario : false,
+  //usuario : false,
   nombre : false,
   apellidos: false,
   password : false,
@@ -27,9 +40,9 @@ const campos = {
 const validarFormulario = (e) => {
   switch(e.target.name)
   {
-    case "usuario":
+    /*case "usuario":
       validarCampo(expresiones.usuario, e.target, 'usuario','user');
-      break;
+      break;*/
 
     case "nombre":
     validarCampo(expresiones.nombre, e.target, 'nombre','name');
@@ -102,7 +115,7 @@ formulario.addEventListener('submit', (e) => {
   e.preventDefault();
   const terminos = document.getElementById('terminos');
 
-  if(campos.usuario && campos.nombre && campos.apellidos && campos.password && campos.correo && campos.telefono && terminos.checked){
+  if(/*campos.usuario &&*/ campos.nombre && campos.apellidos && campos.password && campos.correo && campos.telefono && terminos.checked){
     formulario.reset();
     document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
     setTimeout(() => {
@@ -117,6 +130,6 @@ formulario.addEventListener('submit', (e) => {
     document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
   }, 4000);
 
-
   }
 });
+

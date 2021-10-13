@@ -40,7 +40,7 @@
         <img style="margin: 0%;" src="images/okIcon.png" width=25px height=20px><br>
         <br>
         <br><br>
-        <input id="LogIn" type="button" value="Ingresa" style="float: right; margin-right:48%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+        <input id="LogIn" type="button" value="Ingresa" style="float: right; margin-right:48%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; ">
         <br><hr>
         <br>        
         <h4 style="margin-left:20%; color:azure">Aún no eres parte de GanaderApp
@@ -48,7 +48,8 @@
         Registrate pulsando este boton: </h4>
         <br>
         <br>
-        <input id="reg" type="button" value="Registrarse" style="float: right; margin-right:45%; padding:2% 4% 2% 4%;border-color: darkgreen; background-color:rgb(90,180,110); color:azure;">
+        <!--Boton con despliegue del formulario de registro inicial-->
+        <input id="open" type="button" value="Registrarse" style="float: right; margin-right:45%; padding:2% 4% 2% 4%;border-color: darkgreen; background-color:rgb(90,180,110); color:azure;">
         <br>
         <br><br>
     </div>
@@ -56,112 +57,121 @@
 
     
     <br>
-    <main>
-  
+<main id="modul" class="modul">
+ 
+
   <form id="formulario" action="" class="formulario">
-   
-  <!--Grupo de Usuario-->
-  <div class="formulario_grupo" id="grupo__usuario">
-    <label for="usuario" class="formulario__label">Usuario: </label>
+     <button style=" height:40%; line-height:15%; padding:5%; margin-right:20%; border-radius: 5%; background-color:yellow;" id="close">Ocultar el formulario</button>
+    
+
+    <!--Grupo de Usuario
+   <div class="formulario_grupo" id="grupo__usuario">
+      <label for="usuario" class="formulario__label">Usuario: </label>
       <div class="formulario__grupo-input">
         <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="usario123">
         <img id="iuser" width="10%" class="formulario__validacion-estado">
       </div>
-        <p class="formulario__input-error">el usuario debe ser de 4 a 16 caracteres y
-          puede contener números y guión bajo
-      </p>
-    </div>
-  <!--Grupo de Nombre-->
-  <div class="formulario_grupo" id="grupo__nombre">
-    <label for="nombre" class="formulario__label">Nombre: </label>
+      <p class="formulario__input-error">el usuario debe ser de 4 a 16 caracteres y
+        puede contener números y guión bajo
+      </p>     
+      </div>-->
+
+     <!-- Espacio de aire-->
+    <div class="formulario_grupo">
+      </div>
+
+    <!--Grupo de Nombre-->
+    <div class="formulario_grupo" id="grupo__nombre">
+      <label for="nombre" class="formulario__label">Nombre: </label>
       <div class="formulario__grupo-input">
         <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Juan Doe">
-        <img id="iname" width="10%"class="formulario__validacion-estado">
+        <img id="iname" width="10%" class="formulario__validacion-estado">
       </div>
       <p class="formulario__input-error">el nombre debe ser de 4 a 16 caracteres y no puede
         contener digitos
       </p>
-  </div>
-  <!--Grupo de Apellidos-->
-  <div class="formulario_grupo" id="grupo__apellidos">
-    <label for="apellidos" class="formulario__label">Apellidos: </label>
+    </div>
+    <!--Grupo de Apellidos-->
+    <div class="formulario_grupo" id="grupo__apellidos">
+      <label for="apellidos" class="formulario__label">Apellidos: </label>
       <div class="formulario__grupo-input">
         <input type="text" class="formulario__input" name="apellidos" id="apellidos" placeholder="Juan Doe">
-        <img id="ilname" width="10%"class="formulario__validacion-estado">
+        <img id="ilname" width="10%" class="formulario__validacion-estado">
       </div>
       <p class="formulario__input-error">los apellidos debe ser de 4 a 16 caracteres y no puede
         contener digitos
       </p>
-  </div>
-  <!--Grupo de Contraseña-->
-  <div class="formulario_grupo" id="grupo__password">
-    <label for="password" class="formulario__label">Contraseña: </label>
+    </div>
+    <!--Grupo de Contraseña-->
+    <div class="formulario_grupo" id="grupo__password">
+      <label for="password" class="formulario__label">Contraseña: </label>
       <div class="formulario__grupo-input">
-      <input type="password" class="formulario__input" name="password" id="password" placeholder="">
-      <img id="ipass" width="10%"class="formulario__validacion-estado">
+        <input type="password" class="formulario__input" name="password" id="password" placeholder="">
+        <img id="ipass" width="10%" class="formulario__validacion-estado">
       </div>
       <p class="formulario__input-error">la contraseña debe ser de 4 a 12 digitos
       </p>
-  </div>
-  <!--Grupo de Correo Electrónico-->
-  <div class="formulario_grupo" id="grupo__correo">
-    <label for="correo" class="formulario__label">Correo Electrónico: </label>
-    <div class="formulario__grupo-input">
-      <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Juan@correo.com">
-      <img id="imail" width="10%"class="formulario__validacion-estado">
     </div>
-    <p class="formulario__input-error">el correo puede contener letras, numeros, puntos, guiones, y guion_bajo
-    </p>
-  </div>
-  <!--Grupo de Contraseña DOS-->
-  <div class="formulario_grupo" id="grupo__password2">
-    <label for="password2" class="formulario__label">Repetir Contraseña: </label>
-    <div class="formulario__grupo-input">
-      <input type="password" class="formulario__input" name="password2" id="password2" placeholder="">
-      <img id="ipass2" width="10%" class="formulario__validacion-estado">
+    <!--Grupo de Correo Electrónico-->
+    <div class="formulario_grupo" id="grupo__correo">
+      <label for="correo" class="formulario__label">Correo Electrónico: </label>
+      <div class="formulario__grupo-input">
+        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Juan@correo.com">
+        <img id="imail" width="10%" class="formulario__validacion-estado">
+      </div>
+      <p class="formulario__input-error">el correo puede contener letras, numeros, puntos, guiones, y guion_bajo
+      </p>
     </div>
-    <p class="formulario__input-error">las contraseñas no coinciden
-    </p>
-  </div>
-  <!--Grupo de Telefono-->
-  <div class="formulario_grupo" id="grupo__telefono">
-    <label for="telefono" class="formulario__label">Telefono: </label>
-    <div class="formulario__grupo-input">
-      <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="">
-      <img id="iphone" width="10%"class="formulario__validacion-estado">
+    <!--Grupo de Contraseña DOS-->
+    <div class="formulario_grupo" id="grupo__password2">
+      <label for="password2" class="formulario__label">Repetir Contraseña: </label>
+      <div class="formulario__grupo-input">
+        <input type="password" class="formulario__input" name="password2" id="password2" placeholder="">
+        <img id="ipass2" width="10%" class="formulario__validacion-estado">
+      </div>
+      <p class="formulario__input-error">las contraseñas no coinciden
+      </p>
     </div>
-    <p class="formulario__input-error">el # de telefono debe ser de 7 a 14 digitos
-    </p>
-  </div>
-  <!--Grupo de rol de servicio-->
-  <div class="formulario__grupo-mensaje" id="grupo__rol">
-    <br>
-    <label for="browser">Elige tu rol en GanaWeb</label>
-    <br>
-  <input class="formulario__input" list="browsers" name="browser" id="browser" placeholder="Ganadero o Veterinario">
-  <datalist id="browsers">
-    <option value="Ganadero"/>
-    <option value="Veterinario"/>
-  </datalist>
-  <img id="irol" width="10%"class="formulario__validacion-estado">
-  </div>
-  <!--Grupo de terminos y condiciones del servicio-->
-  <div class="formulario__grupo-mensaje" id="grupo__terminos">
-    <br>
-    <input style="margin-left:16%;display: inline-block;"type="checkbox" name="terminos" id="terminos">
-    <p style="display: inline-block;">Aceptar los terminos y condiciones</p>
-  </div>
-  <div class="formulario__mensaje" id="formulario__mensaje">
-    <img src="images/trianlertIcon.png" width="10%" style="display:inline-block;">
-    <p style="display:inline-block;margin-left:50px;"><b>Error: Debes rellenar el formulario correctamente</b></p>
-  </div>
-  <div class="formulario__grupo formulario__grupo-btn-enviar">
-    <button type="submit" class="formulario__btn"><strong>Enviar</strong></button>
-    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">El registro ha finalizado exitosamente</p>
-  </div>
+    <!--Grupo de Telefono-->
+    <div class="formulario_grupo" id="grupo__telefono">
+      <label for="telefono" class="formulario__label">Telefono: </label>
+      <div class="formulario__grupo-input">
+        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="">
+        <img id="iphone" width="10%" class="formulario__validacion-estado">
+      </div>
+      <p class="formulario__input-error">el # de telefono debe ser de 7 a 14 digitos
+      </p>
+    </div>
+    <!--Grupo de rol de servicio-->
+    <div class="formulario__grupo" id="grupo__rol">
+      <br>
+      <label for="browser">Elige tu rol en GanaWeb</label>
+      <br>
+      <input style="height:40%; line-height:15%; padding:5%;" class="formulario__input" list="browsers" name="browser" id="browser" placeholder="Ganadero o Veterinario">
+      <datalist id="browsers">
+        <option value="Ganadero" />
+        <option value="Veterinario" />
+      </datalist>
+      <img id="irol" width="10%" class="formulario__validacion-estado">
+    </div>
+    <!--Grupo de terminos y condiciones del servicio-->
+    <div class="formulario__grupo-mensaje" id="grupo__terminos">
+      <br>
+      <input style="margin-right:4%; margin-top:10% ;display: inline-flex;" type="checkbox" name="terminos" id="terminos">
+      <p style="display: inline-flex;">Aceptar los terminos y condiciones</p>
+    </div>
+    <div class="formulario__mensaje" id="formulario__mensaje">
+      <img src="images/trianlertIcon.png" width="10%" style="display:inline-flex;">
+      <p style="display:inline-flex;margin-left:5%;"><b>Error: Debes rellenar el formulario correctamente</b></p>
+    </div>
+    <div class="formulario__grupo formulario__grupo-btn-enviar">
+      <button type="submit" class="formulario__btn"><strong>Enviar</strong></button>
+      <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">El registro ha finalizado exitosamente</p>
+    </div>
   </form>
-</main>
 <script rel="text/javascript" src="site.js"></script>
+</main>
+
    
     
         
