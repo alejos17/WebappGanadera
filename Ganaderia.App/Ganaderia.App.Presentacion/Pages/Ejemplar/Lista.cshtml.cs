@@ -20,14 +20,16 @@ namespace Ganaderia.App.Presentacion.Pages
 
         public IEnumerable<Ganado> ganado { get; private set; }
         public int idGanado { get; private set; }
-
-        public int valor { get; private set; }
         
-        public void OnGet(int idGanado)
+        public void OnGet()
+        {
+            ganado = _repoGanado.GetAllGanado();
+        }
+
+        public void OnPostLista(int idGanado)
         {
             ganado = _repoGanado.GetAllGanado();
             ejemplares = _repoEjemplar.GetEjemplarxGanado(idGanado);
-            
         }
     }
 }

@@ -1,5 +1,117 @@
 ﻿@page
 @model Ganaderia.App.Presentacion.Pages.GanadoModel
 @{
+    ViewData["Title"] = "Editar Ganado";
 }
-<h2>Ganado</h2>
+<body
+    style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
+
+    <style>
+        .contain {
+            width: 80%;
+            margin-top: 5%;
+            margin-left: 10%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
+        }
+
+        .itemlog {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        label {
+            color: azure;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
+        }
+    </style>
+
+    <!-- Formulario Ganadero -->
+    <div class="contain">
+        <div class="itemlog">
+            <form id="Ganado" method="post">
+                <!-- Input oculto para enlazar con Model Ganadero.cshtml.cs con el ID -->
+                <input type="hidden" asp-for="ganado.Id"/>
+                <br>
+				<div class="text-center">
+					<h2 style="color:azure">Ganado: </h2>
+				</div>
+                <br>
+                <p>En este espacio puedes administrar toda la información del Lote de Ejemplares.</p>
+                <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
+                <div class="text-center">
+                    <div class="form-group col-md-2">
+                        <label asp-for="ganado.Id"></label>
+                        <input asp-for="ganado.Id" type="text" class="form-control" id="Id" readonly="readonly">
+                    </div>
+                </div>
+                <!-- Espacio IdGanadero -->
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label asp-for="ganado.idGanadero"></label>
+                        <input asp-for="ganado.idGanadero" type="text" class="form-control" id="idGanadero">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ganadero.Nombre"></label>
+                        <input asp-for="ganadero.Nombre" type="text" class="form-control" id="Nombre" readonly="readonly">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ganadero.Apellido"></label>
+                        <input asp-for="ganadero.Apellido" type="text" class="form-control" id="Apellido" readonly="readonly">
+                    </div>
+                    <span class="text-danger" asp-validation-for="ganado.idGanadero"></span>
+                </div>
+                <!-- Otros Datos -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganado.raza"></label>
+                        <input asp-for="ganado.raza" type="text" class="form-control" id="raza">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganado.fechaIngreso"></label>
+                        <input asp-for="ganado.fechaIngreso" type="text" class="form-control" id="fechaIngreso">
+                    </div>
+                    <span class="text-danger" asp-validation-for="ganado.raza"></span>
+                    <span class="text-danger" asp-validation-for="ganado.fechaIngreso"></span>
+                </div>
+                <!-- Datos sobre Cantidad -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ganado.cantidad"></label>
+                        <input asp-for="ganado.cantidad" type="text" class="form-control" id="cantidad">
+                    </div>
+                    <span class="text-danger" asp-validation-for="ganado.cantidad"></span>
+                </div>
+                <br>
+                <!-- Botones -->
+                <div class="text-center">
+                    <br>
+                    <button type="submit" class="btn btn-primary" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
+                    <a class="btn btn-primary table-btn" asp-page="../Ejemplar/Lista" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Atrás
+                    </a>
+                </div>
+                <br>
+                <br>
+            </form>
+            <script>
+                function myFunction() {
+                    alert("El proceso se ha realizado correctamente en BD, puede dar click en Atrás para regresar");
+                }
+        </script>
+        </div>
+</body>
