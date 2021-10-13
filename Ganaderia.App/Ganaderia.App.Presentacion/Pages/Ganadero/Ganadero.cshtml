@@ -112,11 +112,7 @@
                 <!-- Botones -->
                 <div class="text-center">
                     <br>
-                    <button type="submit" class="btn btn-primary" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Guardar</button>
-                    <a class="btn btn-primary table-btn" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                        <i class="fas fa-info-circle"></i>
-                        Borrar
-                    </a>
+                    <button type="submit" class="btn btn-primary" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="./List" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
@@ -125,5 +121,10 @@
                 <br>
                 <br>
             </form>
+            <script>
+                function myFunction() {
+                    alert("El proceso se ha realizado correctamente en BD, puede dar click en Atrás para regresar");
+                }
+        </script>
         </div>
 </body>

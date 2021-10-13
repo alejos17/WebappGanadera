@@ -21,5 +21,14 @@ namespace Ganaderia.App.Presentacion.Pages
             ganaderos = _repoGanadero.GetAllGanaderos();
         }
 
+        public void OnPostDel(int idGanadero)
+        {
+            if(idGanadero >0)  //Si es mayor a cero es porque existe
+            {
+                _repoGanadero.DeleteGanadero(idGanadero);
+            }
+            ganaderos = _repoGanadero.GetAllGanaderos();
+        }
+
     }
 }

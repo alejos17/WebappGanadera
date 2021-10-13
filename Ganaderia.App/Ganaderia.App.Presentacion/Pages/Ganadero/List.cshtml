@@ -35,34 +35,44 @@
     <br>
     <!-- Tabla con Datos --> 
     <table class="table">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Telefono</th>
-                <th>Correo</th>
-                <th>Detalles</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.ganaderos)
+        <!-- Formulario para enviar con button en tipo submit --> 
+        <form method="post">
+            @if(Model.ganaderos != null)
             {
+
+            <thead>
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Nombre</td>
-                    <td>@item.Apellido</td>
-                    <td>@item.NumeroTelefono</td>
-                    <td>@item.correo</td>
-                    <td>
-                        <a class="btn btn-primary table-btn" asp-page="./Ganadero" asp-route-GanaderoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                        <i class="fas fa-info-circle"></i>
-                        Editar
-                        </a>
-                    </td>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Detalles</th>
                 </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ganaderos)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Apellido</td>
+                        <td>@item.NumeroTelefono</td>
+                        <td>@item.correo</td>
+                        <td>
+                            <a class="btn btn-primary table-btn" asp-page="./Ganadero" asp-route-GanaderoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                            <i class="fas fa-info-circle"></i>
+                            Editar
+                            </a>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-danger" asp-page-handler="Del" asp-route-idGanadero="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
             }
-        </tbody>
+        </form>
     </table>
     <br>
     </div>

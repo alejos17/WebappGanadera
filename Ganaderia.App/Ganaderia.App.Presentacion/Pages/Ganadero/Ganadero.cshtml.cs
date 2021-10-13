@@ -18,7 +18,7 @@ namespace Ganaderia.App.Presentacion.Pages
         public int ganaderoId { get; set; }
         
         
-        //Para Consultar  
+        //Para Consultar  el signo ? pregunta si viene Id o no para modificar o crear
         public IActionResult OnGet(int? ganaderoId)
         {
             if(ganaderoId.HasValue)
