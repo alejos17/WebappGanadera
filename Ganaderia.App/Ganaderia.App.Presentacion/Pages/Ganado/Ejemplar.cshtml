@@ -1,7 +1,7 @@
 ﻿@page
-@model Ganaderia.App.Presentacion.Pages.GanadoModel
+@model Ganaderia.App.Presentacion.Pages.EjemplarModel
 @{
-    ViewData["Title"] = "Editar Ganado";
+    ViewData["Title"] = "Editar Ejemplar";
 }
 <body
     style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
@@ -42,59 +42,79 @@
     <!-- Formulario Ganadero -->
     <div class="contain">
         <div class="itemlog">
-            <form id="Ganado" method="post">
+            <form id="Ejemplar" method="post">
                 <!-- Input oculto para enlazar con Model Ganadero.cshtml.cs con el ID -->
-                <input type="hidden" asp-for="ganado.Id"/>
+                <input type="hidden" asp-for="ejemplar.Id"/>
                 <br>
 				<div class="text-center">
-					<h2 style="color:azure">Ganado: </h2>
-				<br>
-                    <p>En este espacio puedes administrar toda la información del Lote de Ejemplares.</p>
+					<h2 style="color:azure">Ejemplar: </h2>
+				</div>
+                <br>
+                <div class="text-center">
+                    <p>En este espacio puedes administrar toda la información individual del animal.</p>
                 </div>
                 <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-2">
                         <div class="text-center">
-                            <label asp-for="ganado.Id"></label>
+                            <label asp-for="ejemplar.Id"></label>
                         </div>
-                        <input asp-for="ganado.Id" type="text" class="form-control" id="Id" readonly="readonly">
+                        <input asp-for="ejemplar.Id" type="text" class="form-control" id="Id" readonly="readonly">
                     </div>
                 </div>
-                <!-- Espacio IdGanadero -->
+                <!-- Espacio IdGanado -->
                 <div class="d-flex justify-content-center">
                     @* //TODO <div class="form-group col-md-2">
-                        <label asp-for="ganado.idGanadero"></label>
-                        <select asp-for="ganado.idGanadero" class="form-control" id="idGanadero">
+                        <label asp-for="ejemplar.idGanado"></label>
+                        <select asp-for="ejemplar.idGanado" class="form-control" id="idGanado">
                         <option value="" selected disabled>-- Seleccionar --</option>
-                        @foreach (var item in Model.Listaganaderos)
+                        @foreach (var item in Model.Listaganado)
                         {
                             <option>@item.Id</option>
                         }
                         </select>
                     </div> *@
                     <div class="form-group col-md-2">
-                        <label asp-for="ganado.idGanadero"></label>
-                        <input asp-for="ganado.idGanadero" type="text" class="form-control" id="idGanadero">
+                        <label asp-for="ejemplar.idGanado"></label>
+                        <input asp-for="ejemplar.idGanado" type="text" class="form-control" id="idGanado">
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="ganado.raza"></label>
-                        <input asp-for="ganado.raza" type="text" class="form-control" id="raza">
-                    </div>
-                    <span class="text-danger" asp-validation-for="ganado.idGanadero"></span>
-                    <span class="text-danger" asp-validation-for="ganado.raza"></span>
+                        <label asp-for="ejemplar.estadoSalud"></label>
+                        <select asp-for="ejemplar.estadoSalud" class="form-control" id="estadoSalud">
+                        <option value="" selected disabled>-- Seleccionar --</option>
+                        <option>Saludable</option>
+                        <option>Enfermo</option>
+                        <option>Muerto</option>
+                        <option>Otro</option>
+                        </select>
+                    </div> 
+                    @* <div class="form-group col-md-4">
+                        <label asp-for="ejemplar.estadoSalud"></label>
+                        <input asp-for="ejemplar.estadoSalud" type="text" class="form-control" id="estadoSalud">
+                    </div> *@
+                    <span class="text-danger" asp-validation-for="ejemplar.idGanado"></span>
+                    <span class="text-danger" asp-validation-for="ejemplar.estadoSalud"></span>
                 </div>
-                <!-- Otros Datos -->
+                <!-- Datos de Compra y Vacuna -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="ganado.fechaIngreso"></label>
-                        <input asp-for="ganado.fechaIngreso" type="text" class="form-control" id="fechaIngreso">
+                        <label asp-for="ejemplar.fechaCompra"></label>
+                        <input asp-for="ejemplar.fechaCompra" type="text" class="form-control" id="fechaCompra">
                     </div>
                     <div class="form-group col-md-2">
-                        <label asp-for="ganado.cantidad"></label>
-                        <input asp-for="ganado.cantidad" type="text" class="form-control" id="cantidad">
+                        <label asp-for="ejemplar.fechaVacuna"></label>
+                        <input asp-for="ejemplar.fechaVacuna" type="text" class="form-control" id="fechaVacuna">
                     </div>
-                    <span class="text-danger" asp-validation-for="ganado.cantidad"></span>
-                    <span class="text-danger" asp-validation-for="ganado.fechaIngreso"></span>
+                    <span class="text-danger" asp-validation-for="ejemplar.fechaCompra"></span>
+                    <span class="text-danger" asp-validation-for="ejemplar.fechaVacuna"></span>
+                </div>
+                <!-- Observaciones -->
+                <div class="d-flex justify-content-center">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ejemplar.observaciones"></label>
+                        <textarea asp-for="ejemplar.observaciones" class="form-control" id="observaciones" rows="3"></textarea>
+                    </div>
+                    <span class="text-danger" asp-validation-for="ejemplar.observaciones"></span>
                 </div>
                 <br>
                 <!-- Botones -->
@@ -110,28 +130,30 @@
             <hr>
             <br>
             <div class="text-center">
-                <h6 class="heading-section">Lista de Ganaderos</h6>
+                <h6 class="heading-section">Lista de Lotes de Ganado</h6>
             </div>
 
             <table class="table">
                 <form method="post">
-                    @if(Model.Listaganaderos != null)
+                    @if(Model.Listaganado != null)
                     {
 
                     <thead>
                         <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
+                            <th>Lote</th>
+                            <th>Raza</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Listaganaderos)
+                        @foreach (var item in Model.Listaganado)
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.Nombre</td>
-                                <td>@item.Apellido</td>
+                                <td>@item.raza</td>
+                                <td>@item.fechaIngreso</td>
+                                <td>@item.cantidad</td>
                             </tr>
                         }
                     </tbody>
@@ -139,8 +161,6 @@
                 </form>
             </table>
             <br>
-
-
             <script>
                 function myFunction() {
                     alert("El proceso se ha realizado correctamente en BD, puede dar click en Atrás para regresar");

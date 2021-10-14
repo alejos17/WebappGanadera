@@ -31,5 +31,25 @@ namespace Ganaderia.App.Presentacion.Pages
             ganado = _repoGanado.GetAllGanado();
             ejemplares = _repoEjemplar.GetEjemplarxGanado(idGanado);
         }
+
+        //Para Eliminar un Lote de Ganado
+        public void OnPostDel(int idGanado)
+        {
+            if(idGanado >0)  //Si es mayor a cero es porque existe
+            {
+                _repoGanado.DeleteGanado(idGanado);
+            }
+            ganado = _repoGanado.GetAllGanado();
+        }
+
+        public void OnPostDelEjemplar(int idEjemplar)
+        {
+            if(idEjemplar >0)  //Si es mayor a cero es porque existe
+            {
+                _repoEjemplar.DeleteEjemplar(idEjemplar);
+            }
+            ganado = _repoGanado.GetAllGanado();
+            ejemplares = _repoEjemplar.GetEjemplarxGanado(idGanado);
+        }
     }
 }

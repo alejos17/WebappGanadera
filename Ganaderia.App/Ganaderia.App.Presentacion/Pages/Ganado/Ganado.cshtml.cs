@@ -15,7 +15,7 @@ namespace Ganaderia.App.Presentacion.Pages
         private static IRepositorioGanadero _repoGanadero= new RepositorioGanadero(new Persistencia.AppContext());
         [BindProperty]
         public Ganado ganado { get; set; }
-        public Ganadero ganadero { get; set; }
+        public IEnumerable<Ganadero> Listaganaderos { get; private set; }
 
         public int ganadoId { get; set; }
 
@@ -24,10 +24,12 @@ namespace Ganaderia.App.Presentacion.Pages
             if(ganadoId.HasValue)
             {
                 ganado = _repoGanado.GetGanado(ganadoId.Value);
-                ganadero = _repoGanadero.GetGanadero(ganado.idGanadero);
+                Listaganaderos = _repoGanadero.GetAllGanaderos();
             }
             else
             {
+                Listaganaderos = _repoGanadero.GetAllGanaderos();
+                //TODO Aqui va algo antes de crear el objeto para parsear el idGanadero a int
                 ganado = new Ganado();
             }
 
@@ -44,16 +46,21 @@ namespace Ganaderia.App.Presentacion.Pages
         //Para editar valores de Ganado
         public IActionResult OnPost()
         {
+            Console.WriteLine("Entrada POST");
+            
             if(!ModelState.IsValid)
             {
                 return Page();
             }
             if(ganado.Id>0)
             {
+                Listaganaderos = _repoGanadero.GetAllGanaderos();
                 ganado = _repoGanado.UpdateGanado(ganado);
             }
             else
             {
+                Console.WriteLine("Entra a guardar el nuevo ganado el ID Ganadero es: "+ganado.idGanadero);
+                Listaganaderos = _repoGanadero.GetAllGanaderos();
                 _repoGanado.AddGanado(ganado);
             }
 

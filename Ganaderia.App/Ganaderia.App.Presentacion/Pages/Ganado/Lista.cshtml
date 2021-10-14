@@ -58,7 +58,6 @@
                     <th>Raza</th>
                     <th>Fecha Ingreso</th>
                     <th>Cantidad</th>
-                    <th>Ejemplares</th>
                     <th>Detalles</th>
                 </tr>
             </thead>
@@ -72,13 +71,7 @@
                         <td>@item.fechaIngreso</td>
                         <td>@item.cantidad</td>
                         <td>
-                            <a class="btn btn-primary table-btn" asp-page-handler="Lista" asp-route-GanadoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                            <i class="fas fa-info-circle"></i>
-                            Ver
-                            </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary table-btn" asp-page="../Ganado/Ganado" asp-route-GanadoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                            <a class="btn btn-primary table-btn" asp-page="./Ganado" asp-route-GanadoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                             <i class="fas fa-info-circle"></i>
                             Editar
                             </a>
@@ -92,32 +85,40 @@
         </table>
 
         <div class="text-center">
-            <a class="btn btn-primary" asp-page="../Ganado/Ganado" style="padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+            <a class="btn btn-primary" asp-page="./Ganado" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
             <i class="fas fa-info-circle"></i>
             Nuevo Lote
             </a>
-            <a class="btn btn-primary" asp-page="./Ejemplar" style="padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+            <a class="btn btn-primary" asp-page="./Ejemplar" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
             <i class="fas fa-info-circle"></i>
             Nuevo Ejemplar
             </a>
         </div>
         <!-- Formulario para enviar Seleccion de Ganado --> 
+        <br>
         <form method="post">
-            <div class="form-group col-md-4">
-                <label>Lote de Ganado</label>
-                <select id="idGanado" name="idGanado" class="form-control">
-                <option value="" selected disabled>-- Seleccionar --</option>
-                @foreach (var item in Model.ganado)
-                {
-                    <option>@item.Id</option>
-                }
-                </select>
-                <button type="submit" class="btn btn-danger" asp-page-handler="Lista" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110);color:azure; border-end-color; darkblue ">Ver Ejemplares</button>
+            <div class="d-flex justify-content-center">
+                <div class="form-group col-md-4">
+                    <div class="text-center">
+                        <label>Ver Ejemplares del Lote</label>
+                    </div>    
+                    <select id="idGanado" name="idGanado" class="form-control">
+                    <option value="" selected disabled>-- Seleccionar --</option>
+                    @foreach (var item in Model.ganado)
+                    {
+                        <option>@item.Id</option>
+                    }
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" asp-page-handler="Lista" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Ver</button>
             </div>
         </form>
-        <br>
         <hr>
-        <br>
+        <div class="text-center">
+                <h6 class="heading-section">Lista de Ejemplares</h6>
+        </div>
         <!-- Tabla con Datos --> 
         <table class="table">
             <!-- Formulario para enviar con button en tipo submit --> 
@@ -129,6 +130,7 @@
                     <tr>
                         <th>Lote</th>
                         <th>Cod. Ejemplar</th>
+                        <th>Fecha Compra</th>
                         <th>Estado Salud</th>
                         <th>Vacunado &nbsp;</th>
                         <th>Fecha Vacuna</th>
@@ -141,6 +143,7 @@
                         <tr>
                             <td>@item.idGanado</td>
                             <td>@item.Id</td>
+                            <td>@item.fechaCompra</td>
                             <td>@item.estadoSalud</td>
                             <td><label class="checkbox-wrap checkbox-primary">
                                 @if (item.fechaVacuna==null)
@@ -161,7 +164,7 @@
                                 </a>
                             </td>
                             <td>
-                                <button type="submit" class="btn btn-danger" asp-page-handler="Del" asp-route-idGanadero="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
+                                <button type="submit" class="btn btn-danger" asp-page-handler="DelEjemplar" asp-route-idEjemplar="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
                             </td>
                         </tr>
                     }
@@ -173,3 +176,7 @@
     </div>
 </div>              
 </body>
+
+@* //TODO Pendiente hacer que las listas se actualicen al modificar, hacer update
+    // TODO La Cantidad de animales en el Lote debe ser un Count de Ejemplares del mismo idGanado
+*@

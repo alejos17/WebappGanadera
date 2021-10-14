@@ -52,9 +52,11 @@
                 <br>
                 <p>En este espacio puedes administrar tu perfil como Ganadero, cambiar o actualizar tu información y datos personales.</p>
                 <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
-                <div class="text-center">
+                <div class="d-flex justify-content-center">
                     <div class="form-group col-md-2">
-                        <label asp-for="ganadero.Id"></label>
+                        <div class="text-center">
+                            <label asp-for="ganadero.Id"></label>
+                        </div>
                         <input asp-for="ganadero.Id" type="text" class="form-control" id="idGanadero" readonly="readonly">
                     </div>
                 </div>
@@ -109,11 +111,11 @@
                         <input asp-for="ganadero.Longitude" type="text" class="form-control" id="Longitude">
                     </div>
                 </div>
+                <br>
                 <!-- Botones -->
-                <div class="text-center">
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
-                    <a class="btn btn-primary table-btn" asp-page="./List" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
+                    <a class="btn btn-primary table-btn" asp-page="./List" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
                     </a>
@@ -128,3 +130,5 @@
         </script>
         </div>
 </body>
+
+@* //TODO Pendiente hacer que las listas se actualicen al modificar, hacer update *@
