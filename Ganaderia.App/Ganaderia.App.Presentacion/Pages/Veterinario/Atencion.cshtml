@@ -1,7 +1,7 @@
 ﻿@page
-@model Ganaderia.App.Presentacion.Pages.AplicacionVacunaModel
+@model Ganaderia.App.Presentacion.Pages.AtencionModel
 @{
-    ViewData["Title"] = "Aplicación Vacuna";
+    ViewData["Title"] = "Atención Veterinaria";
 }
 <body
     style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
@@ -44,39 +44,39 @@
         <div class="itemlog">
             <form method="post">
                 <!-- Input oculto para enlazar con Model Ganadero.cshtml.cs con el ID -->
-                <input type="hidden" asp-for="aplicacion.Id"/>
+                <input type="hidden" asp-for="atencion.Id"/>
                 <br>
 				<div class="text-center">
-					<h2 style="color:azure">Aplicación de Vacuna: </h2>
+					<h2 style="color:azure">Atención Veterinaria al Ejemplar: </h2>
 				<br>
-                    <p>En este espacio puedes registrar la aplicación de una vacuna a un animal.</p>
+                    <p>En este espacio se puede llevar un control de la atención en salud al animal.</p>
                 </div>
                 <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-2">
                         <div class="text-center">
-                            <label asp-for="aplicacion.Id"></label>
+                            <label asp-for="atencion.Id"></label>
                         </div>
-                        <input asp-for="aplicacion.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
+                        <input asp-for="atencion.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
                     </div>
                 </div>
                 <!-- Espacio IdGanadero -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.idGanadero"></label>
-                        <select asp-for="aplicacion.idGanadero" class="form-control" id="idGanadero" name="idGanadero">
+                        <label asp-for="atencion.idEjemplar"></label>
+                        <select asp-for="atencion.idEjemplar" class="form-control" id="idEjemplar" name="idEjemplar">
                         <option value="" selected disabled>-- Seleccionar --</option>
-                        @foreach (var item in Model.Listaganaderos)
+                        @foreach (var item in Model.Listaejemplares)
                         {
                             <option>@item.Id</option>
                         }
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.idVacuna"></label>
-                        <select asp-for="aplicacion.idVacuna" class="form-control" id="idVacuna" name="idVacuna">
+                        <label asp-for="atencion.idVeterinario"></label>
+                        <select asp-for="atencion.idVeterinario" class="form-control" id="idVeterinario" name="idVeterinario">
                         <option value="" selected disabled>-- Seleccionar --</option>
-                        @foreach (var item in Model.Listavacunas)
+                        @foreach (var item in Model.Listaveterinarios)
                         {
                             <option>@item.Id</option>
                         }
@@ -92,22 +92,22 @@
                 <!-- Otros Datos -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.idEjemplar"></label>
-                        <select asp-for="aplicacion.idEjemplar" class="form-control" id="idEjemplar" name="idEjemplar">
-                        <option value="" selected disabled>-- Seleccionar --</option>
-                        @foreach (var item in Model.Listaejemplares)
-                        {
-                            <option>@item.Id</option>
-                        }
-                        </select>
+                        <label asp-for="atencion.Fecha"></label>
+                        <input asp-for="atencion.Fecha" type="text" class="form-control" id="Fecha" name="Fecha">
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.Fecha"></label>
-                        <input asp-for="aplicacion.Fecha" type="text" class="form-control" id="Fecha" name="Fecha">
+                        <label asp-for="atencion.Estado"></label>
+                        <input asp-for="atencion.Estado" type="text" class="form-control" id="Estado" name="Estado">
                     </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="form-group col-md-8">
+                        <label asp-for="atencion.Observaciones"></label>
+                        <textarea asp-for="atencion.Observaciones" class="form-control" id="Observaciones" rows="3" name="Observaciones"></textarea>
+                    </div>
+                </div>
                     @* <span class="text-danger" asp-validation-for="ganado.cantidad"></span>
                     <span class="text-danger" asp-validation-for="ganado.fechaIngreso"></span> *@
-                </div>
                 <br>
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
@@ -120,43 +120,6 @@
                 </div>
                 <br>
             </form>
-            <hr>
-            <br>
-            <div class="text-center">
-                <h6 class="heading-section">Lista de Vacunas</h6>
-            </div>
-
-            <table class="table">
-                <form method="post">
-                    @if(Model.Listavacunas != null)
-                    {
-
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Lote</th>
-                            <th>Fecha Compra</th>
-                            <th>Fecha Vencimiento</th>
-                            <th>Existencia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Listavacunas)
-                        {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@item.Nombre</td>
-                                <td>@item.Lote</td>
-                                <td>@item.FechaCompra</td>
-                                <td>@item.FechaVencimiento</td>
-                                <td>@item.Existencia</td>
-                            </tr>
-                        }
-                    </tbody>
-                    }
-                </form>
-            </table>
             <br>
         </div>
 </body>

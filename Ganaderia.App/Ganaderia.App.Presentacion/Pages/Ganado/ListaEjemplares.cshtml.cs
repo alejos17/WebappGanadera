@@ -13,10 +13,12 @@ namespace Ganaderia.App.Presentacion.Pages
     {
         private static IRepositorioEjemplar _repoEjemplar= new RepositorioEjemplar(new Persistencia.AppContext());
         private static IRepositorioAplicacionVacuna _repoAplicacionVacuna = new RepositorioAplicacionVacuna(new Persistencia.AppContext());
+        private static IRepositorioAtencionEjemplar _repoAtencionEjemplar = new RepositorioAtencionEjemplar(new Persistencia.AppContext());
 
         public IEnumerable<Ejemplar> ejemplares { get; private set; }
         //Trae lista de aplicaciones de Vacuna por Ejemplar
         public IEnumerable<AplicacionVacuna> aplicaciones { get; private set; }
+        public IEnumerable<AtencionEjemplar> atenciones { get; private set;}
         public int idEjemplar { get; private set; }
 
         public void OnGet()
@@ -41,12 +43,25 @@ namespace Ganaderia.App.Presentacion.Pages
             }
             ejemplares = _repoEjemplar.GetAllEjemplar();
             aplicaciones = _repoAplicacionVacuna.GetAplicacionVacunaxEjemplar(idEjemplar);
+            atenciones = _repoAtencionEjemplar.GetAtencionxEjemplar(idEjemplar);
+        }
+
+        public void OnPostDelAtencion(int idAtencion)
+        {
+            if(idAtencion >0)  //Si es mayor a cero es porque existe
+            {
+                _repoAtencionEjemplar.DeleteAtencion(idAtencion);
+            }
+            ejemplares = _repoEjemplar.GetAllEjemplar();
+            aplicaciones = _repoAplicacionVacuna.GetAplicacionVacunaxEjemplar(idEjemplar);
+            atenciones = _repoAtencionEjemplar.GetAtencionxEjemplar(idEjemplar);
         }
 
         public void OnPostLista(int idEjemplar)
         {
             ejemplares = _repoEjemplar.GetAllEjemplar();
             aplicaciones = _repoAplicacionVacuna.GetAplicacionVacunaxEjemplar(idEjemplar);
+            atenciones = _repoAtencionEjemplar.GetAtencionxEjemplar(idEjemplar);
         }
     }
 }

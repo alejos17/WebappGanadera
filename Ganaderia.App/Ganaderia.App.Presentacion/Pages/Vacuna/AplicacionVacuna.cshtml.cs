@@ -86,7 +86,7 @@ namespace Ganaderia.App.Presentacion.Pages
                 else
                 {
                     _repoAplicacionVacuna.AddAplicacionVacuna(aplicacionUp);
-                    _repoEjemplar.AddFechaVacuna(aplicacion.idEjemplar, aplicacionUp.Fecha);
+                    //_repoEjemplar.AddFechaVacuna(aplicacion.idEjemplar, aplicacionUp.Fecha);
                 }
             }
             Listaganaderos = _repoGanadero.GetAllGanaderos();

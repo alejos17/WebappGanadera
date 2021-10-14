@@ -15,6 +15,8 @@ namespace Ganaderia.App.Persistencia
 
         AtencionEjemplar GetAtencion(int idAtencion);
 
+        IEnumerable<AtencionEjemplar> GetAtencionxEjemplar(int idEjemplar);
+
         
     }
 }

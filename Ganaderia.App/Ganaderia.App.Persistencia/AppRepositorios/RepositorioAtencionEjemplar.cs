@@ -54,5 +54,10 @@ namespace Ganaderia.App.Persistencia
 
             return atencionEncontrada;
         }
+
+        IEnumerable<AtencionEjemplar> IRepositorioAtencionEjemplar.GetAtencionxEjemplar(int idEjemplar)
+        {
+            return _appContext.Atenciones.Where(g => g.idEjemplar == idEjemplar);
+        }
     }
 }
