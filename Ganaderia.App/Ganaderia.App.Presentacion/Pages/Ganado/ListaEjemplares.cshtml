@@ -1,0 +1,169 @@
+﻿@page
+@model Ganaderia.App.Presentacion.Pages.ListaEjemplaresModel
+@{
+}
+<body
+    style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
+
+    <style>
+        .contain {
+            width: 100%;
+            margin-top: 5%;
+            margin-left: 5%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
+        }
+
+        .itemlog {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        label {
+            color: azure;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
+        }
+    </style>
+
+
+<div class="contain">
+    <div class="itemlog">
+    <!-- Tabla con Lista de Ganaderos Registrados --> 
+        <div class="text-center">
+            <br>
+            <h3 class="heading-section">Ejemplares</h3>
+            <br>
+            <h6 class="heading-section">Lista de Ejemplares</h6>
+            <p>En este espacio puedes administrar toda la información del animal.</p>
+        </div>
+        <!-- Formulario para enviar Seleccion de Ganado --> 
+        <br>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary table-btn" asp-page="./Lista" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+            <i class="fas fa-info-circle"></i>
+            Atrás
+            </a>
+        </div>    
+        <hr>
+        <br>
+        <!-- Tabla con Datos --> 
+        <table class="table">
+            <!-- Formulario para enviar con button en tipo submit --> 
+            <form method="post">
+                @if(Model.ejemplares != null)
+                {
+
+                <thead>
+                    <tr>
+                        <th>Lote</th>
+                        <th>Cod. Ejemplar</th>
+                        <th>Fecha Compra</th>
+                        <th>Estado Salud</th>
+                        <th>Vacunado &nbsp;</th>
+                        <th>Fecha Vacuna</th>
+                        <th>Observaciones</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ejemplares)
+                    {
+                        <tr>
+                            <td>@item.idGanado</td>
+                            <td>@item.Id</td>
+                            <td>@item.fechaCompra</td>
+                            <td>@item.estadoSalud</td>
+                            <td><label class="checkbox-wrap checkbox-primary">
+                                @if (item.fechaVacuna==null)
+                                {
+                                <input type="checkbox">
+                                }else
+                                {
+                                <input type="checkbox" checked>
+                                }
+                                <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td>@item.fechaVacuna</td>
+                            <td>@item.observaciones</td>
+                            <td>
+                                <button type="submit" class="btn btn-primary" asp-page-handler="Lista" asp-route-idEjemplar="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Vacuna</button>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary table-btn" asp-page="./Ejemplar" asp-route-EjemplarId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                                <i class="fas fa-info-circle"></i>
+                                Editar
+                                </a>
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-danger" asp-page-handler="DelEjemplar" asp-route-idEjemplar="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                }
+            </form>
+        </table>
+        <hr>
+        <div class="text-center">
+                <h6 class="heading-section">Lista de Aplicaciones de Vacuna</h6>
+                <p>El detalle de cada aplicacion por animal.</p>
+        </div>
+        <!-- Tabla con Datos --> 
+        <table class="table">
+            <!-- Formulario para enviar con button en tipo submit --> 
+            <form method="post">
+                @if(Model.aplicaciones != null)
+                {
+
+                <thead>
+                    <tr>
+                        <th>Código Aplicación</th>
+                        <th>Ganadero</th>
+                        <th>Vacuna</th>
+                        <th>Ejemplar</th>
+                        <th>Fecha</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.aplicaciones)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.idGanadero</td>
+                            <td>@item.idVacuna</td>
+                            <td>@item.idEjemplar</td>
+                            <td>@item.Fecha</td>
+                            <td>
+                                <a class="btn btn-primary table-btn" asp-page="../Vacuna/AplicacionVacuna" asp-route-aplicacionId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                                <i class="fas fa-info-circle"></i>
+                                Editar
+                                </a>
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-danger" asp-page-handler="DelEjemplar" asp-route-idEjemplar="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                }
+            </form>
+        </table>
+
+    </div>
+</div>              
+</body>

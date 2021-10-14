@@ -15,6 +15,8 @@ namespace Ganaderia.App.Persistencia
 
         AplicacionVacuna GetAplicacionVacuna(int idAplicacionVacuna);
 
+        IEnumerable<AplicacionVacuna> GetAplicacionVacunaxEjemplar(int idEjemplar);
+
         
     }
 }

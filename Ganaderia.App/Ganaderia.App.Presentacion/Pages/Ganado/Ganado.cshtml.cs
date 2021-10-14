@@ -29,7 +29,6 @@ namespace Ganaderia.App.Presentacion.Pages
             else
             {
                 Listaganaderos = _repoGanadero.GetAllGanaderos();
-                //TODO Aqui va algo antes de crear el objeto para parsear el idGanadero a int
                 ganado = new Ganado();
             }
 
@@ -46,8 +45,6 @@ namespace Ganaderia.App.Presentacion.Pages
         //Para editar valores de Ganado
         public IActionResult OnPost()
         {
-            Console.WriteLine("Entrada POST");
-            
             if(!ModelState.IsValid)
             {
                 return Page();
@@ -55,16 +52,33 @@ namespace Ganaderia.App.Presentacion.Pages
             if(ganado.Id>0)
             {
                 Listaganaderos = _repoGanadero.GetAllGanaderos();
-                ganado = _repoGanado.UpdateGanado(ganado);
+                //ganado = _repoGanado.UpdateGanado(ganado);
             }
             else
             {
-                Console.WriteLine("Entra a guardar el nuevo ganado el ID Ganadero es: "+ganado.idGanadero);
                 Listaganaderos = _repoGanadero.GetAllGanaderos();
-                _repoGanado.AddGanado(ganado);
+                //_repoGanado.AddGanado(ganado);
             }
 
             return Page();
+        }
+
+        public void OnPostAdd(Ganado ganadoUp)
+        {
+            Console.WriteLine("Ganado Raza: "+ganadoUp.raza);
+            if(ganadoUp != null)
+            {
+                if(ganadoUp.Id>0)
+                {
+                    _repoGanado.UpdateGanado(ganadoUp);
+                }
+                else
+                {
+                    _repoGanado.AddGanado(ganadoUp);
+                }
+            }
+            Listaganaderos = _repoGanadero.GetAllGanaderos();
+
         }
 
     }

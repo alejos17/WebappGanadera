@@ -17,6 +17,7 @@ namespace Ganaderia.App.Presentacion.Pages
         [BindProperty]
         public Ejemplar ejemplar { get; set; }
         public IEnumerable<Ganado> Listaganado { get; private set; }
+        public IEnumerable<Ejemplar> Listaejemplares { get; private set; }
         public int ejemplarId { get; set; }
         
         public IActionResult OnGet(int? ejemplarId)
@@ -25,11 +26,12 @@ namespace Ganaderia.App.Presentacion.Pages
             {
                 ejemplar = _repoEjemplar.GetEjemplar(ejemplarId.Value);
                 Listaganado = _repoGanado.GetAllGanado();
+                Listaejemplares = _repoEjemplar.GetAllEjemplar();
             }
             else
             {
                 Listaganado = _repoGanado.GetAllGanado();
-                //TODO Aqui va algo antes de crear el objeto para parsear el idGanado a int
+                Listaejemplares = _repoEjemplar.GetAllEjemplar();
                 ejemplar = new Ejemplar();
             }
             if(ejemplar==null)
@@ -51,15 +53,38 @@ namespace Ganaderia.App.Presentacion.Pages
             if(ejemplar.Id>0)
             {
                 Listaganado = _repoGanado.GetAllGanado();
-                ejemplar = _repoEjemplar.UpdateEjemplar(ejemplar);
+                Listaejemplares = _repoEjemplar.GetAllEjemplar();
+                //ejemplar = _repoEjemplar.UpdateEjemplar(ejemplar);
             }
             else
             {
                 Listaganado = _repoGanado.GetAllGanado();
-                _repoEjemplar.AddEjemplar(ejemplar);
+                Listaejemplares = _repoEjemplar.GetAllEjemplar();
+                //_repoEjemplar.AddEjemplar(ejemplar);
             }
 
             return Page();
         }
+
+        public void OnPostAdd(Ejemplar ejemplarUp)
+        {
+            Console.WriteLine("Ganado Raza: "+ejemplarUp.estadoSalud);
+            if(ejemplarUp != null)
+            {
+                if(ejemplarUp.Id>0)
+                {
+                    _repoEjemplar.UpdateEjemplar(ejemplarUp);
+                }
+                else
+                {
+                    _repoEjemplar.AddEjemplar(ejemplarUp);
+                }
+            }
+            Listaganado = _repoGanado.GetAllGanado();
+            Listaejemplares = _repoEjemplar.GetAllEjemplar();
+
+        }
+
+
     }
 }

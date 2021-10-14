@@ -1,10 +1,10 @@
 ﻿@page
-@model Ganaderia.App.Presentacion.Pages.GanadoModel
+@model Ganaderia.App.Presentacion.Pages.AplicacionVacunaModel
 @{
-    ViewData["Title"] = "Editar Ganado";
+    ViewData["Title"] = "Aplicación Vacuna";
 }
 <body
-    style="background-image: url(/images/PastorVac.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+    style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
 
 
     <style>
@@ -44,29 +44,39 @@
         <div class="itemlog">
             <form method="post">
                 <!-- Input oculto para enlazar con Model Ganadero.cshtml.cs con el ID -->
-                <input type="hidden" asp-for="ganado.Id"/>
+                <input type="hidden" asp-for="aplicacion.Id"/>
                 <br>
 				<div class="text-center">
-					<h2 style="color:azure">Ganado: </h2>
+					<h2 style="color:azure">Aplicación de Vacuna: </h2>
 				<br>
-                    <p>En este espacio puedes administrar toda la información del Lote de Ejemplares.</p>
+                    <p>En este espacio puedes registrar la aplicación de una vacuna a un animal.</p>
                 </div>
                 <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-2">
                         <div class="text-center">
-                            <label asp-for="ganado.Id"></label>
+                            <label asp-for="aplicacion.Id"></label>
                         </div>
-                        <input asp-for="ganado.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
+                        <input asp-for="aplicacion.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
                     </div>
                 </div>
                 <!-- Espacio IdGanadero -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="ganado.idGanadero"></label>
-                        <select asp-for="ganado.idGanadero" class="form-control" id="idGanadero" name="idGanadero">
+                        <label asp-for="aplicacion.idGanadero"></label>
+                        <select asp-for="aplicacion.idGanadero" class="form-control" id="idGanadero" name="idGanadero">
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listaganaderos)
+                        {
+                            <option>@item.Id</option>
+                        }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="aplicacion.idVacuna"></label>
+                        <select asp-for="aplicacion.idVacuna" class="form-control" id="idVacuna" name="idVacuna">
+                        <option value="" selected disabled>-- Seleccionar --</option>
+                        @foreach (var item in Model.Listavacunas)
                         {
                             <option>@item.Id</option>
                         }
@@ -76,22 +86,24 @@
                         <label asp-for="ganado.idGanadero"></label>
                         <input asp-for="ganado.idGanadero" type="text" class="form-control" id="idGanadero">
                     </div> *@
-                    <div class="form-group col-md-4">
-                        <label asp-for="ganado.raza"></label>
-                        <input asp-for="ganado.raza" type="text" class="form-control" id="raza" name="raza">
-                    </div>
                     @* <span class="text-danger" asp-validation-for="ganado.idGanadero"></span>
                     <span class="text-danger" asp-validation-for="ganado.raza"></span> *@
                 </div>
                 <!-- Otros Datos -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="ganado.fechaIngreso"></label>
-                        <input asp-for="ganado.fechaIngreso" type="text" class="form-control" id="fechaIngreso" name="fechaIngreso">
+                        <label asp-for="aplicacion.idEjemplar"></label>
+                        <select asp-for="aplicacion.idEjemplar" class="form-control" id="idEjemplar" name="idEjemplar">
+                        <option value="" selected disabled>-- Seleccionar --</option>
+                        @foreach (var item in Model.Listaejemplares)
+                        {
+                            <option>@item.Id</option>
+                        }
+                        </select>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="ganado.cantidad"></label>
-                        <input asp-for="ganado.cantidad" type="text" class="form-control" id="cantidad" name="cantidad">
+                    <div class="form-group col-md-4">
+                        <label asp-for="aplicacion.Fecha"></label>
+                        <input asp-for="aplicacion.Fecha" type="text" class="form-control" id="Fecha" name="Fecha">
                     </div>
                     @* <span class="text-danger" asp-validation-for="ganado.cantidad"></span>
                     <span class="text-danger" asp-validation-for="ganado.fechaIngreso"></span> *@
@@ -101,7 +113,7 @@
                 <div class="d-flex justify-content-center">
                     @* <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">GuardarASP</button> *@
                     <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
-                    <a class="btn btn-primary table-btn" asp-page="./Lista" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                    <a class="btn btn-primary table-btn" asp-page="../Ganado/Ejemplar" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
                     </a>
@@ -111,28 +123,34 @@
             <hr>
             <br>
             <div class="text-center">
-                <h6 class="heading-section">Lista de Ganaderos</h6>
+                <h6 class="heading-section">Lista de Vacunas</h6>
             </div>
 
             <table class="table">
                 <form method="post">
-                    @if(Model.Listaganaderos != null)
+                    @if(Model.Listavacunas != null)
                     {
 
                     <thead>
                         <tr>
                             <th>Código</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
+                            <th>Lote</th>
+                            <th>Fecha Compra</th>
+                            <th>Fecha Vencimiento</th>
+                            <th>Existencia</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Listaganaderos)
+                        @foreach (var item in Model.Listavacunas)
                         {
                             <tr>
                                 <td>@item.Id</td>
                                 <td>@item.Nombre</td>
-                                <td>@item.Apellido</td>
+                                <td>@item.Lote</td>
+                                <td>@item.FechaCompra</td>
+                                <td>@item.FechaVencimiento</td>
+                                <td>@item.Existencia</td>
                             </tr>
                         }
                     </tbody>
@@ -140,12 +158,5 @@
                 </form>
             </table>
             <br>
-
-
-            <script>
-                function myFunction() {
-                    alert("El proceso se ha realizado correctamente en BD, puede dar click en Atrás para regresar");
-                }
-            </script>
         </div>
 </body>

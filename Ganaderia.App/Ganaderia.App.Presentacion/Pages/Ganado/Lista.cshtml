@@ -51,37 +51,46 @@
         </div>
 
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Lote</th>
-                    <th>Ganadero</th>
-                    <th>Raza</th>
-                    <th>Fecha Ingreso</th>
-                    <th>Cantidad</th>
-                    <th>Detalles</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.ganado)
+            <form method="post">
+                @if(Model.ganado != null)
                 {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.idGanadero</td>
-                        <td>@item.raza</td>
-                        <td>@item.fechaIngreso</td>
-                        <td>@item.cantidad</td>
-                        <td>
-                            <a class="btn btn-primary table-btn" asp-page="./Ganado" asp-route-GanadoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                            <i class="fas fa-info-circle"></i>
-                            Editar
-                            </a>
-                        </td>
-                        <td>
-                            <button type="submit" class="btn btn-danger" asp-page-handler="Del" asp-route-idGanado="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Lote</th>
+                            <th>Ganadero</th>
+                            <th>Raza</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Cantidad</th>
+                            <th>Ejemplares</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ganado)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.idGanadero</td>
+                                <td>@item.raza</td>
+                                <td>@item.fechaIngreso</td>
+                                <td>@item.cantidad</td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary" asp-page-handler="Lista" asp-route-idGanado="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Ver</button>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary table-btn" asp-page="./Ganado" asp-route-ganadoId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                                    <i class="fas fa-info-circle"></i>
+                                    Editar
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-danger" asp-page-handler="Del" asp-route-idGanado="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
                 }
-            </tbody>
+            </form>    
         </table>
 
         <div class="text-center">
@@ -93,10 +102,14 @@
             <i class="fas fa-info-circle"></i>
             Nuevo Ejemplar
             </a>
+            <a class="btn btn-primary" asp-page="./ListaEjemplares" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+            <i class="fas fa-info-circle"></i>
+            Ver todos los Ejemplares
+            </a>
         </div>
         <!-- Formulario para enviar Seleccion de Ganado --> 
         <br>
-        <form method="post">
+        @* <form method="post">
             <div class="d-flex justify-content-center">
                 <div class="form-group col-md-4">
                     <div class="text-center">
@@ -114,7 +127,7 @@
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary" asp-page-handler="Lista" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Ver</button>
             </div>
-        </form>
+        </form> *@
         <hr>
         <div class="text-center">
                 <h6 class="heading-section">Lista de Ejemplares</h6>

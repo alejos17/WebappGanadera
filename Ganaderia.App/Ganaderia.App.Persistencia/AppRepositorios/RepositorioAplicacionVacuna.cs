@@ -52,5 +52,11 @@ namespace Ganaderia.App.Persistencia
 
             return aplicacionVacunaEncontrado;
         }
+        
+        IEnumerable<AplicacionVacuna> IRepositorioAplicacionVacuna.GetAplicacionVacunaxEjemplar(int idEjemplar)
+        {
+            return _appContext.AplicacionVacunas.Where(g => g.idEjemplar == idEjemplar);
+        }
+
     }
 }
