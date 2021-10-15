@@ -57,18 +57,18 @@
                         <div class="text-center">
                             <label asp-for="ganadero.Id"></label>
                         </div>
-                        <input asp-for="ganadero.Id" type="text" class="form-control" id="idGanadero" readonly="readonly">
+                        <input asp-for="ganadero.Id" type="text" class="form-control" id="idGanadero" readonly="readonly" name="idGanadero">
                     </div>
                 </div>
                 <!-- Espacio Nombres y apellidos -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.Nombre"></label>
-                        <input asp-for="ganadero.Nombre" type="text" class="form-control" id="Nombre">
+                        <input asp-for="ganadero.Nombre" type="text" class="form-control" id="Nombre" name="Nombre">
                     </div>
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.Apellido"></label>
-                        <input asp-for="ganadero.Apellido" type="text" class="form-control" id="Apellido">
+                        <input asp-for="ganadero.Apellido" type="text" class="form-control" id="Apellido" name="Apellido">
                     </div>
                     <span class="text-danger" asp-validation-for="ganadero.Nombre"></span>
                     <span class="text-danger" asp-validation-for="ganadero.Apellido"></span>
@@ -77,11 +77,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.NumeroTelefono"></label>
-                        <input asp-for="ganadero.NumeroTelefono" type="text" class="form-control" id="NumeroTelefono">
+                        <input asp-for="ganadero.NumeroTelefono" type="text" class="form-control" id="NumeroTelefono" name="NumeroTelefono">
                     </div>
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.Direccion"></label>
-                        <input asp-for="ganadero.Direccion" type="text" class="form-control" id="Direccion">
+                        <input asp-for="ganadero.Direccion" type="text" class="form-control" id="Direccion" name="Direccion">
                     </div>
                     <span class="text-danger" asp-validation-for="ganadero.NumeroTelefono"></span>
                     <span class="text-danger" asp-validation-for="ganadero.Direccion"></span>
@@ -90,11 +90,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.correo"></label>
-                        <input asp-for="ganadero.correo" type="email" class="form-control" id="correo">
+                        <input asp-for="ganadero.correo" type="email" class="form-control" id="correo" name="correo">
                     </div>
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.contrasena"></label>
-                        <input asp-for="ganadero.contrasena" type="text" class="form-control" id="contrasena">
+                        <input asp-for="ganadero.contrasena" type="text" class="form-control" id="contrasena" name="contrasena">
                     </div>
                     <span class="text-danger" asp-validation-for="ganadero.correo"></span>
                     <span class="text-danger" asp-validation-for="ganadero.contrasena"></span>
@@ -104,11 +104,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.Latitude"></label>
-                        <input asp-for="ganadero.Latitude" type="text" class="form-control" id="Latitude">
+                        <input asp-for="ganadero.Latitude" type="text" class="form-control" id="Latitude" name="Latitude">
                     </div>
                     <div class="form-group col-md-6">
                         <label asp-for="ganadero.Longitude"></label>
-                        <input asp-for="ganadero.Longitude" type="text" class="form-control" id="Longitude">
+                        <input asp-for="ganadero.Longitude" type="text" class="form-control" id="Longitude" name="Longitude">
                     </div>
                 </div>
                 <br>
