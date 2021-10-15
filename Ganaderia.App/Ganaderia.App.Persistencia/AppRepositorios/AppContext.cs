@@ -20,6 +20,9 @@ namespace Ganaderia.App.Persistencia
         {
             //Coneión a Base de Datos Local por defecto para Sistema Windows
             optionsBuilder.UseSqlServer("Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog =GanaderiaBD");
+            
+            //Conexion a Base de Datos Azure
+            //optionsBuilder.UseSqlServer("Server=tcp:mintic2022.database.windows.net,1433;Initial Catalog=GanaderiaBD;Persist Security Info=False;User ID=samintic2022;Password=Alesan.2021az;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             //Opcion de Conexión para Base de Datos Remota y Sistema Linux o MAC
             //optionsBuilder.UseSqlServer("Data Source= 192.168.1.2; Initial Catalog =GanaderiaBD;User Id=sa; Password=Alesan.2021");

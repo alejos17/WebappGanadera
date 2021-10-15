@@ -31,6 +31,14 @@
             color: darkgray;
         }
 
+        h3{
+            color: red;
+        }
+
+        h4{
+            color: red;
+        }
+
         hr {
             background-color: black;
             width: 90%;
@@ -55,7 +63,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-2">
                         <div class="text-center">
-                            <label asp-for="aplicacion.Id"></label>
+                            <label asp-for="aplicacion.Id">Aplicación</label>
                         </div>
                         <input asp-for="aplicacion.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
                     </div>
@@ -63,8 +71,8 @@
                 <!-- Espacio IdGanadero -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.idGanadero"></label>
-                        <select asp-for="aplicacion.idGanadero" class="form-control" id="idGanadero" name="idGanadero">
+                        <label asp-for="aplicacion.idGanadero">Ganadero que Aplicó *</label>
+                        <select asp-for="aplicacion.idGanadero" class="form-control" id="idGanadero" name="idGanadero" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listaganaderos)
                         {
@@ -73,8 +81,8 @@
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.idVacuna"></label>
-                        <select asp-for="aplicacion.idVacuna" class="form-control" id="idVacuna" name="idVacuna">
+                        <label asp-for="aplicacion.idVacuna">Vacuna Aplicada *</label>
+                        <select asp-for="aplicacion.idVacuna" class="form-control" id="idVacuna" name="idVacuna" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listavacunas)
                         {
@@ -82,18 +90,12 @@
                         }
                         </select>
                     </div>
-                    @* <div class="form-group col-md-2">
-                        <label asp-for="ganado.idGanadero"></label>
-                        <input asp-for="ganado.idGanadero" type="text" class="form-control" id="idGanadero">
-                    </div> *@
-                    @* <span class="text-danger" asp-validation-for="ganado.idGanadero"></span>
-                    <span class="text-danger" asp-validation-for="ganado.raza"></span> *@
                 </div>
                 <!-- Otros Datos -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.idEjemplar"></label>
-                        <select asp-for="aplicacion.idEjemplar" class="form-control" id="idEjemplar" name="idEjemplar">
+                        <label asp-for="aplicacion.idEjemplar">Animal *</label>
+                        <select asp-for="aplicacion.idEjemplar" class="form-control" id="idEjemplar" name="idEjemplar" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listaejemplares)
                         {
@@ -102,17 +104,14 @@
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="aplicacion.Fecha"></label>
-                        <input asp-for="aplicacion.Fecha" type="text" class="form-control" id="Fecha" name="Fecha">
+                        <label asp-for="aplicacion.Fecha">Fecha de Vacunación *</label>
+                        <input asp-for="aplicacion.Fecha" type="text" class="form-control" id="Fecha" name="Fecha" required>
                     </div>
-                    @* <span class="text-danger" asp-validation-for="ganado.cantidad"></span>
-                    <span class="text-danger" asp-validation-for="ganado.fechaIngreso"></span> *@
                 </div>
                 <br>
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
-                    @* <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">GuardarASP</button> *@
-                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
+                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="../Ganado/ListaEjemplares" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
@@ -120,6 +119,15 @@
                 </div>
                 <br>
             </form>
+
+            @if(Model.Mensaje != null)
+            {
+                <div class="text-center">
+                    <h3>@Model.Mensaje</h3>
+                    <h4>@Model.Mensaje2</h4>
+                </div>
+            }
+
             <hr>
             <br>
             <div class="text-center">

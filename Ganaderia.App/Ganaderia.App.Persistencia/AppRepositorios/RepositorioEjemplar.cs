@@ -1,3 +1,5 @@
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ganaderia.App.Dominio;
@@ -61,6 +63,21 @@ namespace Ganaderia.App.Persistencia
         IEnumerable<Ejemplar> IRepositorioEjemplar.GetEjemplarxGanado(int idGanado)
         {
             return _appContext.Ejemplares.Where(g => g.idGanado == idGanado);
+        }
+
+        Ejemplar IRepositorioEjemplar.UpdateFechaVacuna(int idEjemplar, string fecha)
+        {
+            Console.WriteLine("ID: "+idEjemplar);
+            Console.WriteLine("Fecha: "+fecha);
+            var ejemplarEncontrado= _appContext.Ejemplares.FirstOrDefault(g => g.Id==idEjemplar);
+            if (ejemplarEncontrado!=null)
+            {
+                Console.WriteLine("Encontrado: "+ ejemplarEncontrado.Id);
+                ejemplarEncontrado.fechaVacuna=fecha;
+                
+                _appContext.SaveChanges();
+            }
+            return ejemplarEncontrado;
         }
 
     }

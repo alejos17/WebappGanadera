@@ -31,6 +31,14 @@
             color: darkgray;
         }
 
+        h3{
+            color: red;
+        }
+
+        h4{
+            color: red;
+        }
+
         hr {
             background-color: black;
             width: 90%;
@@ -57,16 +65,16 @@
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-2">
                         <div class="text-center">
-                            <label asp-for="ejemplar.Id"></label>
+                            <label asp-for="ejemplar.Id">Código</label>
                         </div>
                         <input asp-for="ejemplar.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
                     </div>
                 </div>
                 <!-- Espacio IdGanado -->
                 <div class="d-flex justify-content-center">
-                    <div class="form-group col-md-2">
-                        <label asp-for="ejemplar.idGanado"></label>
-                        <select asp-for="ejemplar.idGanado" class="form-control" id="idGanado" name="idGanado">
+                    <div class="form-group col-md-3">
+                        <label asp-for="ejemplar.idGanado">Pertenece al Lote *</label>
+                        <select asp-for="ejemplar.idGanado" class="form-control" id="idGanado" name="idGanado" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listaganado)
                         {
@@ -74,13 +82,9 @@
                         }
                         </select>
                     </div>
-                    @* <div class="form-group col-md-2">
-                        <label asp-for="ejemplar.idGanado"></label>
-                        <input asp-for="ejemplar.idGanado" type="text" class="form-control" id="idGanado">
-                    </div> *@
-                    <div class="form-group col-md-4">
-                        <label asp-for="ejemplar.estadoSalud"></label>
-                        <select asp-for="ejemplar.estadoSalud" class="form-control" id="estadoSalud" name="estadoSalud">
+                    <div class="form-group col-md-3">
+                        <label asp-for="ejemplar.estadoSalud">Estado de Salud *</label>
+                        <select asp-for="ejemplar.estadoSalud" class="form-control" id="estadoSalud" name="estadoSalud" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         <option>Saludable</option>
                         <option>Enfermo</option>
@@ -88,54 +92,57 @@
                         <option>Otro</option>
                         </select>
                     </div> 
-                    @* <div class="form-group col-md-4">
-                        <label asp-for="ejemplar.estadoSalud"></label>
-                        <input asp-for="ejemplar.estadoSalud" type="text" class="form-control" id="estadoSalud">
-                    </div> *@
-                    @* <span class="text-danger" asp-validation-for="ejemplar.idGanado"></span>
-                    <span class="text-danger" asp-validation-for="ejemplar.estadoSalud"></span> *@
                 </div>
                 <!-- Datos de Compra y Vacuna -->
                 <div class="d-flex justify-content-center">
-                    <div class="form-group col-md-4">
-                        <label asp-for="ejemplar.fechaCompra"></label>
-                        <input asp-for="ejemplar.fechaCompra" type="text" class="form-control" id="fechaCompra" name="fechaCompra">
+                    <div class="form-group col-md-3">
+                        <label asp-for="ejemplar.fechaCompra">Fecha de Compra *</label>
+                        <input asp-for="ejemplar.fechaCompra" type="text" class="form-control" id="fechaCompra" name="fechaCompra" required>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="ejemplar.fechaVacuna"></label>
+                    <div class="form-group col-md-3">
+                        <label asp-for="ejemplar.fechaVacuna">Fecha de Vacunación</label>
                         <input asp-for="ejemplar.fechaVacuna" type="text" class="form-control" id="fechaVacuna" name="fechaVacuna">
                     </div>
-                    @* <span class="text-danger" asp-validation-for="ejemplar.fechaCompra"></span>
-                    <span class="text-danger" asp-validation-for="ejemplar.fechaVacuna"></span> *@
                 </div>
                 <!-- Observaciones -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-6">
-                        <label asp-for="ejemplar.observaciones"></label>
+                        <label asp-for="ejemplar.observaciones">Observaciones Generales</label>
                         <textarea asp-for="ejemplar.observaciones" class="form-control" id="observaciones" rows="3" name="observaciones"></textarea>
                     </div>
-                    @* <span class="text-danger" asp-validation-for="ejemplar.observaciones"></span> *@
                 </div>
                 <br>
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
-                    @* <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">GuardarASP</button> *@
-                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
+                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " >Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="./Lista" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
                     </a>
-                    <a class="btn btn-primary table-btn" asp-page="../Vacuna/AplicacionVacuna" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                    
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-primary table-btn" asp-page="../Vacuna/AplicacionVacuna" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Registrar Vacuna
                         </a>
-                    <a class="btn btn-primary table-btn" asp-page="../Veterinario/Atencion" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                    <a class="btn btn-primary table-btn" asp-page="../Veterinario/Atencion" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Solicitar Atención
                         </a>
                 </div>
                 <br>
             </form>
+
+            @if(Model.Mensaje != null)
+            {
+                <div class="text-center">
+                    <h3>@Model.Mensaje</h3>
+                    <h4>@Model.Mensaje2</h4>
+                </div>
+            }
+
             <hr>
             <br>
             <div class="text-center">
@@ -170,10 +177,5 @@
                 </form>
             </table>
             <br>
-            <script>
-                function myFunction() {
-                    alert("El proceso se ha realizado correctamente en BD, puede dar click en Atrás para regresar");
-                }
-        </script>
         </div>
 </body>

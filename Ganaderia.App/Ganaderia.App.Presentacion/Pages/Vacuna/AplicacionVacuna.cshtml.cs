@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace Ganaderia.App.Presentacion.Pages
         public IEnumerable<Ejemplar> Listaejemplares { get; private set; }
 
         public int ejemplarId { get; set; }
+        public string Mensaje { get; set; }
+        public string Mensaje2 { get; set; }
+
 
         public IActionResult OnGet(int? aplicacionId)
         {
@@ -77,16 +81,22 @@ namespace Ganaderia.App.Presentacion.Pages
         public void OnPostAdd(AplicacionVacuna aplicacionUp)
         {
             Console.WriteLine("Vacuna: "+aplicacionUp.idVacuna);
+            Console.WriteLine("Ejemplar: "+aplicacionUp.idEjemplar);
             if(aplicacionUp != null)
             {
                 if(aplicacionUp.Id>0)
                 {
                     _repoAplicacionVacuna.UpdateAplicacionVacuna(aplicacionUp);
+                    Mensaje = "*** Registro de Vacuna actualizada exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
                 else
                 {
+                    Console.WriteLine("Adicionar Aplicacion:");
                     _repoAplicacionVacuna.AddAplicacionVacuna(aplicacionUp);
-                    //_repoEjemplar.AddFechaVacuna(aplicacion.idEjemplar, aplicacionUp.Fecha);
+                    _repoEjemplar.UpdateFechaVacuna(aplicacionUp.idEjemplar, aplicacionUp.Fecha);
+                    Mensaje = "*** Registro de Vacuna creado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
             }
             Listaganaderos = _repoGanadero.GetAllGanaderos();

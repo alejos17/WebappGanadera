@@ -31,6 +31,14 @@
             color: darkgray;
         }
 
+        h3{
+            color: red;
+        }
+
+        h4{
+            color: red;
+        }
+
         hr {
             background-color: black;
             width: 90%;
@@ -53,9 +61,9 @@
                 </div>
                 <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
                 <div class="d-flex justify-content-center">
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <div class="text-center">
-                            <label asp-for="atencion.Id"></label>
+                            <label asp-for="atencion.Id">Código Novedad</label>
                         </div>
                         <input asp-for="atencion.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
                     </div>
@@ -63,8 +71,8 @@
                 <!-- Espacio IdGanadero -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="atencion.idEjemplar"></label>
-                        <select asp-for="atencion.idEjemplar" class="form-control" id="idEjemplar" name="idEjemplar">
+                        <label asp-for="atencion.idEjemplar">Animal *</label>
+                        <select asp-for="atencion.idEjemplar" class="form-control" id="idEjemplar" name="idEjemplar" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listaejemplares)
                         {
@@ -73,8 +81,8 @@
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="atencion.idVeterinario"></label>
-                        <select asp-for="atencion.idVeterinario" class="form-control" id="idVeterinario" name="idVeterinario">
+                        <label asp-for="atencion.idVeterinario">Veterinario *</label>
+                        <select asp-for="atencion.idVeterinario" class="form-control" id="idVeterinario" name="idVeterinario" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listaveterinarios)
                         {
@@ -82,27 +90,26 @@
                         }
                         </select>
                     </div>
-                    @* <div class="form-group col-md-2">
-                        <label asp-for="ganado.idGanadero"></label>
-                        <input asp-for="ganado.idGanadero" type="text" class="form-control" id="idGanadero">
-                    </div> *@
-                    @* <span class="text-danger" asp-validation-for="ganado.idGanadero"></span>
-                    <span class="text-danger" asp-validation-for="ganado.raza"></span> *@
                 </div>
                 <!-- Otros Datos -->
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-4">
-                        <label asp-for="atencion.Fecha"></label>
-                        <input asp-for="atencion.Fecha" type="text" class="form-control" id="Fecha" name="Fecha">
+                        <label asp-for="atencion.Fecha">Fecha de Revisión *</label>
+                        <input asp-for="atencion.Fecha" type="text" class="form-control" id="Fecha" name="Fecha" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label asp-for="atencion.Estado"></label>
-                        <input asp-for="atencion.Estado" type="text" class="form-control" id="Estado" name="Estado">
+                        <label asp-for="atencion.Estado">Estado de la Novedad *</label>
+                        <select asp-for="atencion.Estado" class="form-control" id="Estado" name="Estado" required>
+                        <option value="" selected disabled>-- Seleccionar --</option>
+                        <option>Pendiente</option>
+                        <option>en Tratamiento</option>
+                        <option>Cerrada</option>
+                        </select>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-8">
-                        <label asp-for="atencion.Observaciones"></label>
+                        <label asp-for="atencion.Observaciones">Observaciones en la Revisión</label>
                         <textarea asp-for="atencion.Observaciones" class="form-control" id="Observaciones" rows="3" name="Observaciones"></textarea>
                     </div>
                 </div>
@@ -112,7 +119,7 @@
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
                     @* <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">GuardarASP</button> *@
-                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
+                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="../Ganado/ListaEjemplares" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
@@ -120,6 +127,13 @@
                 </div>
                 <br>
             </form>
+            @if(Model.Mensaje != null)
+            {
+                <div class="text-center">
+                    <h3>@Model.Mensaje</h3>
+                    <h4>@Model.Mensaje2</h4>
+                </div>
+            }
             <br>
         </div>
 </body>

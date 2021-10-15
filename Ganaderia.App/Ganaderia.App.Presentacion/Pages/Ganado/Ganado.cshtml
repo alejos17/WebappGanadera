@@ -31,6 +31,14 @@
             color: darkgray;
         }
 
+        h3{
+            color: red;
+        }
+
+        h4{
+            color: red;
+        }
+
         hr {
             background-color: black;
             width: 90%;
@@ -53,18 +61,18 @@
                 </div>
                 <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
                 <div class="d-flex justify-content-center">
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <div class="text-center">
-                            <label asp-for="ganado.Id"></label>
+                            <label asp-for="ganado.Id">Código del Lote</label>
                         </div>
                         <input asp-for="ganado.Id" type="text" class="form-control" id="Id" readonly="readonly" name="Id">
                     </div>
                 </div>
                 <!-- Espacio IdGanadero -->
                 <div class="d-flex justify-content-center">
-                    <div class="form-group col-md-4">
-                        <label asp-for="ganado.idGanadero"></label>
-                        <select asp-for="ganado.idGanadero" class="form-control" id="idGanadero" name="idGanadero">
+                    <div class="form-group col-md-3">
+                        <label asp-for="ganado.idGanadero">Ganadero Propietario *</label>
+                        <select asp-for="ganado.idGanadero" class="form-control" id="idGanadero" name="idGanadero" required>
                         <option value="" selected disabled>-- Seleccionar --</option>
                         @foreach (var item in Model.Listaganaderos)
                         {
@@ -72,35 +80,27 @@
                         }
                         </select>
                     </div>
-                    @* <div class="form-group col-md-2">
-                        <label asp-for="ganado.idGanadero"></label>
-                        <input asp-for="ganado.idGanadero" type="text" class="form-control" id="idGanadero">
-                    </div> *@
-                    <div class="form-group col-md-4">
-                        <label asp-for="ganado.raza"></label>
-                        <input asp-for="ganado.raza" type="text" class="form-control" id="raza" name="raza">
+                    <div class="form-group col-md-3">
+                        <label asp-for="ganado.raza">Raza *</label>
+                        <input asp-for="ganado.raza" type="text" class="form-control" id="raza" name="raza" required placeholder="Ej: Angus, Pardo Suizo">
                     </div>
-                    @* <span class="text-danger" asp-validation-for="ganado.idGanadero"></span>
-                    <span class="text-danger" asp-validation-for="ganado.raza"></span> *@
                 </div>
                 <!-- Otros Datos -->
                 <div class="d-flex justify-content-center">
-                    <div class="form-group col-md-4">
-                        <label asp-for="ganado.fechaIngreso"></label>
-                        <input asp-for="ganado.fechaIngreso" type="text" class="form-control" id="fechaIngreso" name="fechaIngreso">
+                    <div class="form-group col-md-3">
+                        <label asp-for="ganado.fechaIngreso">Fecha Ingreso *</label>
+                        <input asp-for="ganado.fechaIngreso" type="text" class="form-control" id="fechaIngreso" name="fechaIngreso" required>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="ganado.cantidad"></label>
-                        <input asp-for="ganado.cantidad" type="text" class="form-control" id="cantidad" name="cantidad">
+                    <div class="form-group col-md-3">
+                        <label asp-for="ganado.cantidad">Cantidad de Animales *</label>
+                        <input asp-for="ganado.cantidad" type="text" class="form-control" id="cantidad" name="cantidad" required>
                     </div>
-                    @* <span class="text-danger" asp-validation-for="ganado.cantidad"></span>
-                    <span class="text-danger" asp-validation-for="ganado.fechaIngreso"></span> *@
                 </div>
                 <br>
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
                     @* <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">GuardarASP</button> *@
-                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
+                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="./Lista" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
@@ -108,6 +108,14 @@
                 </div>
                 <br>
             </form>
+            @if(Model.Mensaje != null)
+            {
+                <div class="text-center">
+                    <h3>@Model.Mensaje</h3>
+                    <h4>@Model.Mensaje2</h4>
+                </div>
+            }
+
             <hr>
             <br>
             <div class="text-center">
@@ -140,12 +148,5 @@
                 </form>
             </table>
             <br>
-
-
-            <script>
-                function myFunction() {
-                    alert("El proceso se ha realizado correctamente en BD, puede dar click en Atrás para regresar");
-                }
-            </script>
         </div>
 </body>

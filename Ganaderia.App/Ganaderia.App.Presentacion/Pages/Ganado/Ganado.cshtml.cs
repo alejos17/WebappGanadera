@@ -19,6 +19,9 @@ namespace Ganaderia.App.Presentacion.Pages
 
         public int ganadoId { get; set; }
 
+        public string Mensaje { get; set; }
+        public string Mensaje2 { get; set; }
+
         public IActionResult OnGet(int? ganadoId)
         {
             if(ganadoId.HasValue)
@@ -71,10 +74,14 @@ namespace Ganaderia.App.Presentacion.Pages
                 if(ganadoUp.Id>0)
                 {
                     _repoGanado.UpdateGanado(ganadoUp);
+                    Mensaje = "*** El Ganado ha sido actualizado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
                 else
                 {
                     _repoGanado.AddGanado(ganadoUp);
+                    Mensaje = "*** El Ganado ha sido agregado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
             }
             Listaganaderos = _repoGanadero.GetAllGanaderos();

@@ -16,6 +16,9 @@ namespace Ganaderia.App.Presentacion.Pages
         public Ganadero ganadero { get; set; }
 
         public int ganaderoId { get; set; }
+
+        public string Mensaje { get; set; }
+        public string Mensaje2 { get; set; }
         
         
         //Para Consultar  el signo ? pregunta si viene Id o no para modificar o crear
@@ -49,10 +52,14 @@ namespace Ganaderia.App.Presentacion.Pages
             if(ganadero.Id>0)  //Si el ID es mayor a 0 es porque ya existe y lo va a actualizar solamente....  si no es nuevo y lo agrega
             {
                 ganadero = _repoGanadero.UpdateGanadero(ganadero);
+                Mensaje = "*** El Ganadero ha sido actualizado exitosamente ***";
+                Mensaje2 = "-- Haga click en Atrás para continuar --";
             }
             else
             {
                 _repoGanadero.AddGanadero(ganadero);
+                Mensaje = "*** El Ganadero ha sido creado exitosamente ***";
+                Mensaje2 = "-- Haga click en Atrás para continuar --";
             }
             
             return Page();

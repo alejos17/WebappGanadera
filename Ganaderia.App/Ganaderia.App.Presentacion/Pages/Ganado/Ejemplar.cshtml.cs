@@ -19,6 +19,8 @@ namespace Ganaderia.App.Presentacion.Pages
         public IEnumerable<Ganado> Listaganado { get; private set; }
         public IEnumerable<Ejemplar> Listaejemplares { get; private set; }
         public int ejemplarId { get; set; }
+        public string Mensaje { get; set; }
+        public string Mensaje2 { get; set; }
         
         public IActionResult OnGet(int? ejemplarId)
         {
@@ -74,10 +76,14 @@ namespace Ganaderia.App.Presentacion.Pages
                 if(ejemplarUp.Id>0)
                 {
                     _repoEjemplar.UpdateEjemplar(ejemplarUp);
+                    Mensaje = "*** La Info del Animal ha sido actualizada exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
                 else
                 {
                     _repoEjemplar.AddEjemplar(ejemplarUp);
+                    Mensaje = "*** El Animal ha sido creado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
             }
             Listaganado = _repoGanado.GetAllGanado();

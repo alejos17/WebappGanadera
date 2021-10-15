@@ -31,6 +31,14 @@
             color: darkgray;
         }
 
+        h3{
+            color: red;
+        }
+
+        h4{
+            color: red;
+        }
+
         hr {
             background-color: black;
             width: 90%;
@@ -55,7 +63,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="form-group col-md-2">
                         <div class="text-center">
-                            <label asp-for="ganadero.Id"></label>
+                            <label asp-for="ganadero.Id">Código</label>
                         </div>
                         <input asp-for="ganadero.Id" type="text" class="form-control" id="idGanadero" readonly="readonly" name="idGanadero">
                     </div>
@@ -63,41 +71,35 @@
                 <!-- Espacio Nombres y apellidos -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label asp-for="ganadero.Nombre"></label>
-                        <input asp-for="ganadero.Nombre" type="text" class="form-control" id="Nombre" name="Nombre">
+                        <label asp-for="ganadero.Nombre">Nombres *</label>
+                        <input asp-for="ganadero.Nombre" type="text" class="form-control" id="Nombre" name="Nombre" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label asp-for="ganadero.Apellido"></label>
-                        <input asp-for="ganadero.Apellido" type="text" class="form-control" id="Apellido" name="Apellido">
+                        <label asp-for="ganadero.Apellido">Apellidos *</label>
+                        <input asp-for="ganadero.Apellido" type="text" class="form-control" id="Apellido" name="Apellido" required>
                     </div>
-                    <span class="text-danger" asp-validation-for="ganadero.Nombre"></span>
-                    <span class="text-danger" asp-validation-for="ganadero.Apellido"></span>
                 </div>
                 <!-- Informacion de Localizacion -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label asp-for="ganadero.NumeroTelefono"></label>
-                        <input asp-for="ganadero.NumeroTelefono" type="text" class="form-control" id="NumeroTelefono" name="NumeroTelefono">
+                        <label asp-for="ganadero.NumeroTelefono">Número de Teléfono *</label>
+                        <input asp-for="ganadero.NumeroTelefono" type="text" class="form-control" id="NumeroTelefono" name="NumeroTelefono" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label asp-for="ganadero.Direccion"></label>
-                        <input asp-for="ganadero.Direccion" type="text" class="form-control" id="Direccion" name="Direccion">
+                        <label asp-for="ganadero.Direccion">Dirección *</label>
+                        <input asp-for="ganadero.Direccion" type="text" class="form-control" id="Direccion" name="Direccion" required>
                     </div>
-                    <span class="text-danger" asp-validation-for="ganadero.NumeroTelefono"></span>
-                    <span class="text-danger" asp-validation-for="ganadero.Direccion"></span>
                 </div>
                 <!-- Campos de Correo y Claves -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label asp-for="ganadero.correo"></label>
-                        <input asp-for="ganadero.correo" type="email" class="form-control" id="correo" name="correo">
+                        <label asp-for="ganadero.correo">Correo Electrónico *</label>
+                        <input asp-for="ganadero.correo" type="email" class="form-control" id="correo" name="correo" required placeholder="Login">
                     </div>
                     <div class="form-group col-md-6">
-                        <label asp-for="ganadero.contrasena"></label>
-                        <input asp-for="ganadero.contrasena" type="text" class="form-control" id="contrasena" name="contrasena">
+                        <label asp-for="ganadero.contrasena">Contraseña *</label>
+                        <input asp-for="ganadero.contrasena" type="password" class="form-control" id="contrasena" name="contrasena" required>
                     </div>
-                    <span class="text-danger" asp-validation-for="ganadero.correo"></span>
-                    <span class="text-danger" asp-validation-for="ganadero.contrasena"></span>
                 </div>
                 <br>
                 <h5>Campos de Localización</h5>
@@ -112,9 +114,17 @@
                     </div>
                 </div>
                 <br>
+                @if(Model.Mensaje != null)
+                {
+                    <div class="text-center">
+                        <h3>@Model.Mensaje</h3>
+                        <h4>@Model.Mensaje2</h4>
+                    </div>
+                    <br>
+                }
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">Guardar</button>
+                    <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " >Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="./List" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás
@@ -123,11 +133,6 @@
                 <br>
                 <br>
             </form>
-            <script>
-                function myFunction() {
-                    alert("El proceso se ha realizado correctamente en BD, puede dar click en Atrás para regresar");
-                }
-        </script>
         </div>
 </body>
 

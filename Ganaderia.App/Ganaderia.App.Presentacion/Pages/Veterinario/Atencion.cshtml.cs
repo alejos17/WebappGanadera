@@ -24,6 +24,8 @@ namespace Ganaderia.App.Presentacion.Pages
         public IEnumerable<Veterinario> Listaveterinarios { get; private set; }
 
         public int atencionId { get; set; }
+        public string Mensaje { get; set; }
+        public string Mensaje2 { get; set; }
 
         public IActionResult OnGet(int? atencionId)
         {
@@ -78,11 +80,14 @@ namespace Ganaderia.App.Presentacion.Pages
                 if(atencionUp.Id>0)
                 {
                     _repoAtencionEjemplar.UpdateAtencion(atencionUp);
+                    Mensaje = "*** La novedad en la historia médica ha sido modificada ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
                 else
                 {
                     _repoAtencionEjemplar.AddAtencion(atencionUp);
-                    //_repoEjemplar.AddFechaVacuna(aplicacion.idEjemplar, aplicacionUp.Fecha);
+                    Mensaje = "*** Se agrego la novedad al historial médico del Animal ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
                 }
             }
             Listaejemplares = _repoEjemplar.GetAllEjemplar();
