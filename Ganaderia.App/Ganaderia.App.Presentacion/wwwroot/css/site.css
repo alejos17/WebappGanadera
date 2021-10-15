@@ -252,8 +252,6 @@ body {
   display:table;
   width:100%;
 }
-
-
 /*---------Media queries-----------*/
 @media screen and (max-width: 760px ){
   .formulario {
