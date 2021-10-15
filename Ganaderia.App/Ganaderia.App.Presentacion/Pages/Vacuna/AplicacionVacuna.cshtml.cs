@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,6 +78,7 @@ namespace Ganaderia.App.Presentacion.Pages
         public void OnPostAdd(AplicacionVacuna aplicacionUp)
         {
             Console.WriteLine("Vacuna: "+aplicacionUp.idVacuna);
+            Console.WriteLine("Ejemplar: "+aplicacionUp.idEjemplar);
             if(aplicacionUp != null)
             {
                 if(aplicacionUp.Id>0)
@@ -85,8 +87,9 @@ namespace Ganaderia.App.Presentacion.Pages
                 }
                 else
                 {
+                    Console.WriteLine("Adicionar Aplicacion:");
                     _repoAplicacionVacuna.AddAplicacionVacuna(aplicacionUp);
-                    //_repoEjemplar.AddFechaVacuna(aplicacion.idEjemplar, aplicacionUp.Fecha);
+                    _repoEjemplar.UpdateFechaVacuna(aplicacionUp.idEjemplar, aplicacionUp.Fecha);
                 }
             }
             Listaganaderos = _repoGanadero.GetAllGanaderos();

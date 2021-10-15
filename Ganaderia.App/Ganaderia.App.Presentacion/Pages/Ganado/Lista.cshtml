@@ -129,67 +129,66 @@
             </div>
         </form> *@
         <hr>
-        <div class="text-center">
-                <h6 class="heading-section">Lista de Ejemplares</h6>
-        </div>
-        <!-- Tabla con Datos --> 
-        <table class="table">
-            <!-- Formulario para enviar con button en tipo submit --> 
-            <form method="post">
-                @if(Model.ejemplares != null)
-                {
-
-                <thead>
-                    <tr>
-                        <th>Lote</th>
-                        <th>Cod. Ejemplar</th>
-                        <th>Fecha Compra</th>
-                        <th>Estado Salud</th>
-                        <th>Vacunado &nbsp;</th>
-                        <th>Fecha Vacuna</th>
-                        <th>Detalles</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.ejemplares)
-                    {
+        @if(Model.ejemplares != null)
+        {
+            <div class="text-center">
+                    <h6 class="heading-section">Lista de Ejemplares</h6>
+            </div>
+            <!-- Tabla con Datos --> 
+            <table class="table">
+                <!-- Formulario para enviar con button en tipo submit --> 
+                <form method="post">
+                    <thead>
                         <tr>
-                            <td>@item.idGanado</td>
-                            <td>@item.Id</td>
-                            <td>@item.fechaCompra</td>
-                            <td>@item.estadoSalud</td>
-                            <td><label class="checkbox-wrap checkbox-primary">
-                                @if (item.fechaVacuna==null)
-                                {
-                                <input type="checkbox">
-                                }else
-                                {
-                                <input type="checkbox" checked>
-                                }
-                                <span class="checkmark"></span>
-                                </label>
-                            </td>
-                            <td>@item.fechaVacuna</td>
-                            <td>
-                                <a class="btn btn-primary table-btn" asp-page="./Ejemplar" asp-route-EjemplarId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                                <i class="fas fa-info-circle"></i>
-                                Editar
-                                </a>
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-danger" asp-page-handler="DelEjemplar" asp-route-idEjemplar="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
-                            </td>
+                            <th>Lote</th>
+                            <th>Cod. Ejemplar</th>
+                            <th>Fecha Compra</th>
+                            <th>Estado Salud</th>
+                            <th>Vacunado &nbsp;</th>
+                            <th>Fecha Vacuna</th>
+                            <th>Detalles</th>
                         </tr>
-                    }
-                </tbody>
-                }
-            </form>
-        </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ejemplares)
+                        {
+                            <tr>
+                                <td>@item.idGanado</td>
+                                <td>@item.Id</td>
+                                <td>@item.fechaCompra</td>
+                                <td>@item.estadoSalud</td>
+                                <td><label class="checkbox-wrap checkbox-primary">
+                                    @if (item.fechaVacuna==null)
+                                    {
+                                    <input type="checkbox">
+                                    }else
+                                    {
+                                    <input type="checkbox" checked>
+                                    }
+                                    <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                                <td>@item.fechaVacuna</td>
+                                <td>
+                                    <a class="btn btn-primary table-btn" asp-page="./Ejemplar" asp-route-EjemplarId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                                    <i class="fas fa-info-circle"></i>
+                                    Editar
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-danger" asp-page-handler="DelEjemplar" asp-route-idEjemplar="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </form>
+            </table>
+        }
         <br>
     </div>
 </div>              
 </body>
 
-@* //TODO Pendiente hacer que las listas se actualicen al modificar, hacer update
+@* 
     // TODO La Cantidad de animales en el Lote debe ser un Count de Ejemplares del mismo idGanado
 *@
