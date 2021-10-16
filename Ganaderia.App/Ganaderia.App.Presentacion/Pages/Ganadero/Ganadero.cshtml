@@ -50,7 +50,7 @@
     <!-- Formulario Ganadero -->
     <div class="contain">
         <div class="itemlog">
-            <form id="Ganadero" method="post">
+            <form method="post">
                 <!-- Input oculto para enlazar con Model Ganadero.cshtml.cs con el ID -->
                 <input type="hidden" asp-for="ganadero.Id"/>
                 <br>
@@ -124,7 +124,7 @@
                 }
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " >Guardar</button>
+                    <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " >Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="./List" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>
                         Atrás

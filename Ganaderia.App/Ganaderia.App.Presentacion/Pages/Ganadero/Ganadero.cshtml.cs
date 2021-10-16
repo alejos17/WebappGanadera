@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,12 +58,35 @@ namespace Ganaderia.App.Presentacion.Pages
             }
             else
             {
+                Console.WriteLine("ID Ga: "+ganadero.Id);
+                Console.WriteLine("Nombre: "+ganadero.Nombre);
                 _repoGanadero.AddGanadero(ganadero);
                 Mensaje = "*** El Ganadero ha sido creado exitosamente ***";
                 Mensaje2 = "-- Haga click en Atrás para continuar --";
             }
             
             return Page();
+        }
+
+        public void OnPostAdd(Ganadero ganaderoUp)
+        {
+            Console.WriteLine("Ganadero ID: "+ganaderoUp.Id);
+            if(ganaderoUp != null)
+            {
+                if(ganaderoUp.Id>0)
+                {
+                    _repoGanadero.UpdateGanadero(ganaderoUp);
+                    Mensaje = "*** El Ganadero ha sido actualizado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
+                }
+                else
+                {
+                    _repoGanadero.AddGanadero(ganaderoUp);
+                    Mensaje = "*** El Ganadero ha sido creado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
+                }
+            }
+
         }
 
     }
