@@ -1,5 +1,22 @@
-SELECT * from Personas
+select * from Personas;
 
-UPDATE Personas SET Id = 16078823 WHERE Nombre = 'Alejandro'
+select * from Vacunas;
 
-DELETE FROM Personas WHERE Id =2
+select * from Ganado;
+
+select * from Atenciones;
+
+select * from Ejemplares;
+
+select * from AplicacionVacunas;
+
+
+SELECT * FROM Ejemplares WHERE idGanado = 1
+
+SELECT Id FROM Ganado
+
+DELETE FROM Ganado WHERE Id = 1014
+
+DELETE FROM Atenciones WHERE Id = 1
+
+DELETE FROM AplicacionVacunas WHERE Id= 4

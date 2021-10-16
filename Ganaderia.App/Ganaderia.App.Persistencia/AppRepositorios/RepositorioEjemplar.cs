@@ -80,5 +80,10 @@ namespace Ganaderia.App.Persistencia
             return ejemplarEncontrado;
         }
 
+        IEnumerable<Ejemplar> IRepositorioEjemplar.GetEjemplarEnfermo()
+        {
+            return _appContext.Ejemplares.Where(g => g.estadoSalud == "Enfermo");
+        }
+
     }
 }

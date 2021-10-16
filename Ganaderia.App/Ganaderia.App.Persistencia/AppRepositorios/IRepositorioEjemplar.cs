@@ -19,6 +19,7 @@ namespace Ganaderia.App.Persistencia
         Ejemplar GetEjemplar(int idEjemplar);
 
         IEnumerable<Ejemplar> GetEjemplarxGanado(int idGanado);
+        IEnumerable<Ejemplar> GetEjemplarEnfermo();
 
         Ejemplar UpdateFechaVacuna(int idEjemplar, string fecha);
     }
