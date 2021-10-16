@@ -5,8 +5,7 @@
 
 
 <body
-    style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
-
+  style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
 
     <style>
         .contain {
@@ -24,106 +23,101 @@
         }
 
         label {
-            color: darkgray;
+            color: azure;
 
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        h3{
+            color: red;
+        }
+
+        h4{
+            color: red;
         }
 
         hr {
             background-color: black;
-            width: 80%;
+            width: 90%;
             margin-left: 5%;
             height: 4px;
         }
     </style>
 
-
+    <!-- Formulario Vacuna -->
     <div class="contain">
         <div class="itemlog">
-            <form id="Vacuna" action="POST">
+            <form id="Vacuna" method="post">
+                <!-- Input oculto para enlazar con Model Vacuna.cshtml.cs con el ID -->
+                <input type="hidden" asp-for="vacuna.Id"/>
                 <br>
-                <div class="text-center">
-                        <h2 class="heading-section">Vacunas</h2>
+				<div class="text-center">
+					<h2 style="color:azure">Vacuna: </h2>
+
+                    salud
+                    
+				</div>
+                <br>
+                <p>En este espacio puedes administrar tu perfil como Vacuna, cambiar o actualizar tu información y datos personales.</p>
+                <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
+                <div class="d-flex justify-content-center">
+                    <div class="form-group col-md-2">
+                        <div class="text-center">
+                            <label asp-for="vacuna.Id">Código</label>
+                        </div>
+                        <input asp-for="vacuna.Id" type="text" class="form-control" id="idVacuna" readonly="readonly" name="idVacuna">
+                    </div>
+                </div>
+                <!-- Espacio Nombres y lote -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="vacuna.Nombre">Nombre *</label>
+                        <input asp-for="vacuna.Nombre" type="text" class="form-control" id="Nombre" name="Nombre" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="vacuna.Lote">Lote *</label>
+                        <input asp-for="vacuna.Lote" type="text" class="form-control" id="Lote" name="Lote" required>
+                    </div>
+                </div>
+                <!-- Informacion de Fechas -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="vacuna.FechaCompra">Fecha de Compra *</label>
+                        <input asp-for="vacuna.FechaCompra" type="text" class="form-control" id="FechaCompra" name="FechaCompra" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="vacuna.FechaVencimiento">Fecha de Vencimiento *</label>
+                        <input asp-for="vacuna.FechaVencimiento" type="text" class="form-control" id="FechaVencimiento" name="FechaVencimiento" required>
+                    </div>
+                </div>
+                <!-- Campos de Correo y Claves -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="vacuna.Existencia">Existencia *</label>
+                        <input asp-for="vacuna.Existencia" type="text" class="form-control" id="Existencia" name="Existencia" required placeholder="Existencia">
+                    </div>
                 </div>
                 
-                <p>En este espacio puedes administrar cada una de las vacunas, añade, modifica, actualiza y verifica el
-                    estado de cada una de las vacunas.</p>
+                @if(Model.Mensaje != null)
+                {
+                    <div class="text-center">
+                        <h3>@Model.Mensaje</h3>
+                        <h4>@Model.Mensaje2</h4>
+                    </div>
+                    <br>
+                }
+                <!-- Botones -->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" asp-page-handler="Add" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " >Guardar</button>
+                    <a class="btn btn-primary table-btn"  asp-page="./ListVacunas" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Atrás
+                    </a>
+                </div>
                 <br>
-                <hr>
-                <br>
-                <label style="margin-left: 10%; color:azure">Nombre Vacuna </label>
-                <label style="margin-left: 28%; color:azure">Lote al que pertenece: </label>
-                <br>
-                <input id="NombreVac" type="text" placeholder="Ingrese el nombre" style="margin-left: 10%">
-                <input id="LoteVac" type="text" placeholder="Ingrese el lote" style="margin-left: 17%">
-
-                <br>
-                <label style="margin-top: 1%; margin-left: 10%; color:azure">Fecha de compra: </label>
-                <label style="margin-top: 1%; margin-left: 26%; color:azure">Fecha de vencimiento: </label>
-                <br>
-                <input id="FCVac" type="text" placeholder="Ingrese la FC" style="margin-left: 10%">
-                <input id="FVVac" type="text" placeholder="Ingrese la FV" style="margin-left: 17%">
-                <br>
-                <label style="margin-top: 2%; margin-left: 10%; color:azure">Existencia: </label>
-                <br>
-                <input id="ExistenciaVac" type="text" placeholder="Cantidad" style="margin-left: 10%; width:15%;">
-                <br><br>
-                <input id="RegisVet" type="button" value="Buscar"
-                    style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-
-
-                <input id="RegisVet" type="button" value="Guardar"
-                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-
-                <input id="RegisVet" type="button" value="Borrar"
-                    style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-                <br>
-
-                <br>
-                <br>
-                <hr>
-                
-                <!-- Tabla con la Lista de Vacunas --> 
-				<div class="text-center">
-					<h3 class="heading-section">Vacunas</h3>
-                    <h5 class="heading-section">Lista de Vacunas Adquiridas</h5>
-				</div>
-				
-                <table class="table table-responsive-xl">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Lote</th>
-							<th>Fecha Compra</th>
-                            <th>Fecha Vencimiento</th>
-                            <th>Existencia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-						@foreach (var vacunas in Model.vacunas)
-						{
-							<tr class="alert" role="alert">
-						      <td class="d-flex align-items-center">
-						      	<div class="pl-3 email">
-						      		<span>@vacunas.Id</span>
-						      	</div>
-						      </td>
-						      <td>@vacunas.Nombre</td>
-                              <td>@vacunas.Lote</td>
-                              <td>@vacunas.FechaCompra</td>
-                              <td>@vacunas.FechaVencimiento</td>
-                              <td>@vacunas.Existencia</td>
-						      
-						    </tr>
-
-						}
-						
-						
-                        
-                    </tbody>
-                </table>
-
                 <br>
             </form>
         </div>
