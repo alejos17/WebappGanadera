@@ -98,12 +98,9 @@
                         <textarea asp-for="atencion.Observaciones" class="form-control" id="Observaciones" rows="3" name="Observaciones"></textarea>
                     </div>
                 </div>
-                    @* <span class="text-danger" asp-validation-for="ganado.cantidad"></span>
-                    <span class="text-danger" asp-validation-for="ganado.fechaIngreso"></span> *@
                 <br>
                 <!-- Botones -->
                 <div class="d-flex justify-content-center">
-                    @* <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " onclick="myFunction()">GuardarASP</button> *@
                     <button class="btn btn-primary" asp-page-handler="Add" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">Guardar</button>
                     <a class="btn btn-primary table-btn" asp-page="./ListaEnfermos" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
                         <i class="fas fa-info-circle"></i>

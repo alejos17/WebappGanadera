@@ -64,5 +64,26 @@ namespace Ganaderia.App.Presentacion.Pages
             return Page();
         }
 
+        public void OnPostAdd(Veterinario veterinarioUp)
+        {
+            Console.WriteLine("Ganadero ID: "+veterinarioUp.Id);
+            if(veterinarioUp != null)
+            {
+                if(veterinarioUp.Id>0)
+                {
+                    _repoVeterinario.UpdateVeterinario(veterinarioUp);
+                    Mensaje = "*** El Veterinario ha sido actualizado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
+                }
+                else
+                {
+                    _repoVeterinario.AddVeterinario(veterinarioUp);
+                    Mensaje = "*** El Veterinario ha sido creado exitosamente ***";
+                    Mensaje2 = "-- Haga click en Atrás para continuar --";
+                }
+            }
+
+        }
+
     }
 }
