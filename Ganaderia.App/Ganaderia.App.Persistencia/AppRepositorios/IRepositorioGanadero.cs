@@ -14,5 +14,8 @@ namespace Ganaderia.App.Persistencia
         void DeleteGanadero(int idGanadero);
 
         Ganadero GetGanadero(int idGanadero);
+
+        Ganadero GetGanaderoxCorreo(string correo);
+        Ganadero GetGanaderoxHash(string hash);
     }
 }

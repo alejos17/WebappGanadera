@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ganaderia.App.Dominio;
@@ -57,6 +58,17 @@ namespace Ganaderia.App.Persistencia
             }
 
             return ganaderoEncontrado;
+        }
+
+        Ganadero IRepositorioGanadero.GetGanaderoxCorreo(string correo)
+        {
+            Console.WriteLine("Busqueda BD por correo: "+correo);
+            return _appContext.Ganaderos.FirstOrDefault(g => g.correo==correo);
+        }
+        Ganadero IRepositorioGanadero.GetGanaderoxHash(string hash)
+        {
+            Console.WriteLine("Busqueda BD por Hash: "+hash);
+            return _appContext.Ganaderos.FirstOrDefault(g => g.contrasena==hash);
         }
     }
 }

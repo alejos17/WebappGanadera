@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ganaderia.App.Dominio;
@@ -59,5 +60,17 @@ namespace Ganaderia.App.Persistencia
 
             return veterinarioEncontrado;
         }
+
+        Veterinario IRepositorioVeterinario.GetVeterinarioxCorreo(string correo)
+        {
+            Console.WriteLine("Busqueda BD por correo: "+correo);
+            return _appContext.Veterinarios.FirstOrDefault(g => g.correo==correo);
+        }
+        Veterinario IRepositorioVeterinario.GetVeterinarioxHash(string hash)
+        {
+            Console.WriteLine("Busqueda BD por Hash: "+hash);
+            return _appContext.Veterinarios.FirstOrDefault(g => g.contrasena==hash);
+        }
+
     }
 }

@@ -1,182 +1,103 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Inicio";
+    Layout = "~/Pages/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Login";
 }
-<body style="background-image: url(/images/res.jpg); background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+<body
+    style="background-image: url(/images/res.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+
 <div class="text-center">
-    <h1 class="display-4">Bienvenido a GanaderApp</h1>
-    <p>Aplicación Web en Construccion para el proyecto MinTIC 2022 en su ciclo 3, desarrollada en .NET Core</a>.</p>
+    <h1 class="display-4">GanaderApp</h1>
 </div>
 
 <div class="d-flex justify-content-center">
-  <img src="/images/cowgrande.png" width="200" height="200" class="d-inline-block align-top" alt="">
+    <img src="/images/cowgrande.png" width="200" height="200" class="d-inline-block align-top" alt="">
 </div>
 
-<style>
+
+    <style>
         .contain {
-            width: 80%;
-            margin-top:5%;
-            margin-left:15%;
-            border-radius:5%;
-            background-color: darkorange;
-            color:azure;
+            width: 50%;
+            margin-top: 5%;
+            margin-left: 25%;
+            border-radius: 5%;
+            background-color: yellowgreen;
+            color: azure;
         }
-        .itemlog{
-            width:90%;
-            margin-left:10%;
+
+        .itemlog {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        label {
+            color: azure;
+
+        }
+
+        h2 {
+            color: darkgray;
+        }
+
+        h6{
+            color: red;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
         }
     </style>
 
-
-<div class="contain">
-    <div class="itemlog">
-        <br>
-        <h2 style="margin-left: 40%; color:azure">Login: </h2>
-        <br>
-        <br>
-        <label style="margin-left: 15%">Usuario:  </label>
-        <input id="usr" type="text" placeholder="nombre de usuario*" style="margin-left: 13%; text-align: right;">
-        <img style="margin: 0%;" src="images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <label style="margin-left: 15%">Contraseña:  </label>
-        <input id="pass" type="text" placeholder="Ingresa tu contraseña*" style="margin-left: 9%; text-align: right;">
-        <img style="margin: 0%;" src="images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <br><br>
-        <input id="LogIn" type="button" value="Ingresa" style="float: right; margin-right:48%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; ">
-        <br><hr>
-        <br>        
-        <h4 style="margin-left:20%; color:azure">Aún no eres parte de GanaderApp
-        <br><br> 
-        Registrate pulsando este boton: </h4>
-        <br>
-        <br>
-        <!--Boton con despliegue del formulario de registro inicial-->
-        <input id="open" type="button" value="Registrarse" style="float: right; margin-right:45%; padding:2% 4% 2% 4%;border-color: darkgreen; background-color:rgb(90,180,110); color:azure;">
-        <br>
-        <br><br>
-    </div>
-</div>
-
-    
-    <br>
-<main id="modul" class="modul">
- 
-
-  <form id="formulario" action="" class="formulario">
-     <button style=" height:40%; line-height:15%; padding:5%; margin-right:20%; border-radius: 5%; background-color:yellow;" id="close">Ocultar el formulario</button>
-    
-
-    <!--Grupo de Usuario
-   <div class="formulario_grupo" id="grupo__usuario">
-      <label for="usuario" class="formulario__label">Usuario: </label>
-      <div class="formulario__grupo-input">
-        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="usario123">
-        <img id="iuser" width="10%" class="formulario__validacion-estado">
-      </div>
-      <p class="formulario__input-error">el usuario debe ser de 4 a 16 caracteres y
-        puede contener números y guión bajo
-      </p>     
-      </div>-->
-
-     <!-- Espacio de aire-->
-    <div class="formulario_grupo">
-      </div>
-
-    <!--Grupo de Nombre-->
-    <div class="formulario_grupo" id="grupo__nombre">
-      <label for="nombre" class="formulario__label">Nombre: </label>
-      <div class="formulario__grupo-input">
-        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Juan Doe">
-        <img id="iname" width="10%" class="formulario__validacion-estado">
-      </div>
-      <p class="formulario__input-error">el nombre debe ser de 4 a 16 caracteres y no puede
-        contener digitos
-      </p>
-    </div>
-    <!--Grupo de Apellidos-->
-    <div class="formulario_grupo" id="grupo__apellidos">
-      <label for="apellidos" class="formulario__label">Apellidos: </label>
-      <div class="formulario__grupo-input">
-        <input type="text" class="formulario__input" name="apellidos" id="apellidos" placeholder="Juan Doe">
-        <img id="ilname" width="10%" class="formulario__validacion-estado">
-      </div>
-      <p class="formulario__input-error">los apellidos debe ser de 4 a 16 caracteres y no puede
-        contener digitos
-      </p>
-    </div>
-    <!--Grupo de Contraseña-->
-    <div class="formulario_grupo" id="grupo__password">
-      <label for="password" class="formulario__label">Contraseña: </label>
-      <div class="formulario__grupo-input">
-        <input type="password" class="formulario__input" name="password" id="password" placeholder="">
-        <img id="ipass" width="10%" class="formulario__validacion-estado">
-      </div>
-      <p class="formulario__input-error">la contraseña debe ser de 4 a 12 digitos
-      </p>
-    </div>
-    <!--Grupo de Correo Electrónico-->
-    <div class="formulario_grupo" id="grupo__correo">
-      <label for="correo" class="formulario__label">Correo Electrónico: </label>
-      <div class="formulario__grupo-input">
-        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Juan@correo.com">
-        <img id="imail" width="10%" class="formulario__validacion-estado">
-      </div>
-      <p class="formulario__input-error">el correo puede contener letras, numeros, puntos, guiones, y guion_bajo
-      </p>
-    </div>
-    <!--Grupo de Contraseña DOS-->
-    <div class="formulario_grupo" id="grupo__password2">
-      <label for="password2" class="formulario__label">Repetir Contraseña: </label>
-      <div class="formulario__grupo-input">
-        <input type="password" class="formulario__input" name="password2" id="password2" placeholder="">
-        <img id="ipass2" width="10%" class="formulario__validacion-estado">
-      </div>
-      <p class="formulario__input-error">las contraseñas no coinciden
-      </p>
-    </div>
-    <!--Grupo de Telefono-->
-    <div class="formulario_grupo" id="grupo__telefono">
-      <label for="telefono" class="formulario__label">Telefono: </label>
-      <div class="formulario__grupo-input">
-        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="">
-        <img id="iphone" width="10%" class="formulario__validacion-estado">
-      </div>
-      <p class="formulario__input-error">el # de telefono debe ser de 7 a 14 digitos
-      </p>
-    </div>
-    <!--Grupo de rol de servicio-->
-    <div class="formulario__grupo" id="grupo__rol">
-      <br>
-      <label for="browser">Elige tu rol en GanaWeb</label>
-      <br>
-      <input style="height:40%; line-height:15%; padding:5%;" class="formulario__input" list="browsers" name="browser" id="browser" placeholder="Ganadero o Veterinario">
-      <datalist id="browsers">
-        <option value="Ganadero" />
-        <option value="Veterinario" />
-      </datalist>
-      <img id="irol" width="10%" class="formulario__validacion-estado">
-    </div>
-    <!--Grupo de terminos y condiciones del servicio-->
-    <div class="formulario__grupo-mensaje" id="grupo__terminos">
-      <br>
-      <input style="margin-right:4%; margin-top:10% ;display: inline-flex;" type="checkbox" name="terminos" id="terminos">
-      <p style="display: inline-flex;">Aceptar los terminos y condiciones</p>
-    </div>
-    <div class="formulario__mensaje" id="formulario__mensaje">
-      <img src="images/trianlertIcon.png" width="10%" style="display:inline-flex;">
-      <p style="display:inline-flex;margin-left:5%;"><b>Error: Debes rellenar el formulario correctamente</b></p>
-    </div>
-    <div class="formulario__grupo formulario__grupo-btn-enviar">
-      <button type="submit" class="formulario__btn"><strong>Enviar</strong></button>
-      <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">El registro ha finalizado exitosamente</p>
-    </div>
-  </form>
-<script rel="text/javascript" src="site.js"></script>
-</main>
-
-   
-    
-        
+    <!-- Formulario Ganadero -->
+    <div class="contain">
+        <div class="itemlog">
+            <form method="post">
+                <!-- Input oculto para enlazar con Model Ganadero.cshtml.cs con el ID -->
+                <br>
+				<div class="text-center">
+					<h2 style="color:azure">Login</h2>
+          @if(Model.Mensaje != null)
+                {
+                    <div class="text-center">
+                        <h6>@Model.Mensaje</h6>
+                    </div>
+                }
+				</div>
+                <br>
+                <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
+                <div class="d-flex justify-content-center">
+                    <div class="form-group col-md-6">
+                        <label>Correo Electrónico *</label>
+                        <input type="email" class="form-control" id="usuario" name="usuario" required placeholder="Usuario">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="form-group col-md-6">
+                        <label >Contraseña *</label>
+                        <input type="password" class="form-control" id="contrasena" name="contrasena" required placeholder="Password">
+                    </div>
+                </div>
+                <br>
+                <!-- Botones -->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " >Login</button>
+                </div>
+                <hr>
+                <div class="text-center">
+					<h6 style="color:azure">Aún no estas registrado?</h6>
+                    <p>Puedes registrar tus datos aquí.</p>
+				</div>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-primary" asp-page="./Inicio/Register" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Registrarse
+                    </a>
+                </div>
+                <br>
+            </form>
+        </div>
 </body>
