@@ -13,6 +13,8 @@ namespace Ganaderia.App.Presentacion.Pages
     public class GanaderoModel : PageModel
     {
         private static IRepositorioGanadero _repoGanadero= new RepositorioGanadero(new Persistencia.AppContext());
+        private static IMd5 _Md5= new Md5();
+
         [BindProperty]  //Enlazar el modelo con el input del HTML
         public Ganadero ganadero { get; set; }
 
@@ -71,6 +73,9 @@ namespace Ganaderia.App.Presentacion.Pages
         public void OnPostAdd(Ganadero ganaderoUp)
         {
             Console.WriteLine("Ganadero ID: "+ganaderoUp.Id);
+            Console.WriteLine("Password Simple: "+ganaderoUp.contrasena);
+            ganaderoUp.contrasena = _Md5.ObtenerMD5(ganaderoUp.contrasena);
+            Console.WriteLine("Password Hash: "+ganaderoUp.contrasena);
             if(ganaderoUp != null)
             {
                 if(ganaderoUp.Id>0)

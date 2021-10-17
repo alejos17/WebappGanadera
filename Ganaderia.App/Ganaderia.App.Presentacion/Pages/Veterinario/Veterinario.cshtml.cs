@@ -12,6 +12,8 @@ namespace Ganaderia.App.Presentacion.Pages
     public class VeterinarioModel : PageModel
     {
         private static IRepositorioVeterinario _repoVeterinario= new RepositorioVeterinario(new Persistencia.AppContext());
+        private static IMd5 _Md5= new Md5();
+
         [BindProperty]  //Enlazar el modelo con el input del HTML
         public Veterinario veterinario { get; set; }
 
@@ -66,7 +68,10 @@ namespace Ganaderia.App.Presentacion.Pages
 
         public void OnPostAdd(Veterinario veterinarioUp)
         {
-            Console.WriteLine("Ganadero ID: "+veterinarioUp.Id);
+            Console.WriteLine("Veterinario ID: "+veterinarioUp.Id);
+            Console.WriteLine("Password Simple: "+veterinarioUp.contrasena);
+            veterinarioUp.contrasena = _Md5.ObtenerMD5(veterinarioUp.contrasena);
+            Console.WriteLine("Password Hash: "+veterinarioUp.contrasena);
             if(veterinarioUp != null)
             {
                 if(veterinarioUp.Id>0)
