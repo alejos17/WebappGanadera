@@ -1,9 +1,10 @@
 ﻿@page
 @model Ganaderia.App.Presentacion.Pages.VeterinarioModel
 @{
-    
+    ViewData["Title"] = "Editar Veterinario";
 }
-<body style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+<body 
+    style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
 
 
 <style>
@@ -12,100 +13,127 @@
             margin-top:5%;
             margin-left:10%;
             border-radius:5%;
-            background-color:yellow;
+            background-color:yellowgreen;
             color:azure;
         }
+
         .itemlog{
             width:90%;
             margin-left:5%;
         }
-        label{color:darkgray;
+
+        label{
+            color:azure;
 
         }
-        h2 {color:darkgray;
+
+        h2 {
+            color:darkgray;
         }
-        h3 {color:darkgray;
+
+        h3 {
+            color:red;
         }
-        h5 {color:darkgray;
+
+        h4 {
+            color:red;
+        }
+
+        hr {
+            background-color: black;
+            width: 90%;
+            margin-left: 5%;
+            height: 4px;
         }
     </style>
 
-
-<div class="contain">
-    <div class="itemlog">
-        <form id="Veterinario" action="POST">
-        <br>
-        <div class="text-center">
-                <h2 class="heading-section">Mi perfil Veterinario: </h2>
+    <!-- Formulario Veterinario -->
+    <div class="contain">
+        <div class="itemlog">
+            <form id="Veterinario" method="post">
+                <!-- Input oculto para enlazar con Model Veterinario.cshtml.cs con el ID -->
+                <input type="hidden" asp-for="veterinario.Id"/>
+                <br>
+                <div class="text-center">
+                     <h2 style="color:azure">Veterinarios: </h2>
+                </div>
+                <br>
+                <p>En este espacio puedes administrar tu perfil como Veterinario, cambiar o actualizar tu información y datos personales.</p>
+                <!-- Cajas de Texto enlazadas al model para cargar datos o adicionar -->
+                <div class="d-flex justify-content-center">
+                    <div class="form-group col-md-2">
+                        <div class="text-center">
+                            <label asp-for="veterinario.Id">Código</label> 
+                        </div> 
+                        <input asp-for="veterinario.Id" type="text" class="form-control" id="idVeterinario" readonly="readonly" name="idVeterinario">
+                    </div>
+                </div>
+                 <!-- Espacio Nombres y apellidos -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.Nombre">Nombres *</label>
+                        <input asp-for="veterinario.Nombre" type="text" class="form-control" id="Nombre" name="Nombre" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.Apellido">Apellidos *</label>
+                        <input asp-for="veterinario.Apellido" type="text" class="form-control" id="Apellido" name="Apellido" required>
+                    </div>
+                </div>
+                <!-- Informacion de Localizacion -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.NumeroTelefono">Número de Teléfono *</label>
+                        <input asp-for="veterinario.NumeroTelefono" type="text" class="form-control" id="NumeroTelefono" name="NumeroTelefono" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.Direccion">Dirección *</label>
+                        <input asp-for="veterinario.Direccion" type="text" class="form-control" id="Direccion" name="Direccion" required>
+                    </div>
+                </div>
+                <!-- Campos de Correo y Claves -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.correo">Correo Electrónico *</label>
+                        <input asp-for="veterinario.correo" type="email" class="form-control" id="correo" name="correo" required placeholder="Login">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.contrasena">Contraseña *</label>
+                        <input asp-for="veterinario.contrasena" type="password" class="form-control" id="contrasena" name="contrasena" required>
+                    </div>
+                </div>
+                <br>
+                <h5>Campos de Localizacion</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.Latitude"></label>
+                        <input asp-for="veterinario.Latitude" type="text" class="form-control" id="Latitude" name="Latitude">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="veterinario.Longitude"></label>
+                        <input asp-for="veterinario.Longitude" type="text" class="form-control" id="Longitude" name="Longitude">
+                    </div>
+                </div>
+                <br>
+                @if(Model.Mensaje != null)
+                {
+                    <div class="text-center">
+                        <h3>@Model.Mensaje</h3>
+                        <h4>@Model.Mensaje2</h4>
+                    </div>
+                    <br>
+                }
+                <!-- Botones -->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" style="border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue " >Guardar</button>
+                    <a class="btn btn-primary table-btn" asp-page="./Listav" style="margin-left:8%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                        <i class="fas fa-info-circle"></i>
+                        Atrás
+                    </a>
+                </div>
+                <br>
+                <br>        
+            </form>
         </div>
-        
-        <br>
-        <br>
-        <label style="margin-left: 10%">Id Tarjeta profesional </label>
-        <input id="tarjeta" type="text" placeholder="tarjeta profesional" style="margin-left: 13%">
-        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <label style="margin-left: 10%">Telefono secundario: </label>
-        <input id="tel2" type="text" placeholder="teléfono veterinario" style="margin-left: 13%">
-        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <label style="margin-left: 10%">Dirección (veterinaria): </label>
-        <input id="DirVet" type="text" placeholder="Lugar de la Veterinaria*" style="margin-left: 11%">
-        <img style="margin: 0%;" src="/images/okIcon.png" width=25px height=20px><br>
-        <br>
-        <br><br>
-        <input id="RegisVet" type="button" value="Registrar" style="margin-left:10%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-        
-        
-        <input id="RegisVet" type="button" value="Consultar" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-        
-        <input id="RegisVet" type="button" value="Borrar" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
-        <br>
-
-        <br>
-        <!-- Tabla con la Lista de Ejemplares por Lote de Ganado --> 
-				<div class="text-center">
-					<h3 class="heading-section">Veterinarios Registrados</h3>
-                    <h5 class="heading-section">Lista de Veterinarios</h5>
-				</div>
-				
-                <table class="table table-responsive-xl">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-							<th>Telefono</th>
-                            <th>Correo</th>
-                            <th>R.P.</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-						@foreach (var veterinarios in Model.veterinarios)
-						{
-							<tr class="alert" role="alert">
-						      <td class="d-flex align-items-center">
-						      	<div class="pl-3 email">
-						      		<span>@veterinarios.Id</span>
-						      	</div>
-						      </td>
-						      <td>@veterinarios.Nombre</td>
-                              <td>@veterinarios.Apellido</td>
-                              <td>@veterinarios.NumeroTelefono</td>
-                              <td>@veterinarios.correo</td>
-                              <td>@veterinarios.Registro</td>
-						      
-						    </tr>
-
-						}
-						
-						
-                        
-                    </tbody>
-                </table>
-
-        <br>
-        </form>
-    </div>
 </body>
+
+@* //TODO Pendiente hacer que las listas se actualicen al modificar, hacer update *@
