@@ -1,0 +1,85 @@
+﻿@page
+@model Ganaderia.App.Presentacion.Pages.ListVacunasModel
+@{
+    ViewData["Title"] = "Vacunas";
+}
+<body
+    style="background-image: url(/images/VETbovi.jpg);background-size: cover; background-repeat: no-repeat; opacity:0.9; ">
+<style>
+        .contain {
+            width: 80%;
+            margin-top:5%;
+            margin-left:10%;
+            border-radius:5%;
+            background-color:yellowgreen;
+            color:azure;
+        }
+        .itemlog{
+            width:90%;
+            margin-left:5%;
+        }
+    </style>
+
+<div class="contain">
+    <div class="itemlog">
+    <!-- Tabla con Lista de Vacunas Registrados --> 
+        <div class="text-center">
+            <br>
+            <h3 class="heading-section">Vacunas</h3>
+            <br>
+            <h5 class="heading-section">Lista de Vacunas</h5>
+            <p>En este espacio puedes administrar toda la información de las Vacunas.</p>
+            <br>
+            <a class="btn btn-primary" asp-page="./Vacuna" style="padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+            <i class="fas fa-info-circle"></i>
+            Nueva Vacuna
+            </a>
+        </div>
+    <br>
+    <!-- Tabla con Datos --> 
+    <table class="table">
+        <!-- Formulario para enviar con button en tipo submit --> 
+        <form method="post">
+            @if(Model.vacunas != null)
+            {
+
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Lote</th>
+                    <th>Fecha compra</th>
+                    <th>Fecha vencimiento</th>
+                    <th>Existencia</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.vacunas)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Lote</td>
+                        <td>@item.FechaCompra</td>
+                        <td>@item.FechaVencimiento</td>
+                        <td>@item.Existencia</td>
+                        <td>
+                            <a class="btn btn-primary table-btn" asp-page="./Vacuna" asp-route-VacunaId="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; background-color:rgb(90,180,110); color:azure; border-end-color; darkblue ">
+                            <i class="fas fa-info-circle"></i>
+                            Editar
+                            </a>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-danger" asp-page-handler="Del" asp-route-idVacuna="@item.Id" style="margin-left:8%; padding:2% 4% 2% 4%; border-color: darkgreen; color:azure; border-end-color; darkblue ">Borrar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            }
+        </form>
+    </table>
+    <br>
+    </div>
+</div>              
+</body>

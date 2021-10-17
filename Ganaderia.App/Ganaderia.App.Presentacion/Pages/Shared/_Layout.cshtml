@@ -12,27 +12,56 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">GanaderApp</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="/images/cow.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    GanaderApp
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Inicio</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ganaderos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-page="/Ganadero/List">Lista</a>
+                            <a class="dropdown-item" asp-page="/Ganadero/Ganadero">Nuevo Ganadero</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ganadero/List">Ganaderos</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Veterinarios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-page="/Veterinario/Listav">Lista</a>
+                            <a class="dropdown-item" asp-page="/Veterinario/Veterinario">Nuevo Veterinario</a>
+                            <a class="dropdown-item" asp-page="/Veterinario/ListaEnfermos">Animales Enfermos</a>
+                            <a class="dropdown-item" asp-page="/Veterinario/Atencion">Novedad Atención Veterinaria</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Veterinario/Veterinario">Veterinario</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ganado
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-page="/Ganado/Lista">Lista Lotes</a>
+                            <a class="dropdown-item" asp-page="/Ganado/ListaEjemplares">Lista Ejemplares</a>
+                            <a class="dropdown-item" asp-page="/Ganado/Ganado">Nuevo Lote</a>
+                            <a class="dropdown-item" asp-page="/Ganado/Ejemplar">Nuevo Ejemplar</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ganado/Lista">Ganado</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Vacuna/Vacuna">Vacuna</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vacunas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-page="/Vacuna/ListVacunas">Lista</a>
+                            <a class="dropdown-item" asp-page="/Vacuna/Vacuna">Nueva Vacuna</a>
+                            <a class="dropdown-item" asp-page="/Vacuna/AplicacionVacuna">Registrar Vacunación</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacidad</a>
@@ -50,7 +79,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - WebAppGanadera - GanaderApp - Grupo 36 - Colaborativo 3</a>
+            <a>&copy; 2021 <--> <img src="/images/cow.png" width="20" height="20" class="d-inline-block" alt=""> GanaderApp - Grupo 36 - Colaborativo 3</a>
         </div>
     </footer>
 
